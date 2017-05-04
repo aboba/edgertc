@@ -10,7 +10,7 @@
 var respecConfig = {
     "specStatus": "CG-DRAFT",
     "shortName":  "ms-ortc",
-    "publishDate": "2017-05-03",
+    "publishDate": "2017-05-04",
     "editors": [
         {   "name":       "Microsoft Corporation",
             "company":    "Microsoft",
@@ -2371,7 +2371,6 @@ although these features can be set via <code><a>RTCRtpParameters</a></code>.</p>
       <dd><p>Supported codecs.</p></dd>
       <dt>sequence&lt;RTCRtpHeaderExtension> headerExtensions</dt>
       <dd><p>Supported RTP header extensions.</p></dd>
-      </p></dd>
       <dt>sequence&lt;DOMString> fecMechanisms</dt>
       <dd>
                         <p>Supported Forward Error Correction (FEC) mechanisms.  Values include
@@ -2553,9 +2552,7 @@ multi-stream transport or temporal or spatial scalability.
 As noted in [[!RFC3551]] Section 6, G.722 has
 been assigned a static payload type, which Microsoft Edge provides as the preferred payload type.</p>
 <p>While G.722-stereo is described in [[MS-RTP]] Section 2.2.1.1 and [[MS-SDPEXT]] Section 3.5.1.3, the
-G.722 implementation in Edge only supports mono (<var>numChannels</var> set to 1). 
-</p>
-      </div>
+G.722 implementation in Edge only supports mono (<var>numChannels</var> set to 1).</p>
  
     <section id="g722-example*">
      <h4>Capabilities</h4>
@@ -5306,8 +5303,7 @@ objects:</p>
 
 <p>It is a goal of the ORTC API to provide the functionality of the WebRTC 1.0 API [[WEBRTC10]], as well as to enable the 
 WebRTC 1.0 API to be implemented on top of the ORTC API, utilizing a Javascript "shim" library.  This section
-discusses WebRTC 1.0 compatibility issues.
-</p>
+discusses WebRTC 1.0 compatibility issues.</p>
 
 <section id="rtprtcpmux*">
    <h3>RTP/RTCP multiplexing</h3>
@@ -5335,17 +5331,14 @@ or if one was constructed, call <code>stop()</code> on it.
 
 <section id="bundle*">
   <h3>BUNDLE</h3>
-
-<p>
-As noted in [[!RTP-USAGE]] Section 4.4, audio/video multiplexing is mandatory-to-implement in WebRTC, 
+<p>As noted in [[!RTP-USAGE]] Section 4.4, audio/video multiplexing is mandatory-to-implement in WebRTC, 
 as described in [[!RTP-MULTI-STREAM]]. 
 Via the use of [[!BUNDLE]] it is possible for WebRTC 1.0 implementations to negotiate the multiplexing of audio and 
 video on the same RTP session. 
 The Microsoft Edge ORTC implementation enables bundling of audio and video [[!BUNDLE]] 
 by constructing multiple 
 <code><a>RTCRtpReceiver</a></code> and <code><a>RTCRtpSender</a></code>
-objects from the same <code><a>RTCDtlsTransport</a></code> or <code><a>RTCSrtpSdesTransport</a></code> object. 
-</p>
+objects from the same <code><a>RTCDtlsTransport</a></code> or <code><a>RTCSrtpSdesTransport</a></code> object.</p>
 </section>
 
 <section id="voice-activity*">
@@ -5356,11 +5349,9 @@ which determines whether Voice Activity Detection (VAD) is enabled within the Of
 produced by <code>createOffer()</code>. 
 The effect of setting <var>voiceActivityDetection</var> to <var>true</var> is to include the 
 Comfort Noice (CN) codec defined in [[!RFC3389]] within the Offer.</p>
-<p> 
-Within ORTC API, equivalent behavior can be obtained by configuring the 
+<p>Within ORTC API, equivalent behavior can be obtained by configuring the 
 Comfort Noise (CN) codec within <code>RTCRtpParameters</code>.  Relevant considerations are described in Section 8.3.2.3.
-Currently, the Microsoft Edge implementations of SILK and Opus do not support Discontinuous Operation (DTX).  
-</p>
+Currently, the Microsoft Edge implementations of SILK and Opus do not support Discontinuous Operation (DTX).</p>
 </section>
 <section id="h264*">
               <h3>H.264/AVC</h3>
