@@ -10,7 +10,7 @@
 var respecConfig = {
     "specStatus": "CG-DRAFT",
     "shortName":  "ms-ortc",
-    "publishDate": "2017-04-10",
+    "publishDate": "2017-05-03",
     "editors": [
         {   "name":       "Microsoft Corporation",
             "company":    "Microsoft",
@@ -1462,7 +1462,7 @@ The <dfn>RTCDtlsTransport</dfn> object includes information relating to Datagram
     </dl>
   </section>
 
-  <section id=rtcdtlsfingerprint*">
+  <section id="rtcdtlsfingerprint*">
    <h3>The RTCDtlsFingerprint Object</h3>
 
    <p>
@@ -1542,9 +1542,7 @@ conditions that would normally result in a transition to "failed".
 </p>
       </div>
 
-
   </section>
-
   <section id="rtcdtlstransportstatechangedevent-interface-definition*">
       <h3>RTCDtlsTransportStateChangedEvent</h3>
 
@@ -1667,21 +1665,19 @@ function accept(mySignaller, remote) {
 <section id="rtcsrtpsdestransport*">
   <h2>The RTCSrtpSdesTransport Object</h2>
 
-    <p>
-The <dfn>RTCSrtpSdesTransport</dfn> includes information relating to SRTP/SDES transport [[RFC4568]].
-Details relating to configuration of Microsoft's implementation of SRTP/SDES are described in [[MS-SDPEXT]].
+<p>The <dfn>RTCSrtpSdesTransport</dfn> includes information relating to SRTP/SDES transport [[RFC4568]].
+Details relating to configuration of Microsoft's implementation of SRTP/SDES are described in [[MS-SDPEXT]].</p>
       <div class="note">
 <p>SRTP/SDES support is forbidden by the IETF RTCWEB security specifications. 
 To conform to this requirement, support for SRTP/SDES will be removed from Microsoft Edge in the future.
 Therefore, applications also need to support DTLS/SRTP so they will continue to function once SRTP/SDES support is removed.</p>
       </div>
-    </p>
 
   <section id="rtcsrtpsdestransport-overview*">
     <h3>Overview</h3>
 
-    <p>An <code><a>RTCSrtpSdesTransport</a></code> instance is associated to an <code>RTCRtpSender</code> or an <code><a>RTCRtpReceiver</a></code>.</p>
-
+    <p>An <code><a>RTCSrtpSdesTransport</a></code> instance is associated to an <code>RTCRtpSender</code>
+    or an <code><a>RTCRtpReceiver</a></code>.</p>
   </section>
 
   <section id="rtcsrtpsdestransport-operation*">
@@ -1695,15 +1691,12 @@ Therefore, applications also need to support DTLS/SRTP so they will continue to 
     "associated" RTCP transport <var>rtcpTransport</var>,
     it is provided implicitly.
     Since an <code>RTCSrtpSdesTransport</code> is ready to function as soon as it is created,
-    there is no need for <code>start()</code> and <code>stop()</code> methods.
-    </p>
-    <p>
-    If either <var>encryptParameters</var> or <var>decryptParameters</var> contain a sequence of more than
+    there is no need for <code>start()</code> and <code>stop()</code> methods.</p>
+    <p>If either <var>encryptParameters</var> or <var>decryptParameters</var> contain a sequence of more than
     one <var>keyParams</var> dictionary, then <var>keyParams.mkiValue</var>
     and <var>keyParams.mkiLength</var> MUST be set to a value greater than zero
     for each <var>keyParams</var> dictionary entry or an <code>InvalidParameters</code>
-    exception is thrown.
-    </p>
+    exception is thrown.</p>
   </section>
 
   <section id="rtcsrtpsdestransport-interface-definition*">
@@ -2599,13 +2592,11 @@ temporal or spatial scalability.  Only mono operation is supported (<var>numChan
 <var>clockRate</var> values of 8000 and 16000 are supported. 
 As noted in [[!RFC3389]], CN has
 been assigned a static payload type for a <var>clockRate</var> value of 8000, which Microsoft Edge provides as the preferred payload type.
-For a <var>clockRate</var> value of 16000, Microsoft Edge assigns a dynamic payload type.
-</p>
+For a <var>clockRate</var> value of 16000, Microsoft Edge assigns a dynamic payload type.</p>
 <p>When CN is configured for use along with the G.711, G.722 and SILK codecs, CN <var>clockRate</var> is set to 8000.
 Since the Microsoft Edge implementation of Opus does not support Discontinuous Transmission (DTX), 
 it is possible (though not advisable if interoperability is desired) to use CN along with Opus, in which case the CN value of <var>clockRate</var> to 16000 would be configured.  
 </p>
-      </div>
 
     <section id="cnn-example*">
      <h4>Capabilities</h4>
@@ -2652,8 +2643,7 @@ it does not support multi-stream transport or temporal or spatial scalability.
 As noted in [[!RFC4733]] DTMF utilizes a dynamic payload type so that
 Microsoft Edge assigns a preferred payload type in the dynamic range.</p>
 <p>As noted in [[MS-DTMF]], DTMF cannot be used with the Microsoft implementation of Redundant Audio Data [[MS-RTPRADEX]]. 
-The Microsoft Edge implementation of DTMF supports events 0-15, as described in [[!RFC4733]].
-      </div>
+The Microsoft Edge implementation of DTMF supports events 0-15, as described in [[!RFC4733]].</p>
 <p>The single capability and setting supported by DTMF is defined in [[!RFC4733]] Section 2.4:</p>
 
       <table class="simple">
@@ -2714,21 +2704,17 @@ The Microsoft Edge implementation of DTMF supports events 0-15, as described in 
 
   <section id="opus-codec-capabilities*">
     <h3>Opus</h3>
-    <p>
-The Microsoft Edge implementation of Opus does not support any parameters or options in Opus capabilities. 
+ <p>The Microsoft Edge implementation of Opus does not support any parameters or options in Opus capabilities. 
 While [[!RFC7587]] Section 7 describes Opus settings such as <var>stereo</var>, <var>useinbandfec</var> and <var>usedtx</var>, 
 the Microsoft Edge implementation of Opus currently only supports mono operation, cannot support Discontinous Operation (DTX) and does not support inband FEC.
 While it is possible to configure external FEC (RED) for use
 with Opus to enhance robustness (distance of 3 is supported versus a distance of 1 for inband FEC), this will not interoperate with other Opus implementations. 
-Interoperability issues may also be experienced if CN is configured to provide voice activity detection. 
-</p>
+Interoperability issues may also be experienced if CN is configured to provide voice activity detection. </p>
 <p>Since it is an audio codec, Opus does not support multi-stream transport or temporal or spatial scalability.
 While a <var>numChannels</var> value of 2 is supported, currently the <var>numChannels</var> value does not affect Opus codec operation (only mono is supported, regardless of the value of <var>numChannels</var>).  
 Since Opus utilizes a dynamic payload type
 Microsoft Edge assigns a preferred payload type in the dynamic range.
-Currently <var>clockRate</var> can only be set to 48000.
-</p>
-      </div>
+Currently <var>clockRate</var> can only be set to 48000.</p>
 
     <section id="opuscap-example*">
      <h4>Capabilities</h4>
@@ -2769,10 +2755,8 @@ Only mono operation is supported (<var>numChannels</var> set to 1), along with
 Since SILK utilizes a dynamic payload type
 Microsoft Edge assigns a preferred payload type in the dynamic range.</p>
 <p>SILK settings are described in [[MS-SDPEXT]] Section 3.1.5.3.  This includes a discussion of 8000 and 16000 clock rates, as well as
-the <var>usedtx</var> and
-<var>useinbandfec</var> settings.  However, neither inband FEC or DTX is configurable in Microsoft Edge, although external FEC (RED) and CN may be configured. 
-</p>
-      </div>
+the <var>usedtx</var> and <var>useinbandfec</var> settings.  However, neither inband FEC or DTX is configurable in
+Microsoft Edge, although external FEC (RED) and CN may be configured.</p>
 
     <section id="silkcap-example*">
      <h4>Capabilities</h4>
@@ -2996,7 +2980,6 @@ as described in [[RFC6184]] Section 8.1, and [[!RFC7742]] Section 6.2:</p>
                                         As noted in [[!RFC7742]] Section 6.2, support for packetization-mode 1 is mandatory.
                                         Microsoft Edge only supports a packetization-mode value of 1. 
                                     </td>
-                                </tr>
                                 </tr>
                                 <tr id="def-other-h264-params*">
                                     <td>maxMbps, maxFs, maxBr, maxFps</td>
@@ -3528,9 +3511,9 @@ and degrading framerate when bandwidth is constrained.
 </dl>
 </section>
 
-<section id=rtcrtcpparameters*">
+<section id="rtcrtcpparameters*">
 <h3>dictionary RTCRtcpParameters</h3>
-<p><dfn>RTCRtcpParameters</dfn> provides information on RTCP settings.
+<p><dfn>RTCRtcpParameters</dfn> provides information on RTCP settings.</p>
 <div class="note">
 <p>Edge Interop Note:  Microsoft Edge currently does not support the <var>cname</var> attribute, and utilizes the <var>compound</var> attribute instead of the
 <var>reducedSize</var> attribute (a boolean with the opposite meaning).  Also, Microsoft Edge requires that the <var>ssrc</var>
@@ -3541,7 +3524,6 @@ be routed to the relevant objects for processing.
 </p>
 </div>
 
-</p>
 <dl title='dictionary RTCRtcpParameters' class='idl'>
 <dt>unsigned long ssrc</dt>
 <dd><p>The SSRC to be used in the "SSRC of packet sender" field defined in [[!RFC3550]] Section 6.4.2 (Receiver Report)
