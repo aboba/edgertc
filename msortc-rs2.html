@@ -9,7 +9,7 @@
 var respecConfig = {
     "specStatus": "CG-DRAFT",
     "shortName":  "ms-ortc",
-    "publishDate": "2017-01-27",
+    "publishDate": "2017-05-04",
     "editors": [
         {   "name":       "Microsoft Corporation",
             "company":    "Microsoft",
@@ -942,10 +942,10 @@ buffer incoming connectivity checks so as to be able to provide them to associat
     The <dfn>RTCIceServer</dfn> is used to provide STUN or TURN server configuration.
     In network topologies with multiple layers of NATs, it is desirable to have a STUN server
     between every layer of NATs in addition to the TURN servers to minimize the peer to peer network latency.
-   <p>
-
    </p>
-     An example of an array of <code<<a>RTCIceServer</a></code> objects supporting the STUN and TURN standards:
+
+   <p>
+     An example of an array of <code><a>RTCIceServer</a></code> objects supporting the STUN and TURN standards:
    </p>
 
    <pre xml:space="preserve" class='example highlight'>
@@ -954,8 +954,8 @@ buffer incoming connectivity checks so as to be able to provide them to associat
       ]
    </pre>
 
-   </p>
-     An example of an array of <code<<a>RTCIceServer</a></code> objects supporting [[MS-TURN]]:
+   <p>
+     An example of an array of <code><a>RTCIceServer</a></code> objects supporting [[MS-TURN]]:
    </p>
 
    <pre xml:space="preserve" class='example highlight'>
@@ -1460,7 +1460,7 @@ The <dfn>RTCDtlsTransport</dfn> object includes information relating to Datagram
     </dl>
   </section>
 
-  <section id=rtcdtlsfingerprint*">
+  <section id="rtcdtlsfingerprint*">
    <h3>The RTCDtlsFingerprint Object</h3>
 
    <p>
@@ -2181,11 +2181,10 @@ although these features can be set via <code><a>RTCRtpParameters</a></code>.</p>
       <dd><p>Supported codecs.</p></dd>
       <dt>sequence&lt;RTCRtpHeaderExtension> headerExtensions</dt>
       <dd><p>Supported RTP header extensions.</p></dd>
-      </p></dd>
       <dt>sequence&lt;DOMString> fecMechanisms</dt>
       <dd>
-                        <p>Supported Forward Error Correction (FEC) mechanisms.  Values include
-                        "red", "red+ulpfec", "x-ulpfecuc" and "flexfec".
+         <p>Supported Forward Error Correction (FEC) mechanisms.  Values include
+         "red", "red+ulpfec", "x-ulpfecuc" and "flexfec".</p>
       </dd>
     </dl>
 
@@ -2365,8 +2364,6 @@ been assigned a static payload type, which Microsoft Edge provides as the prefer
 <p>While G.722-stereo is described in [[MS-RTP]] Section 2.2.1.1 and [[MS-SDPEXT]] Section 3.5.1.3, the
 G.722 implementation in Edge only supports mono (<var>numChannels</var> set to 1). 
 </p>
-      </div>
- 
     <section id="g722-example*">
      <h4>Capabilities</h4>
    <pre xml:space="preserve" class='example highlight'>
@@ -2408,8 +2405,6 @@ For a <var>clockRate</var> value of 16000, Microsoft Edge assigns a dynamic payl
 Since the Microsoft Edge implementation of Opus does not support Discontinuous Transmission (DTX), 
 it is possible (though not advisable if interoperability is desired) to use CN along with Opus, in which case the CN value of <var>clockRate</var> to 16000 would be configured.  
 </p>
-      </div>
-
     <section id="cnn-example*">
      <h4>Capabilities</h4>
    <pre xml:space="preserve" class='example highlight'>
@@ -2455,8 +2450,7 @@ it does not support multi-stream transport or temporal or spatial scalability.
 As noted in [[!RFC4733]] DTMF utilizes a dynamic payload type so that
 Microsoft Edge assigns a preferred payload type in the dynamic range.</p>
 <p>As noted in [[MS-DTMF]], DTMF cannot be used with the Microsoft implementation of Redundant Audio Data [[MS-RTPRADEX]]. 
-The Microsoft Edge implementation of DTMF supports events 0-15, as described in [[!RFC4733]].
-      </div>
+The Microsoft Edge implementation of DTMF supports events 0-15, as described in [[!RFC4733]].</p>
 <p>The single capability and setting supported by DTMF is defined in [[!RFC4733]] Section 2.4:</p>
 
       <table class="simple">
@@ -2531,8 +2525,6 @@ Since Opus utilizes a dynamic payload type
 Microsoft Edge assigns a preferred payload type in the dynamic range.
 Currently <var>clockRate</var> can only be set to 48000.
 </p>
-      </div>
-
     <section id="opuscap-example*">
      <h4>Capabilities</h4>
    <pre xml:space="preserve" class='example highlight'>
@@ -2575,7 +2567,6 @@ Microsoft Edge assigns a preferred payload type in the dynamic range.</p>
 the <var>usedtx</var> and
 <var>useinbandfec</var> settings.  However, neither inband FEC or DTX is configurable in Microsoft Edge, although external FEC (RED) and CN may be configured. 
 </p>
-      </div>
 
     <section id="silkcap-example*">
      <h4>Capabilities</h4>
@@ -2799,7 +2790,6 @@ as described in [[RFC6184]] Section 8.1, and [[!RFC7742]] Section 6.2:</p>
                                         As noted in [[!RFC7742]] Section 6.2, support for packetization-mode 1 is mandatory.
                                         Microsoft Edge only supports a packetization-mode value of 1. 
                                     </td>
-                                </tr>
                                 </tr>
                                 <tr id="def-other-h264-params*">
                                     <td>maxMbps, maxFs, maxBr, maxFps</td>
@@ -3331,20 +3321,18 @@ and degrading framerate when bandwidth is constrained.
 </dl>
 </section>
 
-<section id=rtcrtcpparameters*">
+<section id="rtcrtcpparameters*">
 <h3>dictionary RTCRtcpParameters</h3>
-<p><dfn>RTCRtcpParameters</dfn> provides information on RTCP settings.
+<p><dfn>RTCRtcpParameters</dfn> provides information on RTCP settings.</p>
 <div class="note">
 <p>Edge Interop Note:  Microsoft Edge currently does not support the <var>cname</var> attribute, and utilizes the <var>compound</var> attribute instead of the
 <var>reducedSize</var> attribute (a boolean with the opposite meaning).  Also, Microsoft Edge requires that the <var>ssrc</var>
 attribute be set even when <code><a>RTCRtpSender</a></code> object(s) exists from which SSRC information could be obtained.  In Microsoft Edge, the <var>ssrc</var>
 attribute is used not only to fill in fields within RTCP packets that are sent, but also in order to route incoming RTCP packets (see Section 10.4). 
 This is necessary since Microsoft Edge utilizes RTCP APP packets that do not contain the SSRC fields supported by all other RTCP packets, allowing those packets to
-be routed to the relevant objects for processing.
-</p>
+be routed to the relevant objects for processing.</p>
 </div>
 
-</p>
 <dl title='dictionary RTCRtcpParameters' class='idl'>
 <dt>unsigned long ssrc</dt>
 <dd><p>The SSRC to be used in the "SSRC of packet sender" field defined in [[!RFC3550]] Section 6.4.2 (Receiver Report)
