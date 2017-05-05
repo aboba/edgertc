@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
-<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>Microsoft Object RTC (ORTC) Implementation</title>
-    <meta charset='utf-8'>
-  
-  <script src="respec-w3c-common.js" async class="remove"></script>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Microsoft Object RTC (ORTC) Implementation</title>
+  <script src="../respec-common-archive/6.1.4/respec-w3c-common.js" async class="remove"></script>
   <script class="remove">
 var respecConfig = {
     "specStatus": "CG-DRAFT",
@@ -1542,7 +1540,9 @@ conditions that would normally result in a transition to "failed".
 </p>
       </div>
 
+
   </section>
+
   <section id="rtcdtlstransportstatechangedevent-interface-definition*">
       <h3>RTCDtlsTransportStateChangedEvent</h3>
 
@@ -1664,7 +1664,6 @@ function accept(mySignaller, remote) {
 
 <section id="rtcsrtpsdestransport*">
   <h2>The RTCSrtpSdesTransport Object</h2>
-
 <p>The <dfn>RTCSrtpSdesTransport</dfn> includes information relating to SRTP/SDES transport [[RFC4568]].
 Details relating to configuration of Microsoft's implementation of SRTP/SDES are described in [[MS-SDPEXT]].</p>
       <div class="note">
@@ -1672,12 +1671,13 @@ Details relating to configuration of Microsoft's implementation of SRTP/SDES are
 To conform to this requirement, support for SRTP/SDES will be removed from Microsoft Edge in the future.
 Therefore, applications also need to support DTLS/SRTP so they will continue to function once SRTP/SDES support is removed.</p>
       </div>
+    </p>
 
   <section id="rtcsrtpsdestransport-overview*">
     <h3>Overview</h3>
 
-    <p>An <code><a>RTCSrtpSdesTransport</a></code> instance is associated to an <code>RTCRtpSender</code>
-    or an <code><a>RTCRtpReceiver</a></code>.</p>
+    <p>An <code><a>RTCSrtpSdesTransport</a></code> instance is associated to an <code>RTCRtpSender</code> or an <code><a>RTCRtpReceiver</a></code>.</p>
+
   </section>
 
   <section id="rtcsrtpsdestransport-operation*">
@@ -1902,11 +1902,45 @@ function accept(mySignaller, remote) {
       </dd>
 
       <dt>void setTransport(RTCTransport transport)</dt>
-      <dd><p>Set the transport (either <code><a>RTCDtlsTransport</a></code> or <code><a>RTCSrtpSdesTransport</a></code>).  
-      Only RTP/RTCP multiplexing is supported if <var>transport</var> is an <code><a>RTCDtlsTransport</a></code>. 
-      If <code>setTransport()</code> is called when <var>transport.state</var> or <var>rtcpTransport.state</var> is "closed", 
-      throw an <code>InvalidStateError</code> exception. 
-      </p></dd>
+              <dd><p><code>setTransport()</code>
+              attempts to replace the transport (either <code><a>RTCDtlsTransport</a></code> or
+              <code><a>RTCSrtpSdesTransport</a></code>) with the transport provided.  Only RTP/RTCP multiplexing
+              is supported if <var>transport</var> is an <code><a>RTCDtlsTransport</a></code>.</p>
+              <p>When the <code>setTransport()</code> method is invoked, the user
+              agent MUST run the following steps:</p>
+              <ol>
+                <li>
+                  <p>Let <var>sender</var> be the <code><a>RTCRtpSender</a></code> object
+                  on which <code>setTransport()</code> is invoked.</p>
+                </li>
+                <li>
+                  <p>If <code><var>sender</var>.stop()</code> has been called, throw an
+                  <code>InvalidStateError</code> exception.</p>
+                </li>
+                <li>
+                  <p>Let <var>withTransport</var> be the argument to this method.</p>
+                </li>
+                <li>
+                  <p>If <code>setTransport()</code> is called with no arguments,
+                  or if <var>withTransport</var> is unset, throw an
+                  <code>InvalidParameters</code> exception.</p>
+                </li>
+                <li>
+                  <p>If <code><var>withTransport</var>.transport.component</code> is
+                  <code>rtcp</code>, throw an <code>InvalidParameters</code>
+                  exception.</p>
+                <li>
+                  <p>If <code><var>withTransport</var></code> is set and
+                  <code><var>withTransport</var>.state</code> is
+                  <code>closed</code>, throw an <code>InvalidStateError</code>
+                  exception.</p>
+                </li>
+                <li>
+                  <p>Replace <code>transport</code> with <var>withTransport</var>
+                  and seamlessly send over the new transport(s).</p>
+                </li>
+              </ol>
+      </dd>
 
       <dt>void setTrack(MediaStreamTrack track)</dt>
       <dd><p>Set the <var>track</var>.  If <var>track.kind</var> is changed, or if the new <var>track</var> has different peerIdentity constraints, 
@@ -2002,11 +2036,45 @@ function accept(mySignaller, remote) {
         <p>The associated transport instance (either an <code><a>RTCDtlsTransport</a></code> or a <code><a>RTCSrtpSdesTransport</a></code>).</p>
       </dd>
       <dt>void setTransport(RTCTransport transport)</dt>
-      <dd><p>Set the transport (either a <code><a>RTCDtlsTransport</a></code> or an <code><a>RTCSrtpSdesTransport</a></code>).
-      Only RTP/RTCP multiplexing is supported if <var>transport</var> is an <code><a>RTCDtlsTransport</a></code>. 
-      If <code>setTransport()</code> is called and <var>transport.state</var> or <var>rtcpTransport.state</var> is "closed", 
-      throw an <code>InvalidParameters</code> exception.
-      </p></dd>
+              <dd><p><code>setTransport()</code>
+              attempts to replace the transport (either <code><a>RTCDtlsTransport</a></code> or
+              <code><a>RTCSrtpSdesTransport</a></code>) with the transport provided.  Only RTP/RTCP multiplexing
+              is supported if <var>transport</var> is an <code><a>RTCDtlsTransport</a></code>.</p>
+              <p>When the <code>setTransport()</code> method is invoked, the user
+              agent MUST run the following steps:</p>
+              <ol>
+                <li>
+                  <p>Let <var>receiver</var> be the <code><a>RTCRtpReceiver</a></code> object
+                  on which <code>setTransport()</code> is invoked.</p>
+                </li>
+                <li>
+                  <p>If <code><var>receiver</var>.stop()</code> has been called, throw an
+                  <code>InvalidStateError</code> exception.</p>
+                </li>
+                <li>
+                  <p>Let <var>withTransport</var> be the argument to this method.</p>
+                </li>
+                <li>
+                  <p>If <code>setTransport()</code> is called with no arguments,
+                  or if <var>withTransport</var> is unset, throw an
+                  <code>InvalidParameters</code> exception.</p>
+                </li>
+                <li>
+                  <p>If <code><var>withTransport</var>.transport.component</code> is
+                  <code>rtcp</code>, throw an <code>InvalidParameters</code>
+                  exception.</p>
+                <li>
+                  <p>If <code><var>withTransport</var></code> is set and
+                  <code><var>withTransport</var>.state</code> is
+                  <code>closed</code>, throw an <code>InvalidStateError</code>
+                  exception.</p>
+                </li>
+                <li>
+                  <p>Replace <code>transport</code> with <var>withTransport</var>
+                  and seamlessly receive over the new transport.</p>
+                </li>
+              </ol>
+      </dd>
       <dt>static RTCRtpCapabilities getCapabilities(optional DOMString kind)</dt>
       <dd><p>Obtain the receiver capabilities, based on <var>kind</var>.  If <var>kind</var> is omitted or set to "", then
       all capabilities are returned. 
@@ -2371,6 +2439,7 @@ although these features can be set via <code><a>RTCRtpParameters</a></code>.</p>
       <dd><p>Supported codecs.</p></dd>
       <dt>sequence&lt;RTCRtpHeaderExtension> headerExtensions</dt>
       <dd><p>Supported RTP header extensions.</p></dd>
+      </p></dd>
       <dt>sequence&lt;DOMString> fecMechanisms</dt>
       <dd>
                         <p>Supported Forward Error Correction (FEC) mechanisms.  Values include
@@ -2592,8 +2661,8 @@ been assigned a static payload type for a <var>clockRate</var> value of 8000, wh
 For a <var>clockRate</var> value of 16000, Microsoft Edge assigns a dynamic payload type.</p>
 <p>When CN is configured for use along with the G.711, G.722 and SILK codecs, CN <var>clockRate</var> is set to 8000.
 Since the Microsoft Edge implementation of Opus does not support Discontinuous Transmission (DTX), 
-it is possible (though not advisable if interoperability is desired) to use CN along with Opus, in which case the CN value of <var>clockRate</var> to 16000 would be configured.  
-</p>
+it is possible (though not advisable if interoperability is desired) to use CN along with Opus,
+in which case the CN value of <var>clockRate</var> to 16000 would be configured.</p>  
 
     <section id="cnn-example*">
      <h4>Capabilities</h4>
@@ -2701,12 +2770,12 @@ The Microsoft Edge implementation of DTMF supports events 0-15, as described in 
 
   <section id="opus-codec-capabilities*">
     <h3>Opus</h3>
- <p>The Microsoft Edge implementation of Opus does not support any parameters or options in Opus capabilities. 
+<p>The Microsoft Edge implementation of Opus does not support any parameters or options in Opus capabilities. 
 While [[!RFC7587]] Section 7 describes Opus settings such as <var>stereo</var>, <var>useinbandfec</var> and <var>usedtx</var>, 
 the Microsoft Edge implementation of Opus currently only supports mono operation, cannot support Discontinous Operation (DTX) and does not support inband FEC.
 While it is possible to configure external FEC (RED) for use
 with Opus to enhance robustness (distance of 3 is supported versus a distance of 1 for inband FEC), this will not interoperate with other Opus implementations. 
-Interoperability issues may also be experienced if CN is configured to provide voice activity detection. </p>
+Interoperability issues may also be experienced if CN is configured to provide voice activity detection.</p>
 <p>Since it is an audio codec, Opus does not support multi-stream transport or temporal or spatial scalability.
 While a <var>numChannels</var> value of 2 is supported, currently the <var>numChannels</var> value does not affect Opus codec operation (only mono is supported, regardless of the value of <var>numChannels</var>).  
 Since Opus utilizes a dynamic payload type
@@ -2752,8 +2821,9 @@ Only mono operation is supported (<var>numChannels</var> set to 1), along with
 Since SILK utilizes a dynamic payload type
 Microsoft Edge assigns a preferred payload type in the dynamic range.</p>
 <p>SILK settings are described in [[MS-SDPEXT]] Section 3.1.5.3.  This includes a discussion of 8000 and 16000 clock rates, as well as
-the <var>usedtx</var> and <var>useinbandfec</var> settings.  However, neither inband FEC or DTX is configurable in
-Microsoft Edge, although external FEC (RED) and CN may be configured.</p>
+the <var>usedtx</var> and
+<var>useinbandfec</var> settings.  However, neither inband FEC or DTX is configurable in Microsoft Edge,
+although external FEC (RED) and CN may be configured.</p> 
 
     <section id="silkcap-example*">
      <h4>Capabilities</h4>
@@ -2977,6 +3047,7 @@ as described in [[RFC6184]] Section 8.1, and [[!RFC7742]] Section 6.2:</p>
                                         As noted in [[!RFC7742]] Section 6.2, support for packetization-mode 1 is mandatory.
                                         Microsoft Edge only supports a packetization-mode value of 1. 
                                     </td>
+                                </tr>
                                 </tr>
                                 <tr id="def-other-h264-params*">
                                     <td>maxMbps, maxFs, maxBr, maxFps</td>
@@ -3510,17 +3581,17 @@ and degrading framerate when bandwidth is constrained.
 
 <section id="rtcrtcpparameters*">
 <h3>dictionary RTCRtcpParameters</h3>
-<p><dfn>RTCRtcpParameters</dfn> provides information on RTCP settings.</p>
+<p><dfn>RTCRtcpParameters</dfn> provides information on RTCP settings.
 <div class="note">
 <p>Edge Interop Note:  Microsoft Edge currently does not support the <var>cname</var> attribute, and utilizes the <var>compound</var> attribute instead of the
 <var>reducedSize</var> attribute (a boolean with the opposite meaning).  Also, Microsoft Edge requires that the <var>ssrc</var>
 attribute be set even when <code><a>RTCRtpSender</a></code> object(s) exists from which SSRC information could be obtained.  In Microsoft Edge, the <var>ssrc</var>
 attribute is used not only to fill in fields within RTCP packets that are sent, but also in order to route incoming RTCP packets (see Section 10.4). 
 This is necessary since Microsoft Edge utilizes RTCP APP packets that do not contain the SSRC fields supported by all other RTCP packets, allowing those packets to
-be routed to the relevant objects for processing.
-</p>
+be routed to the relevant objects for processing.</p>
 </div>
 
+</p>
 <dl title='dictionary RTCRtcpParameters' class='idl'>
 <dt>unsigned long ssrc</dt>
 <dd><p>The SSRC to be used in the "SSRC of packet sender" field defined in [[!RFC3550]] Section 6.4.2 (Receiver Report)
@@ -5303,12 +5374,12 @@ objects:</p>
 
 <p>It is a goal of the ORTC API to provide the functionality of the WebRTC 1.0 API [[WEBRTC10]], as well as to enable the 
 WebRTC 1.0 API to be implemented on top of the ORTC API, utilizing a Javascript "shim" library.  This section
-discusses WebRTC 1.0 compatibility issues.</p>
+discusses WebRTC 1.0 compatibility issues.
+</p>
 
 <section id="rtprtcpmux*">
    <h3>RTP/RTCP multiplexing</h3>
-<p>
-As noted in [[!RTP-USAGE]] Section 4.5, support for RTP/RTCP multiplexing [[!RFC5761]] is mandatory-to-implement in
+<p>As noted in [[!RTP-USAGE]] Section 4.5, support for RTP/RTCP multiplexing [[!RFC5761]] is mandatory-to-implement in
 WebRTC.  Via the "a=rtcp-mux" line, WebRTC 1.0 implementations can negotiate RTP/RTCP multiplexing.
 In ORTC API, multiplexing of RTP and RTCP [[!RFC5761]] is enabled by setting <code>RTCRtcpParameters.mux</code>
 to <code>true</code> (the default) when calling <code>receiver.receive()</code> or <code>sender.send()</code>.</p>
@@ -5325,8 +5396,7 @@ To configure RTP/RTCP multiplexing when constructing an <code><a>RTCSrtpSdesTran
 do not construct an associated RTCP <code><a>RTCIceTransport</a></code>
 or if one was constructed, call <code>stop()</code> on it. 
 <code>RTCRtcpParameters.mux</code> is then set to <code>true</code> when <code>receiver.receive()</code> or
-<code>sender.send()</code> is called.
-</p>
+<code>sender.send()</code> is called.</p>
 </section>
 
 <section id="bundle*">
@@ -5343,7 +5413,6 @@ objects from the same <code><a>RTCDtlsTransport</a></code> or <code><a>RTCSrtpSd
 
 <section id="voice-activity*">
   <h3>Voice Activity Detection</h3>
-
 <p>[[WEBRTC10]] Section 4.2.4 defines the <code>RTCOfferOptions</code> dictionary, which includes the <var>voiceActivityDetection</var> attribute,
 which determines whether Voice Activity Detection (VAD) is enabled within the Offer 
 produced by <code>createOffer()</code>. 

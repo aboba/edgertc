@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>Microsoft Object RTC (ORTC) Implementation</title>
-    <meta charset='utf-8'>
-  
-  <script src="respec-w3c-common.js" async class="remove"></script>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Microsoft Object RTC (ORTC) Implementation</title>
+  <script src="../respec-common-archive/6.1.4/respec-w3c-common.js" async class="remove"></script>
   <script class="remove">
 var respecConfig = {
     "specStatus": "CG-DRAFT",
     "shortName":  "ms-ortc",
-    "publishDate": "2017-05-04",
+    "publishDate": "2017-04-27",
     "editors": [
         {   "name":       "Microsoft Corporation",
             "company":    "Microsoft",
@@ -525,8 +524,7 @@ var respecConfig = {
 <body>
 
 <section id="abstract">
-<p>This document describes the Microsoft Edge ORTC API implemented within Windows Insider Preview
-Build 15019.rs_prerelease (available on the date of publication of this document).</p>
+<p>This document describes the Microsoft Edge ORTC API implemented within Windows 10 Creator's Update.</p>
 <p>The Microsoft Edge implementation differs from the most recent version of the
 <a href="http://draft.ortc.org/">ORTC API</a> since ORTC has continued to evolve since the development of
 Microsoft Edge got underway.  In addition, Microsoft Edge does not implement every object or method
@@ -942,10 +940,10 @@ buffer incoming connectivity checks so as to be able to provide them to associat
     The <dfn>RTCIceServer</dfn> is used to provide STUN or TURN server configuration.
     In network topologies with multiple layers of NATs, it is desirable to have a STUN server
     between every layer of NATs in addition to the TURN servers to minimize the peer to peer network latency.
-   </p>
-
    <p>
-     An example of an array of <code><a>RTCIceServer</a></code> objects supporting the STUN and TURN standards:
+
+   </p>
+     An example of an array of <code<<a>RTCIceServer</a></code> objects supporting the STUN and TURN standards:
    </p>
 
    <pre xml:space="preserve" class='example highlight'>
@@ -954,8 +952,8 @@ buffer incoming connectivity checks so as to be able to provide them to associat
       ]
    </pre>
 
-   <p>
-     An example of an array of <code><a>RTCIceServer</a></code> objects supporting [[MS-TURN]]:
+   </p>
+     An example of an array of <code<<a>RTCIceServer</a></code> objects supporting [[MS-TURN]]:
    </p>
 
    <pre xml:space="preserve" class='example highlight'>
@@ -1460,7 +1458,7 @@ The <dfn>RTCDtlsTransport</dfn> object includes information relating to Datagram
     </dl>
   </section>
 
-  <section id="rtcdtlsfingerprint*">
+  <section id=rtcdtlsfingerprint*">
    <h3>The RTCDtlsFingerprint Object</h3>
 
    <p>
@@ -1664,10 +1662,8 @@ function accept(mySignaller, remote) {
 
 <section id="rtcsrtpsdestransport*">
   <h2>The RTCSrtpSdesTransport Object</h2>
-
-    <p>
-The <dfn>RTCSrtpSdesTransport</dfn> includes information relating to SRTP/SDES transport [[RFC4568]].
-Details relating to configuration of Microsoft's implementation of SRTP/SDES are described in [[MS-SDPEXT]].
+<p>The <dfn>RTCSrtpSdesTransport</dfn> includes information relating to SRTP/SDES transport [[RFC4568]].
+Details relating to configuration of Microsoft's implementation of SRTP/SDES are described in [[MS-SDPEXT]].</p>
       <div class="note">
 <p>SRTP/SDES support is forbidden by the IETF RTCWEB security specifications. 
 To conform to this requirement, support for SRTP/SDES will be removed from Microsoft Edge in the future.
@@ -1677,9 +1673,7 @@ Therefore, applications also need to support DTLS/SRTP so they will continue to 
 
   <section id="rtcsrtpsdestransport-overview*">
     <h3>Overview</h3>
-
     <p>An <code><a>RTCSrtpSdesTransport</a></code> instance is associated to an <code>RTCRtpSender</code> or an <code><a>RTCRtpReceiver</a></code>.</p>
-
   </section>
 
   <section id="rtcsrtpsdestransport-operation*">
@@ -1693,15 +1687,12 @@ Therefore, applications also need to support DTLS/SRTP so they will continue to 
     "associated" RTCP transport <var>rtcpTransport</var>,
     it is provided implicitly.
     Since an <code>RTCSrtpSdesTransport</code> is ready to function as soon as it is created,
-    there is no need for <code>start()</code> and <code>stop()</code> methods.
-    </p>
-    <p>
-    If either <var>encryptParameters</var> or <var>decryptParameters</var> contain a sequence of more than
+    there is no need for <code>start()</code> and <code>stop()</code> methods.</p>
+    <p>If either <var>encryptParameters</var> or <var>decryptParameters</var> contain a sequence of more than
     one <var>keyParams</var> dictionary, then <var>keyParams.mkiValue</var>
     and <var>keyParams.mkiLength</var> MUST be set to a value greater than zero
     for each <var>keyParams</var> dictionary entry or an <code>InvalidParameters</code>
-    exception is thrown.
-    </p>
+    exception is thrown.</p>
   </section>
 
   <section id="rtcsrtpsdestransport-interface-definition*">
@@ -1958,14 +1949,12 @@ function accept(mySignaller, remote) {
 
 <section id="rtcrtpreceiver*">
   <h2>The RTCRtpReceiver Object</h2>
-
     <p>
       The <dfn>RTCRtpReceiver</dfn> includes information relating to the RTP receiver. 
     </p>
 
   <section id="rtcrtpreceiver-overview*">
     <h3>Overview</h3>
-
     <p>An <code><a>RTCRtpReceiver</a></code> instance is associated to a receiving 
     <a>MediaStreamTrack</a> and provides RTC related methods to it.  Microsoft Edge requires <var>kind</var>
     to be set in the constructor so as to allow a newly constructed <code><a>RTCRtpReceiver</a></code> to  be used with an 
@@ -1985,7 +1974,6 @@ function accept(mySignaller, remote) {
 
   <section id="rtcrtpreceiver-operation*">
     <h3>Operation</h3>
-
     <p>A <code><a>RTCRtpReceiver</a></code> instance is constructed from an <code><a>RTCDtlsTransport</a></code> object
     or an <code><a>RTCSrtpSdesTransport</a></code> object.
     If an attempt is made to construct an <code><a>RTCRtpReceiver</a></code> object with <var>transport.state</var> or <var>rtcpTransport.state</var> "closed",
@@ -2181,10 +2169,11 @@ although these features can be set via <code><a>RTCRtpParameters</a></code>.</p>
       <dd><p>Supported codecs.</p></dd>
       <dt>sequence&lt;RTCRtpHeaderExtension> headerExtensions</dt>
       <dd><p>Supported RTP header extensions.</p></dd>
+      </p></dd>
       <dt>sequence&lt;DOMString> fecMechanisms</dt>
       <dd>
-         <p>Supported Forward Error Correction (FEC) mechanisms.  Values include
-         "red", "red+ulpfec", "x-ulpfecuc" and "flexfec".</p>
+                        <p>Supported Forward Error Correction (FEC) mechanisms.  Values include
+                        "red", "red+ulpfec", "x-ulpfecuc" and "flexfec".
       </dd>
     </dl>
 
@@ -2364,6 +2353,8 @@ been assigned a static payload type, which Microsoft Edge provides as the prefer
 <p>While G.722-stereo is described in [[MS-RTP]] Section 2.2.1.1 and [[MS-SDPEXT]] Section 3.5.1.3, the
 G.722 implementation in Edge only supports mono (<var>numChannels</var> set to 1). 
 </p>
+      </div>
+ 
     <section id="g722-example*">
      <h4>Capabilities</h4>
    <pre xml:space="preserve" class='example highlight'>
@@ -2405,6 +2396,8 @@ For a <var>clockRate</var> value of 16000, Microsoft Edge assigns a dynamic payl
 Since the Microsoft Edge implementation of Opus does not support Discontinuous Transmission (DTX), 
 it is possible (though not advisable if interoperability is desired) to use CN along with Opus, in which case the CN value of <var>clockRate</var> to 16000 would be configured.  
 </p>
+      </div>
+
     <section id="cnn-example*">
      <h4>Capabilities</h4>
    <pre xml:space="preserve" class='example highlight'>
@@ -2511,20 +2504,18 @@ The Microsoft Edge implementation of DTMF supports events 0-15, as described in 
 
   <section id="opus-codec-capabilities*">
     <h3>Opus</h3>
-    <p>
-The Microsoft Edge implementation of Opus does not support any parameters or options in Opus capabilities. 
+<p>The Microsoft Edge implementation of Opus does not support any parameters or options in Opus capabilities. 
 While [[!RFC7587]] Section 7 describes Opus settings such as <var>stereo</var>, <var>useinbandfec</var> and <var>usedtx</var>, 
 the Microsoft Edge implementation of Opus currently only supports mono operation, cannot support Discontinous Operation (DTX) and does not support inband FEC.
 While it is possible to configure external FEC (RED) for use
 with Opus to enhance robustness (distance of 3 is supported versus a distance of 1 for inband FEC), this will not interoperate with other Opus implementations. 
-Interoperability issues may also be experienced if CN is configured to provide voice activity detection. 
-</p>
+Interoperability issues may also be experienced if CN is configured to provide voice activity detection.</p> 
 <p>Since it is an audio codec, Opus does not support multi-stream transport or temporal or spatial scalability.
 While a <var>numChannels</var> value of 2 is supported, currently the <var>numChannels</var> value does not affect Opus codec operation (only mono is supported, regardless of the value of <var>numChannels</var>).  
 Since Opus utilizes a dynamic payload type
 Microsoft Edge assigns a preferred payload type in the dynamic range.
-Currently <var>clockRate</var> can only be set to 48000.
-</p>
+Currently <var>clockRate</var> can only be set to 48000.</p>
+
     <section id="opuscap-example*">
      <h4>Capabilities</h4>
    <pre xml:space="preserve" class='example highlight'>
@@ -2552,7 +2543,6 @@ Currently <var>clockRate</var> can only be set to 48000.
     </section>
   </section> 
 
-
   <section id="silk-codec-capabilities*">
     <h3>SILK</h3>
     <p>For the SILK audio codec, Microsoft Edge does not support
@@ -2565,8 +2555,7 @@ Since SILK utilizes a dynamic payload type
 Microsoft Edge assigns a preferred payload type in the dynamic range.</p>
 <p>SILK settings are described in [[MS-SDPEXT]] Section 3.1.5.3.  This includes a discussion of 8000 and 16000 clock rates, as well as
 the <var>usedtx</var> and
-<var>useinbandfec</var> settings.  However, neither inband FEC or DTX is configurable in Microsoft Edge, although external FEC (RED) and CN may be configured. 
-</p>
+<var>useinbandfec</var> settings.  However, neither inband FEC or DTX is configurable in Microsoft Edge, although external FEC (RED) and CN may be configured.</p> 
 
     <section id="silkcap-example*">
      <h4>Capabilities</h4>
@@ -2622,8 +2611,7 @@ Since it is only for use with audio, RED does not support multi-stream transport
 Only a single channel is supported. 
 RED can be used to protect the G.711, G.722, SILK, CN and Opus payload types.  
 When RED is configured, it is used to protect all configured audio codecs using only a single dynamically allocated RED payload type. 
-There are no configuration parameters to set.  
-</p>
+There are no configuration parameters to set.</p>
       <div class="note">
 <p>Edge Interop Note: As noted in [[MS-RTPRADEX]], within Microsoft's implementation of RED, only a single block of redundant audio 
 data is supported, along with a block of primary data.
@@ -2632,8 +2620,7 @@ In addition to advertising RED as an audio codec, Microsoft Edge capabilities al
 carriage of Forward Error Correction (FEC), since FEC is provided
 in the redundant audio data block, with a maximum distance of 3 (e.g. "fecMechanisms":["RED"]").
 Since the FEC mechanism utilized with RED is proprietary, RED should not be configured within <code>RTCRtpParameters</code> 
-when interoperation with other WebRTC implementations is desired.
-</p>
+when interoperation with other WebRTC implementations is desired.</p>
       </div>
     <section id="redcap-example*">
      <h4>Capabilities</h4>
@@ -2665,19 +2652,16 @@ For both H.264UC and FEC, Microsoft Edge assigns a preferred payload type in the
      <h4>Capabilities</h4>
 <p>Microsoft Edge returns the example <code><a>RTCRtpCapabilities</a></code> object below
 in response to a call to <code>getCapabilities("video")</code>.  H.264UC supports a maximum of 3 temporal layers using
-multi-stream transport, along with spatial simulcast.  
-</p>
+multi-stream transport, along with spatial simulcast.</p>
       <div class="note">
-<p>
-The H.264UC codec utilizes MRST transport, along with packetization-mode 1. 
+<p>The H.264UC codec utilizes MRST transport, along with packetization-mode 1. 
 Temporal scalability (a maximum of 3 layers) and spatial simulcast (a maximum of 2 layers) are automatically
 enabled and the encoding is dynamically adjusted based on network conditions.  As a result, 
 <var>rtcpFeedback</var>, <var>parameters</var> and <var>options</var> SHOULD be configured as they
 are provided in the <code><a>RTCRtpCapabilities</a></code> object shown below. 
 Since H.264UC does not support SRST transport or spatial scalability, <var>svcMultiStreamSupport</var> MUST be set to true
 and <var>maxSpatialLayers</var> MUST be set to 0.  Note that setting  <var>maxTemporalLayers</var> does not have an 
-effect. 
-</p>
+effect.</p> 
     </div>
     <pre xml:space="preserve" class='example highlight'>
 {
@@ -2744,13 +2728,10 @@ effect.
 Configuration of "ULPFECUC" is recommended when H.264UC is configured since this improves resilience against packet loss.
 For resilience, it is also recommended that the x-pli and src RTCP feedback messages be configured along with
 H.264UC.  The x-pli RTCP feedback message is described in [[MS-RTP]] Section 2.2.12.1; it differs from the standard PLI
-message defined in [[!RFC4585]] Section 6.3.1 in that it contains only one Feedback Control Information (FCI) field.
-</p>
-<p>
-There are no configurable settings for "ULPFECUC", and when using it, the <var>fecMechanisms</var> attribute is set to null as noted above.
+message defined in [[!RFC4585]] Section 6.3.1 in that it contains only one Feedback Control Information (FCI) field.</p>
+<p>There are no configurable settings for "ULPFECUC", and when using it, the <var>fecMechanisms</var> attribute is set to null as noted above.
 The "src" proprietary RTCP feedback message advertised as capability corresponds to the Video Source Request (VSR) RTCP feedback message
-described in [[MS-RTP]] Section 2.2.12.2.
-</p>
+described in [[MS-RTP]] Section 2.2.12.2.</p>
     </div>
     </section>
 </section>
@@ -3321,18 +3302,20 @@ and degrading framerate when bandwidth is constrained.
 </dl>
 </section>
 
-<section id="rtcrtcpparameters*">
+<section id=rtcrtcpparameters*">
 <h3>dictionary RTCRtcpParameters</h3>
-<p><dfn>RTCRtcpParameters</dfn> provides information on RTCP settings.</p>
+<p><dfn>RTCRtcpParameters</dfn> provides information on RTCP settings.
 <div class="note">
 <p>Edge Interop Note:  Microsoft Edge currently does not support the <var>cname</var> attribute, and utilizes the <var>compound</var> attribute instead of the
 <var>reducedSize</var> attribute (a boolean with the opposite meaning).  Also, Microsoft Edge requires that the <var>ssrc</var>
 attribute be set even when <code><a>RTCRtpSender</a></code> object(s) exists from which SSRC information could be obtained.  In Microsoft Edge, the <var>ssrc</var>
 attribute is used not only to fill in fields within RTCP packets that are sent, but also in order to route incoming RTCP packets (see Section 10.4). 
 This is necessary since Microsoft Edge utilizes RTCP APP packets that do not contain the SSRC fields supported by all other RTCP packets, allowing those packets to
-be routed to the relevant objects for processing.</p>
+be routed to the relevant objects for processing.
+</p>
 </div>
 
+</p>
 <dl title='dictionary RTCRtcpParameters' class='idl'>
 <dt>unsigned long ssrc</dt>
 <dd><p>The SSRC to be used in the "SSRC of packet sender" field defined in [[!RFC3550]] Section 6.4.2 (Receiver Report)
@@ -3436,7 +3419,7 @@ browser chooses the <var>ssrc</var>, it will not change due to a collision.
 	<p>Specifies the RTX [[!RFC4588]] parameters (such as the payload type to use for retransmitting this stream) if set.  
         The payload type to be retransmitted is specified in <var>codecPayloadType</var>.</p>
     </dd>
-    <dt>unsigned long maxFramerate</dt>
+    <dt>double maxFramerate</dt>
     <dd>
         <p>The maximum framerate to use for this encoding. This setting is not used for scalable video coding.</p>
     </dd>
@@ -4389,7 +4372,7 @@ ISSUE: are the strings spelled correctly? Is an L2TP or PPTP VPN classified as a
 <dt>float deviceClippingEventRatio</dt>
 <dd><p>Fraction of the call that the reporting endpoint detected clipping in the captured audio that caused poor quality of the audio being sent.</p></dd>
 <dt>float deviceEchoEventRatio</dt>
-<dd><p>Fraction of the call that the reproting endpoint detected echo that caused poor quality of the audio being sent.</p></dd>
+<dd><p>Fraction of the call that the reporting endpoint detected echo that caused poor quality of the audio being sent.</p></dd>
 <dt>float deviceNearEndToEchoRatioEventRatio</dt>
 <dd><p>Fraction of the call that the reporting endpoint detected a ratio of the near end signal level to the echo level that caused poor quality of the audio being sent.</p></dd>
 <dt>float deviceRenderZeroVolumeEventRatio</dt>
@@ -5112,16 +5095,13 @@ objects:</p>
 </section>
 <section class="informative" id="webrtc-compat*">
   <h2>WebRTC 1.0 Compatibility</h2>
-
 <p>It is a goal of the ORTC API to provide the functionality of the WebRTC 1.0 API [[WEBRTC10]], as well as to enable the 
 WebRTC 1.0 API to be implemented on top of the ORTC API, utilizing a Javascript "shim" library.  This section
-discusses WebRTC 1.0 compatibility issues.
-</p>
+discusses WebRTC 1.0 compatibility issues.</p>
 
 <section id="rtprtcpmux*">
    <h3>RTP/RTCP multiplexing</h3>
-<p>
-As noted in [[!RTP-USAGE]] Section 4.5, support for RTP/RTCP multiplexing [[!RFC5761]] is mandatory-to-implement in
+<p>As noted in [[!RTP-USAGE]] Section 4.5, support for RTP/RTCP multiplexing [[!RFC5761]] is mandatory-to-implement in
 WebRTC.  Via the "a=rtcp-mux" line, WebRTC 1.0 implementations can negotiate RTP/RTCP multiplexing.
 In ORTC API, multiplexing of RTP and RTCP [[!RFC5761]] is enabled by setting <code>RTCRtcpParameters.mux</code>
 to <code>true</code> (the default) when calling <code>receiver.receive()</code> or <code>sender.send()</code>.</p>
@@ -5138,38 +5118,31 @@ To configure RTP/RTCP multiplexing when constructing an <code><a>RTCSrtpSdesTran
 do not construct an associated RTCP <code><a>RTCIceTransport</a></code>
 or if one was constructed, call <code>stop()</code> on it. 
 <code>RTCRtcpParameters.mux</code> is then set to <code>true</code> when <code>receiver.receive()</code> or
-<code>sender.send()</code> is called.
-</p>
+<code>sender.send()</code> is called.</p>
 </section>
 
 <section id="bundle*">
   <h3>BUNDLE</h3>
-
-<p>
-As noted in [[!RTP-USAGE]] Section 4.4, audio/video multiplexing is mandatory-to-implement in WebRTC, 
+<p>As noted in [[!RTP-USAGE]] Section 4.4, audio/video multiplexing is mandatory-to-implement in WebRTC, 
 as described in [[!RTP-MULTI-STREAM]]. 
 Via the use of [[!BUNDLE]] it is possible for WebRTC 1.0 implementations to negotiate the multiplexing of audio and 
 video on the same RTP session. 
 The Microsoft Edge ORTC implementation enables bundling of audio and video [[!BUNDLE]] 
 by constructing multiple 
 <code><a>RTCRtpReceiver</a></code> and <code><a>RTCRtpSender</a></code>
-objects from the same <code><a>RTCDtlsTransport</a></code> or <code><a>RTCSrtpSdesTransport</a></code> object. 
-</p>
+objects from the same <code><a>RTCDtlsTransport</a></code> or <code><a>RTCSrtpSdesTransport</a></code> object.</p> 
 </section>
 
 <section id="voice-activity*">
   <h3>Voice Activity Detection</h3>
-
 <p>[[WEBRTC10]] Section 4.2.4 defines the <code>RTCOfferOptions</code> dictionary, which includes the <var>voiceActivityDetection</var> attribute,
 which determines whether Voice Activity Detection (VAD) is enabled within the Offer 
 produced by <code>createOffer()</code>. 
 The effect of setting <var>voiceActivityDetection</var> to <var>true</var> is to include the 
 Comfort Noice (CN) codec defined in [[!RFC3389]] within the Offer.</p>
-<p> 
-Within ORTC API, equivalent behavior can be obtained by configuring the 
+<p>Within ORTC API, equivalent behavior can be obtained by configuring the 
 Comfort Noise (CN) codec within <code>RTCRtpParameters</code>.  Relevant considerations are described in Section 8.3.2.3.
-Currently, the Microsoft Edge implementations of SILK and Opus do not support Discontinuous Operation (DTX).  
-</p>
+Currently, the Microsoft Edge implementations of SILK and Opus do not support Discontinuous Operation (DTX).</p>  
 </section>
 <section id="h264*">
               <h3>H.264/AVC</h3>
@@ -5190,7 +5163,6 @@ Currently, the Microsoft Edge implementations of SILK and Opus do not support Di
 
   <section id="simple-peer-to-peer-example*">
     <h3>Simple Peer-to-peer Example</h3>
-
     <p>This example code provides a basic audio and video session between two browsers.</p>
 
    <pre xml:space="preserve" class='example highlight'>
