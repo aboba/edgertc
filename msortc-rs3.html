@@ -8,7 +8,7 @@
 var respecConfig = {
     "specStatus": "CG-DRAFT",
     "shortName":  "ms-ortc",
-    "publishDate": "2017-05-08",
+    "publishDate": "2017-05-09",
     "editors": [
         {   "name":       "Microsoft Corporation",
             "company":    "Microsoft",
@@ -566,28 +566,27 @@ media to the <code><a>RTCRtpReceiver</a></code> (<a href="#rtcrtpreceiver*">Sect
 The <code><a>RTCRtpReceiver</a></code> then decodes media, producing a track which is rendered 
 by an audio or video tag.</p>
 <p>Several other objects also play a role.
-The <code><a>RTCIceGatherer</a></code> (<a href="#rtcicegatherer*">Section 2</a>) gathers local ICE candidates for use by a single
-<code><a>RTCIceTransport</a></code> object. The <code><a>RTCIceTransportController</a></code> (<a href="#rtcicetransportcontroller*">Section 9</a>)
-aggregates <code><a>RTCIceTransport</a></code> objects for the purpose of bandwidth estimation.
+The <code><a>RTCIceGatherer</a></code> (<a href="#rtcicegatherer*">Section 2</a>)
+gathers local ICE candidates for use by a single
+<code><a>RTCIceTransport</a></code> object. The <code><a>RTCIceTransportController</a></code>
+(<a href="#rtcicetransportcontroller*">Section 8</a>) aggregates
+<code><a>RTCIceTransport</a></code> objects for the purpose of bandwidth estimation.
 Sending of Dual Tone Multi Frequency (DTMF) tones is supported via the
 <code><a>RTCDtmfSender</a></code> (<a href="#rtcdtmfsender*">Section 10</a>).</p> 
-
-      <div class="note">
-<p>Edge Interop Note:  Since Microsoft Edge does not implement the data channel, the <code>RTCDataChannel</code> and <code>RTCSctpTransport</code> objects are not supported.
-</p>
-      </div>
-
 <p>Remaining sections of the specification fill in details relating to RTP capabilities and parameters, 
 operational statistics and compatibility with the
 WebRTC 1.0 API.  
-RTP dictionaries are described in <a href="#rtcrtpdictionaries*">Section 8</a>,
-the Statistics API is described in <a href="#statistics-api">Section 10</a>,
-Microsoft extensions related to the H.264UC codec [[MS-H264PF]] and statistics are described in  <a href="#msextensions*">Section 11</a>,
+RTP dictionaries are described in <a href="#rtcrtpdictionaries*">Section 9</a>,
+the Statistics API is described in <a href="#statistics-api">Section 11</a>,
+Microsoft extensions related to the H.264UC codec [[MS-H264PF]] and statistics are described in  <a href="#msextensions*">Section 12</a>,
 an event summary is provided in <a href="#event-summary">Section 12</a>,
-a list of error codes is provided in <a href="#error-codes*">Section 13</a>
-and WebRTC 1.0 compatibility issues are discussed in <a href="#webrtc-compat*">Section 14</a>.
-</p>
-<p>Complete examples are provided in <a href="#examples*">Section 15</a>.</p>
+a list of error codes is provided in <a href="#error-codes*">Section 14</a>
+and WebRTC 1.0 compatibility issues are discussed in <a href="#webrtc-compat*">Section 15</a>.</p>
+<p>Complete examples are provided in <a href="#examples*">Section 16</a>.</p>
+<div class="note">
+<p>Edge Interop Note:  Since Microsoft Edge does not implement the data channel,
+the <code>RTCDataChannel</code> and <code>RTCSctpTransport</code> objects are not supported.</p>
+</div>
 
   <section>
     <h3>Terminology</h3>
