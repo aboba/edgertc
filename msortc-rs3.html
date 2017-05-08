@@ -557,9 +557,7 @@ whereas vertical arrows denote interactions via methods and events.
 <p>In the figure above, the <code><a>RTCRtpSender</a></code> (<a href="#rtcrtpsender*">Section 6</a>) encodes the
 track provided as input, which is transported over a <code><a>RTCDtlsTransport</a></code>
 (<a href="#rtcdtlstransport*">Section 4</a>) or an <code><a>RTCSrtpSdesTransport</a></code>
-(<a href="#rtcsrtpsdestransport*">Section 5</a>). 
-Sending of Dual Tone Multi Frequency (DTMF) tones is supported via the
-<code><a>RTCDtmfSender</a></code> (<a href="#rtcdtmfsender*">Section 9</a>).</p>
+(<a href="#rtcsrtpsdestransport*">Section 5</a>).</p>
 <p>The <code><a>RTCDtlsTransport</a></code> and <code><a>RTCSrtpSdesTransport</a></code> utilize an <code><a>RTCIceTransport</a></code>
 (<a href="#rtcicetransport*">Section 3</a>) to select a communication path to reach the
 receiving peer's <code><a>RTCIceTransport</a></code>, which is in turn associated with 
@@ -569,7 +567,10 @@ The <code><a>RTCRtpReceiver</a></code> then decodes media, producing a track whi
 by an audio or video tag.</p>
 <p>Several other objects also play a role.
 The <code><a>RTCIceGatherer</a></code> (<a href="#rtcicegatherer*">Section 2</a>) gathers local ICE candidates for use by a single
-<code><a>RTCIceTransport</a></code> object.</p> 
+<code><a>RTCIceTransport</a></code> object. The <code><a>RTCIceTransportController</a></code> (<a href="#rtcicetransportcontroller*">Section 9</a>)
+aggregates <code><a>RTCIceTransport</a></code> objects for the purpose of bandwidth estimation.
+Sending of Dual Tone Multi Frequency (DTMF) tones is supported via the
+<code><a>RTCDtmfSender</a></code> (<a href="#rtcdtmfsender*">Section 10</a>).</p> 
 
       <div class="note">
 <p>Edge Interop Note:  Since Microsoft Edge does not implement the data channel, the <code>RTCDataChannel</code> and <code>RTCSctpTransport</code> objects are not supported.
