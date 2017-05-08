@@ -2128,8 +2128,8 @@ function accept(mySignaller, remote) {
       MUST be fired when a Dominant Speaker History (DSH) RTCP packet is received, indicating a change in the dominant speaker(s).
       </p></dd>
 
-      <dt>attribute EventHandler? ondecodercapacitychange</dt>
-      <dd><p>This event handler, of event handler type <code>decodercapacitychange</code>,
+      <dt>attribute EventHandler? onmsdecodercapacitychange</dt>
+      <dd><p>This event handler, of event handler type <code>msdecodercapacitychange</code>,
       MUST be fired when the decoder capacity changes.
       </p></dd>
 
@@ -2189,13 +2189,13 @@ function accept(mySignaller, remote) {
         </dl>
       </section>
 
-  <section id="decodercapacitychange-interface-definition*">
-      <h3>decodercapacitychange</h3>
+  <section id="msdecodercapacitychange-interface-definition*">
+      <h3>msdecodercapacitychange</h3>
 
-        <p>The <code>decodercapacitychange</code> event of the <code><a>RTCRtpReceiver</a></code> object uses
+        <p>The <code>msdecodercapacitychange</code> event of the <code><a>RTCRtpReceiver</a></code> object uses
         the <code><a>MSDCCEvent</a></code> interface.</p>
 
-        <p>Firing a <code>decodercapacitychange</code> event named <var>e</var>
+        <p>Firing a <code>msdecodercapacitychange</code> event named <var>e</var>
         with <code>maxFr</code> and <code>maxFs</code> means that an event with the name <var>e</var>,
         which does not bubble (except where otherwise stated) and is not
         cancelable (except where otherwise stated), and which uses the
@@ -2222,13 +2222,13 @@ function accept(mySignaller, remote) {
 
         <dl class="idl" title=
         "dictionary MSDCCEventInit : EventInit">
-          <dt>readonly attribute unsigned long maxFr</dt>
+          <dt>unsigned long maxFr</dt>
           <dd>
             <p>The <var>maxFr</var> attribute contains the maximum frame rate
             per second capacity. 
           </p>
           </dd>
-          <dt>readonly attribute unsigned long maxFs</dt>
+          <dt>unsigned long maxFs</dt>
           <dd>
             <p>The <var>maxFs</var> attribute contains the maximum macroblock
             per second capacity.
