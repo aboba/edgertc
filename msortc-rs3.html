@@ -4228,32 +4228,32 @@ It is accessed via the <code>RTCIceCandidateAttributes</code> defined in [[!WEBR
 </section>
 </section>
 <section id="rtcpmatchingrules*">
-<h3>RTCP matching rules</h3>
-<p>
-Since statistics are retrieved from objects within the ORTC API, and information within RTCP packets
-is used to maintain some of the statistics, the handling of RTCP packets is important to the operation
-of the statistics API.
-</p>
-<p>  
-RTCP packets arriving on an <code><a>RTCDtlsTransport</a></code> are decrypted and a notification is sent to all
+<h3>RTP/RTCP routing rules</h3>
+<p>Edge implements a subset of the RTP routing rules described in [[!BUNDLE]] Section 10.2.      
+Since Edge does not support the MID RTP header extension, it does not route RTP packets
+based on the contents of that header extension, nor does it support the      
+<code><a>RTCRtpParameters</a>.muxId</code> attribute.  However, Edge does
+support RTP packet routing based on the Payload Type (PT) as well as SSRCs.
+Since Edge does not support the RTCRtpListener
+object, RTP packets that cannot be routed to an <code>RTCRtpReceiver</code> are
+dropped.</p>
+<p>Since statistics are retrieved from objects within the ORTC API, and information within RTCP packets
+is used to maintain some of the statistics, the routing of RTCP packets is important to the operation
+of the statistics API as well as to the operation of congestion control.</p>
+<p>RTCP packets arriving on an <code><a>RTCDtlsTransport</a></code> are decrypted and a notification is sent to all
 <code><a>RTCRtpSender</a></code> and <code><a>RTCRtpReceiver</a></code> objects utilizing
 that transport.
 <code><a>RTCRtpSender</a></code> and <code><a>RTCRtpReceiver</a></code> objects then
 examine the RTCP packets to determine the information relevant to their operation and the statistics
-maintained by them.
-</p>
-<p>
-RTCP packets should be queued for 30 seconds and all <code><a>RTCRtpSender</a></code> and <code><a>RTCRtpReceiver</a></code> 
+maintained by them.</p>
+<p>RTCP packets should be queued for 30 seconds and all <code><a>RTCRtpSender</a></code> and <code><a>RTCRtpReceiver</a></code> 
 objects on the related <code><a>RTCDTlsTransport</a></code> have access to those packets until the packet is removed from the queue,
-should the <code><a>RTCRtpSender</a></code> or <code><a>RTCRtpReceiver</a></code> objects need to examine them. 
-</p>
-<p>
+should the <code><a>RTCRtpSender</a></code> or <code><a>RTCRtpReceiver</a></code> objects need to examine them.</p>
 <p>Relevant SSRC fields within selected RTCP packets are summarized 
 within [[!RFC3550]] Section 6.4.1 (Sender Report),
 Section 6.4.2 (Receiver Report), Section 6.5 (SDES),
 Section 6.6 (BYE), [[!RFC4585]] Section 6.1 (Feedback Messages),
-and [[!RFC3611]] Section 2 (Extended Reports).
-</p>
+and [[!RFC3611]] Section 2 (Extended Reports).</p>
 </section>
 <section>
 <h4>Example</h4>

@@ -3334,10 +3334,18 @@ sender.insertDTMF("123");
         </dl>
    </section>
   </section>
- <section id="rtcpmatchingrules*">
-     <h3>RTCP matching rules</h3>
+  <section id="rtcpmatchingrules*">
+<h3>RTP/RTCP routing rules</h3>
+<p>Edge implements a subset of the RTP routing rules described in [[!BUNDLE]] Section 10.2.      
+Since Edge does not support the MID RTP header extension, it does not route RTP packets
+based on the contents of that header extension, nor does it support the      
+<code><a>RTCRtpParameters</a>.muxId</code> attribute.  Moreover, Edge does not
+support RTP packet routing based on the Payload Type (PT), though it does support
+RTP packet routing based on SSRC.  Since Edge does not support the RTCRtpListener
+object, RTP packets that cannot be routed to an <code>RTCRtpReceiver</code> are
+dropped.</p>
 <p>Since statistics are retrieved from objects within the ORTC API, and information within RTCP packets
-is used to maintain some of the statistics, the handling of RTCP packets is important to the operation
+is used to maintain some of the statistics, the routing of RTCP packets is important to the operation
 of the statistics API as well as to the operation of congestion control.</p>
 <p>Since multiple RTCP packets can be sent together as a compound RTCP packet, a single compound RTCP
 packet may contain information relevant to multiple <code><a>RTCRtpSender</a></code> and <code><a>RTCRtpReceiver</a></code>
