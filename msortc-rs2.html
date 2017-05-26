@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title>Microsoft Object RTC (ORTC) Implementation</title>
-    <meta charset='utf-8'>  
-  <script src="respec-w3c-common.js" async class="remove"></script>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Microsoft Object RTC (ORTC) Implementation</title>
+  <script src="../respec-common-archive/6.1.4/respec-w3c-common.js" async class="remove"></script>
   <script class="remove">
 var respecConfig = {
     "specStatus": "CG-DRAFT",
@@ -1482,28 +1482,49 @@ The <dfn>RTCDtlsTransport</dfn> object includes information relating to Datagram
       "controlled" role acts as the DTLS client and
       the "controlling" role acts as the DTLS server.  Since <code><a>RTCDtlsRole</a></code>
       is initialized to "auto" on construction of an <code><a>RTCDtlsTransport</a></code> object,
-      <code>getLocalParameters().RTCDtlsRole</code> will have an initial value of "auto".
+      <code>getLocalParameters().role</code> will always return "auto".
       </p></dd>
 
       <dt>client</dt>
-      <dd><p>The DTLS client role.
-      A transition to "client" will occur if
-      <code>start(<var>remoteParameters</var>)</code> is called with <var>remoteParameters.role</var>
-      having a value of "server".  If <var>role</var> previously had a value of "server" (e.g. due to
-      the <code><a>RTCDtlsTransport</a></code> having previously received packets from a DTLS client), then the
-      DTLS session is reset prior to transitioning to the "client" role.
-      </p></dd>
+      <dd><p>The DTLS client role.</p></dd>
 
       <dt>server</dt>
-      <dd><p>The DTLS server role.  If <var>role</var> has a value of "auto" and the <code><a>RTCDtlsTransport</a></code> 
-      receives a DTLS client_helo packet,
-      <var>role</var> will transition to "server", even before <code>start()</code> is called.  A transition from "auto"
-      to "server" will also occur if <code>start(<var>remoteParameters</var>)</code> is called with 
-      <var>remoteParameters.role</var>
-      having a value of "client".
-      </p></dd>
+      <dd><p>The DTLS server role.</p></dd>
     </dl>
   </section>
+
+    <section id="rtcdtlsinfo">
+       <h3>DTLS role determination</h3>
+      <p>To diagnose DTLS role issues, an application may wish to determine
+      the desired and actual DTLS role of an <code><a>RTCDtlsTransport</a></code>.
+      In Edge ORTC, a <code><a>RTCDtlsTransport</a></code>
+      object assumes a DTLS role of <code>auto</code> upon construction.
+      This implies that the DTLS role is determined by the ICE role.  Since
+      <code>getLocalParameters().role</code> always returns the role assigned
+      to an <code><a>RTCDtlsTransport</a></code> object upon construction
+      (<code>auto</code> for Edge), the <code>getLocalParameters</code>
+      method cannot be used to determine the desired or actual role of an
+      <code><a>RTCDtlsTransport</a></code>.</p>
+      <p>An application can determine the
+      desired role of an <code><a>RTCDtlsTransport</a></code> from the value of
+      <code><var>remoteParameters</var>.role</code> passed to
+      <code><a>RTCDtlsTransport</a>.start(<var>remoteParameters</var>)</code>.
+      If <code><var>remoteParameters</var>.role</code> is <code>server</code>
+      then the desired role of the <code><a>RTCDtlsTransport</a></code>
+      is <code>client</code>. If <code><var>remoteParameters</var>.role</code>
+      is <code>client</code> then the desired role of the
+      <code><a>RTCDtlsTransport</a></code> is <code>server</code>.</p>
+      <p>The <code>RTCDtlsTransport.transport.onicestatechange</code> EventHandler
+      can be used to determine whether an <code><a>RTCDtlsTransport</a></code>
+      transitions to the desired role. When
+      <code><a>RTCDtlsTransport</a>.transport.state</code> transitions to
+      <code>connected</code>, if <code><a>RTCDtlsTransport</a>.transport.role</code>
+      is <code>controlled</code> then the role of the
+      <code><a>RTCDtlsTransport</a></code> is <code>client</code>.
+      If <code><a>RTCDtlsTransport</a>.transport.role</code>
+      is <code>controlling</code> then the role of the
+      <code><a>RTCDtlsTransport</a></code> is <code>server</code>.</p>
+    </section>
 
   <section id="rtcdtlstransportstate*">
     <h3>enum RTCDtlsTransportState</h3>
@@ -3188,8 +3209,11 @@ the <var>muxId</var> has a value
 whose meaning can be defined in advance between RTP
 sender and receiver, assisting in RTP demultiplexing.
 Note that including <var>muxId</var> in <code><a>RTCRtpParameters</a></code> rather than in <code><a>RTCRtpEncodingParameters</a></code> implies that if it is desired to send simulcast streams with different <var>muxId</var> values for each stream, then multiple
-<code><a>RTCRtpSender</a></code> objects are needed.
-</p></dd>
+<code><a>RTCRtpSender</a></code> objects are needed.</p>
+      <div class="note">
+Edge Interop Note:  Microsoft Edge currently does not support the <var>muxId</var> attribute, or the <a>MID</a> RTP header extension.
+      </div>
+</dd>
       <dt>sequence&lt;RTCRtpCodecParameters> codecs</dt>
       <dd><p>The codecs to send or receive (could include RED [[RFC2198]], RTX [[!RFC4588]] and CN [[RFC3389]]).</p></dd>
       <dt>sequence&lt;RTCRtpHeaderExtensionParameters> headerExtensions</dt>
@@ -3311,7 +3335,9 @@ and degrading framerate when bandwidth is constrained.
 attribute be set even when <code><a>RTCRtpSender</a></code> object(s) exists from which SSRC information could be obtained.  In Microsoft Edge, the <var>ssrc</var>
 attribute is used not only to fill in fields within RTCP packets that are sent, but also in order to route incoming RTCP packets (see Section 10.4). 
 This is necessary since Microsoft Edge utilizes RTCP APP packets that do not contain the SSRC fields supported by all other RTCP packets, allowing those packets to
-be routed to the relevant objects for processing.
+be routed to the relevant objects for processing. Also note that Microsoft Edge Receiver Report (RR) packets contain extensions documented in [[!MS-RTP]]:
+the RTCP Profile Specific Extension for Estimated Bandwidth (extension type 0x1, documented in [[!MS-RTP]] Section 2.2.11.1) and the
+RTCP Profile Specific Extension for Network Congestion Notification (extension type 0xd, documented in [[!MS-RTP]] Section 2.2.11.11).
 </p>
 </div>
 
@@ -3922,31 +3948,34 @@ It is accessed via the <code>RTCIceCandidateAttributes</code> defined in [[!WEBR
 </section>
 <section id="rtcpmatchingrules*">
 <h3>RTCP matching rules</h3>
-<p>
-Since statistics are retrieved from objects within the ORTC API, and information within RTCP packets
+<p>Since statistics are retrieved from objects within the ORTC API, and information within RTCP packets
 is used to maintain some of the statistics, the handling of RTCP packets is important to the operation
-of the statistics API.
-</p>
-<p>  
-RTCP packets arriving on an <code><a>RTCDtlsTransport</a></code> are decrypted and a notification is sent to all
-<code><a>RTCRtpSender</a></code> and <code><a>RTCRtpReceiver</a></code> objects utilizing
-that transport.
-<code><a>RTCRtpSender</a></code> and <code><a>RTCRtpReceiver</a></code> objects then
-examine the RTCP packets to determine the information relevant to their operation and the statistics
-maintained by them.
-</p>
-<p>
-RTCP packets should be queued for 30 seconds and all <code><a>RTCRtpSender</a></code> and <code><a>RTCRtpReceiver</a></code> 
-objects on the related <code><a>RTCDTlsTransport</a></code> have access to those packets until the packet is removed from the queue,
-should the <code><a>RTCRtpSender</a></code> or <code><a>RTCRtpReceiver</a></code> objects need to examine them. 
-</p>
-<p>
-<p>Relevant SSRC fields within selected RTCP packets are summarized 
-within [[!RFC3550]] Section 6.4.1 (Sender Report),
-Section 6.4.2 (Receiver Report), Section 6.5 (SDES),
-Section 6.6 (BYE), [[!RFC4585]] Section 6.1 (Feedback Messages),
-and [[!RFC3611]] Section 2 (Extended Reports).
-</p>
+of the statistics API as well as to the operation of congestion control.</p>
+<p>Since multiple RTCP packets can be sent together as a compound RTCP packet, a single compound RTCP
+packet may contain information relevant to multiple <code><a>RTCRtpSender</a></code> and <code><a>RTCRtpReceiver</a></code>
+objects. To ensure that RTCP packets are routed to all relevant objects, the
+algorithm described in [[!BUNDLE]] Section 10.2 requires that RTCP packets arriving on an
+encrypted transport be decrypted prior to routing, so that all the information relevant to
+RTCP packet routing can be examined.</p>
+      <div class="note">
+<p>Edge Interop Note: Edge does not implement the RTCP packet routing algorithm described in
+[[!BUNDLE]] Section 10.2.  Instead, Edge routes SRTCP packets prior to decryption, based on
+the content of the unencrypted "SSRC of sender" field, and delivers them to both
+<code><a>RTCRtpReceiver</a></code> and <code><a>RTCRtpSender</a></code> objects which
+subsequently decrypt them.  In compound RTCP packets, the first part of an
+SRTCP packet is a Sender Report (SR) or Receiver Report (RR), as mandated in Section 6.1 of
+[[!RFC3550]].
+The relevant <code><a>RTCRtpReceiver</a></code> object is determined by matching the "SSRC of sender"
+field against the <code>ssrc_table</code> maintained for each <code><a>RTCRtpReceiver</a></code>.
+The relevant <code><a>RTCRtpSender</a></code> object is determined by matching the
+"SSRC of sender" field against the value of <code><a>RTCRtcpParameters</a>.ssrc</code>
+set in the <code>send()</code> method.</p>
+<p>Since the RTCP algorithm utilized by Edge implicitly assumes that a compound RTCP packet
+contains information only relevant to a single matching <code><a>RTCRtpReceiver</a></code> and
+<code><a>RTCRtpSender</a></code> (e.g. a single "m-line"), it can malfunction if RTCP packets
+within the compound RTCP packet were to contain information relevant to multiple <code><a>RTCRtpSender</a></code> and <code><a>RTCRtpReceiver</a></code>
+pairs (e.g. multiple "m-lines").</p>
+      </div>
 </section>
 <section>
 <h4>Example</h4>
