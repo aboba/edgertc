@@ -2677,55 +2677,6 @@ described in [[MS-RTP]] Section 2.2.12.2.
     </section>
 </section>
 
-  <section id="h264-capabilities*">
-    <h3>H.264</h3>
-    <p>Microsoft Edge does not yet support H.264.  The ORTC API defines the following capabilities are defined for H.264, as noted in [[RFC6184]] Section 8.1, and [[!RTCWEB-VIDEO]] Section 6.2.</p>
-
-      <table class="simple">
-        <thead>
-          <tr>
-            <th>Property Name</th>
-
-            <th>Values</th>
-
-            <th>Notes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr id="def-profile-level-id*">
-            <td><dfn>profile-level-id</dfn></td>
-
-            <td>
-              <code>unsigned long</code>
-            </td>
-
-            <td>This parameter, defined in [[RFC6184]] Section 8.1, is mandatory to support, as noted in [[!RTCWEB-VIDEO]] Section 6.2.</td>
-            </tr>
-          <tr id="def-packetization-mode*">
-            <td><dfn>packetization-mode</dfn></td>
-
-            <td><code>sequence&lt;unsigned short&gt;</code></td>
-            <td>
-A sequence of unsigned shorts, each ranging from 0 to 2, indicating supported <var>packetization-mode</var> values.
-As noted in [[!RTCWEB-VIDEO]] Section 6.2, support for <var>packetization-mode</var> 1 is mandatory.
-            </td>
-            </tr>
-          <tr id="def-other-h264-params*">
-            <td>max-mbps, max-smbps, max-fs, max-cpb, max-dpb, max-br</td>
-
-            <td>
-              <code>unsigned long long</code>
-            </td>
-            <td>As noted in [[!RTCWEB-VIDEO]] Section 6.2, these optional parameters
-      allow the implementation to specify that they can support
-      certain features of H.264 at higher rates and values than those
-      signalled with <var>profile-level-id</var>.</td>
-            </tr>
-
-        </tbody>
-      </table>
-  </section>
-
   </section>
 </section>
   <section id="rtcrtpparameters*">
