@@ -3031,6 +3031,17 @@ Edge Interop Note:  Microsoft Edge currently does not support the <var>muxId</va
                             <code>degradationPreference</code> is ignored in an <code><a>RTCRtpReceiver</a></code> object.
                         </p>
                     </dd>
+                    <dt>boolean msAutoCrop = "false"</dt>
+                    <dd>
+                        <p>
+                            When <code>msAutoCrop</code> is <code>true</code>, automatic face detection is enabled in
+                            an <code><a>RTCRtpSender</a></code>, and in an <code><a>RTCRtpReceiver</a></code>, cropping
+                            parameters are kept in the bitstream. When <code>msAutoCrop</code> is <code>false</code>,
+                            automatic face detection is disabled in an <code><a>RTCRtpSender</a></code> and cropping parameters are discarded
+                            in an <code><a>RTCRtpReceiver</a></code>. <code>msAutoCrop</code> is enabled only for use with the
+                            H.264/AVC and H.264UC video codecs; it is ignored by audio codecs or other video codecs.
+                        </p>
+                    </dd>
     </dl>
   </section>
             <section id="rtcrtpheaderextension*">
