@@ -1901,12 +1901,12 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                  </dl>
             </section>
             <section id="MSExperimentalConfig*">
-              <h3>dictionary MSEexperimentalConfig</h3>
+              <h3>dictionary MSExperimentalConfig</h3>
                  <p>The <dfn>MSExperimentalConfig</dfn> dictionary provides experimental configuration information.</p>
 
                  <dl title='dictionary MSExperimentalConfig' class='idl'>
-                    <dt>boolean msECSvar1</dt>
-                    <dd><p>A boolean attribute.</p></dd>
+                    <dt>sequence&lt;DOMString> hardwareEncoderBlockList</dt>
+                    <dd><p>A sequence of strings indicating graphics drivers that do not have compatible hardware encoding support.</p></dd>
                     <dt>boolean msECSvar2</dt>
                     <dd><p>Another boolean attribute.</p></dd>
                  </dl>
