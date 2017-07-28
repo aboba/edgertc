@@ -1848,7 +1848,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
             </section>
             <section id="rtctransportcontroller-operation*">
                 <h3>Operation</h3>
-                <p>An <code><a>RTCIceTransportController</a></code> instance is constructed with an optional <code>config</code> dictionary.</p>
+                <p>An <code><a>RTCIceTransportController</a></code> instance is constructed with an optional <code>config</code> argument.</p>
             </section>
             <section id="rtcicetransportcontroller-interface-definition*">
                 <h3>Interface Definition</h3>
@@ -1886,15 +1886,30 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
             </section>
             <section id="RTCControllerConfig*">
               <h3>dictionary RTCControllerConfig</h3>
-                 <p>The <dfn>RTCControllerConfig</dfn> object provides configuration information for the
+                 <p>The <dfn>RTCControllerConfig</dfn> dictionary provides configuration information for the
                  <code><a>RTCIceTransportController</a></code> object.
 
                  <dl title='dictionary RTCControllerConfig' class='idl'>
-                    <dt>DOMString msConfToken</dt>
-                    <dd><p>If <code>msConfToken</code> is set, it uniquely identifies
-                      a conference session.  If it is unset, the
-                      <code>RTCIceTransportController</code> object is not associated with a
-                      conferencing server.</p></dd>
+                    <dt>boolean msConfMode = false</dt>
+                    <dd><p><code>msConfMode</code> has the value <code>true</code> if the 
+                      <code>RTCIceTransportController</code> object is associated with a
+                      conferencing server, <code>false</code> otherwise. By default
+                      <code>msConfMode</code> is set to <code>false</code>.</p></dd>
+                    <dt>MSECSConfig MSECSToken</dt>
+                    <dd><p>If <code>MSECSToken</code> is set, configuration information
+                    is provided.</p></dd>
+                 </dl>
+            </section>
+            <section id="MSECSConfig*">
+              <h3>dictionary MSECSConfig</h3>
+                 <p>The <dfn>MSECSConfig</dfn> dictionary provides configuration information for the
+                 <code><a>RTCIceTransportController</a></code> object.
+
+                 <dl title='dictionary MSECSConfig' class='idl'>
+                    <dt>boolean msECSvar1</dt>
+                    <dd><p><code>A boolean attribute.</p></dd>
+                    <dt>boolean msECSvar2</dt>
+                    <dd><p>Another boolean attribute.</p></dd>
                  </dl>
             </section>
   <section id="msvideoreceivers-interface-definition*">
@@ -2802,7 +2817,7 @@ in response to a call to <code>RTCRtpReceiver.getCapabilities("video")</code>.</
                             </thead>
                             <tbody>
                                 <tr id="def-rtxtime*">
-                                    <td><dfn>rtxTime</dfn></td>
+                                    <td><dfn>rtx-time</dfn></td>
                                     <td>
                                         <code>unsigned long</code>
                                     </td>
