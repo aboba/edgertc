@@ -1897,7 +1897,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
             </section>
             <section id="rtcicetransportcontroller-interface-definition*">
                 <h3>Interface Definition</h3>
-                <dl class="idl" title="[Constructor()] interface RTCIceTransportController">
+                <dl class="idl" title="[Constructor(optional RTCControllerConfig config)] interface RTCIceTransportController">
                     <dt>void addTransport(RTCIceTransport transport)</dt>
                     <dd>
                         <p>
@@ -1919,7 +1919,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                             If <code>addTransport()</code> has not been called, an empty list is returned.
                         </p>
                     </dd>
-                    <dt>static void setConfiguration(RTCControllerConfig config)</dt>
+                    <dt>static void setConfiguration(MSConfig config)</dt>
                     <dd><p>Sets the session configuration.</p></dd>
                     <dt>attribute EventHandler? onmsvideoreceivers</dt>
                     <dd><p>This event handler, of event handler type <code>msvideoreceivers</code>,
@@ -1929,7 +1929,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
             </section>
             <section id="RTCControllerConfig*">
               <h3>dictionary RTCControllerConfig</h3>
-                 <p>The <dfn>RTCControllerConfig</dfn> dictionary provides configuration information.</p>
+                 <p>The <dfn>RTCControllerConfig</dfn> dictionary provides configuration information for the <code><a>RTCIceTransportController</a></code>.</p>
 
                  <dl title='dictionary RTCControllerConfig' class='idl'>
                     <dt>boolean msConfMode = false</dt>
@@ -1937,9 +1937,6 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                       <code>RTCIceTransportController</code> object is associated with a
                       conferencing server, <code>false</code> otherwise. By default
                       <code>msConfMode</code> is set to <code>false</code>.</p></dd>
-                    <dt>MSConfig config</dt>
-                    <dd><p>If <code>config</code> is set, configuration information
-                    is provided.</p></dd>
                  </dl>
             </section>
             <section id="MSConfig*">
