@@ -1920,7 +1920,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                             If <code>addTransport()</code> has not been called, an empty list is returned.
                         </p>
                     </dd>
-                    <dt>static void setConfiguration(MSConfig config)</dt>
+                    <dt>static void setConfiguration(MSRTCSystemConfig config)</dt>
                     <dd><p>Sets the session configuration.</p></dd>
                     <dt>attribute EventHandler? onmsvideoreceivers</dt>
                     <dd><p>This event handler, of event handler type <code>msvideoreceivers</code>,
@@ -1940,11 +1940,11 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                       <code>msConfMode</code> is set to <code>false</code>.</p></dd>
                  </dl>
             </section>
-            <section id="MSConfig*">
-              <h3>dictionary MSConfig</h3>
-                 <p>The <dfn>MSConfig</dfn> dictionary provides configuration information.</p>
+            <section id="MSRTCSystemConfig*">
+              <h3>dictionary MSRTCSystemConfig</h3>
+                 <p>The <dfn>MSRTCSystemConfig</dfn> dictionary provides configuration information.</p>
 
-                 <dl title='dictionary MSConfig' class='idl'>
+                 <dl title='dictionary MSRTCSystemConfig' class='idl'>
                     <dt>sequence&lt;DOMString> hardwareEncoderBlockList</dt>
                     <dd><p>A sequence of strings indicating graphics drivers that do not have compatible hardware encoding support.</p></dd>
                     <dt>boolean msECSvar2</dt>
