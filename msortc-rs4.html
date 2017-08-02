@@ -1498,8 +1498,8 @@ function accept(mySignaller, remote) {
   <section id="msquality-interface-definition*">
       <h3>msquality</h3>
 
-        <p>The <code>msquality</code> event of the <code><a>RTCIceTransportController</a></code> object uses
-        the <code><a>MSQualityEvent</a></code> interface.</p>
+        <p>The <code>msquality</code> event uses the
+        <code><a>MSQualityEvent</a></code> interface.</p>
 
         <p>Firing a <code>msquality</code> event named <var>e</var>
         with <code>messages</code> means that an event with the name <var>e</var>,
@@ -1920,7 +1920,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                         </p>
                     </dd>
                     <dt>static void setConfiguration(RTCControllerConfig config)</dt>
-                    <dd><p>Sets the configuration of the <code>RTCIceTransportController</code>.</p></dd>
+                    <dd><p>Sets the session configuration.</p></dd>
                     <dt>attribute EventHandler? onmsvideoreceivers</dt>
                     <dd><p>This event handler, of event handler type <code>msvideoreceivers</code>,
                     MUST be fired when the number of potential video receivers changes.
@@ -1929,8 +1929,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
             </section>
             <section id="RTCControllerConfig*">
               <h3>dictionary RTCControllerConfig</h3>
-                 <p>The <dfn>RTCControllerConfig</dfn> dictionary provides configuration information for the
-                 <code><a>RTCIceTransportController</a></code> object.
+                 <p>The <dfn>RTCControllerConfig</dfn> dictionary provides configuration information.</p>
 
                  <dl title='dictionary RTCControllerConfig' class='idl'>
                     <dt>boolean msConfMode = false</dt>
