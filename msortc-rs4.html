@@ -1662,8 +1662,9 @@ function accept(mySignaller, remote) {
       <dd><p>Stops receiving the track on the wire. Stop is final like <a>MediaStreamTrack</a>.
       </p></dd>
 
-      <dt>void smartCrop()</dt>
-      <dd><p>Utilizes crop information provided by the sender if available.</p></dd>
+      <dt>void msSmartCrop(boolean on = false)</dt>
+      <dd><p>Indicates whether the receiver will utilize crop information if it is provided by the sender.
+      By default, cropping is turned off.</p></dd>
 
       <dt>attribute EventHandler? onerror</dt>
       <dd><p>This event handler, of event handler type <code>error</code>,
