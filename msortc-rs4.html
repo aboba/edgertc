@@ -1488,9 +1488,47 @@ function accept(mySignaller, remote) {
       with the <code><a>RTCRtpParameters</a></code> object passed to
       <code>send()</code>, that is not immediately detected.
       </p></dd>
+
+      <dt>attribute EventHandler? onmsquality</dt>
+      <dd><p>This event handler, of event handler type <code>msquality</code>,
+      MUST be fired when an event affecting session quality occurs.
+      </p></dd>
     </dl>
   </section>
+  <section id="msquality-interface-definition*">
+      <h3>msquality</h3>
 
+        <p>The <code>msquality</code> event of the <code><a>RTCIceTransportController</a></code> object uses
+        the <code><a>MSQualityEvent</a></code> interface.</p>
+
+        <p>Firing a <code>msquality</code> event named <var>e</var>
+        with <code>messages</code> means that an event with the name <var>e</var>,
+        which does not bubble (except where otherwise stated) and is not
+        cancelable (except where otherwise stated), and which uses the
+        <code><a>MSQualityEvent</a></code> interface with the
+        <var>messages</var> attribute
+        <em class="rfc2119" title="MUST">MUST</em> be
+        created and dispatched at the given target.</p>
+
+        <dl class="idl" data-merge="MSQualityEventInit" title=
+        "[Constructor(DOMString type, MSQualityEventInit eventInitDict)] interface MSQualityEvent : Event">
+          <dt>readonly attribute sequence&lt;DOMString> messages</dt>
+          <dd>
+            <p>The <var>messages</var> attribute contains the names of the quality events that have been fired.
+          </p>
+          <p class="note" >TODO: The names of the quality events need to be provided.</p>
+          </dd>
+        </dl>
+
+        <dl class="idl" title=
+        "dictionary MSQualityEventInit : EventInit">
+          <dt>sequence&lt;DOMString> messages</dt>
+          <dd>
+            <p>The <var>messages</var> attribute contains the names of the quality events that have been fired.
+            </p>
+          </dd>
+        </dl>
+   </section>
 </section>
 
 <section id="rtcrtpreceiver*">
@@ -1624,6 +1662,9 @@ function accept(mySignaller, remote) {
       <dd><p>Stops receiving the track on the wire. Stop is final like <a>MediaStreamTrack</a>.
       </p></dd>
 
+      <dt>void smartCrop()</dt>
+      <dd><p>Utilizes crop information provided by the sender if available.</p></dd>
+
       <dt>attribute EventHandler? onerror</dt>
       <dd><p>This event handler, of event handler type <code>error</code>,
       <em class="rfc2119" title="MUST">MUST</em> be supported by all objects implementing the <code><a>RTCRtpReceiver</a></code> interface.
@@ -1641,6 +1682,10 @@ function accept(mySignaller, remote) {
       MUST be fired when the decoder capacity changes.
       </p></dd>
 
+      <dt>attribute EventHandler? onmsquality</dt>
+      <dd><p>This event handler, of event handler type <code>msquality</code>,
+      MUST be fired when an event affecting session quality occurs.
+      </p></dd>
     </dl>
   </section>
 
@@ -1852,7 +1897,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
             </section>
             <section id="rtcicetransportcontroller-interface-definition*">
                 <h3>Interface Definition</h3>
-                <dl class="idl" title="[Constructor(optional RTCControllerConfig config)] interface RTCIceTransportController">
+                <dl class="idl" title="[Constructor()] interface RTCIceTransportController">
                     <dt>void addTransport(RTCIceTransport transport)</dt>
                     <dd>
                         <p>
@@ -1874,13 +1919,11 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                             If <code>addTransport()</code> has not been called, an empty list is returned.
                         </p>
                     </dd>
+                    <dt>static void setConfiguration(RTCControllerConfig config)</dt>
+                    <dd><p>Sets the configuration of the <code>RTCIceTransportController</code>.</p></dd>
                     <dt>attribute EventHandler? onmsvideoreceivers</dt>
                     <dd><p>This event handler, of event handler type <code>msvideoreceivers</code>,
                     MUST be fired when the number of potential video receivers changes.
-                    </p></dd>
-                    <dt>attribute EventHandler? onmsquality</dt>
-                    <dd><p>This event handler, of event handler type <code>msquality</code>,
-                    MUST be fired when an event affecting session quality occurs.
                     </p></dd>
                 </dl>
             </section>
@@ -1895,16 +1938,16 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                       <code>RTCIceTransportController</code> object is associated with a
                       conferencing server, <code>false</code> otherwise. By default
                       <code>msConfMode</code> is set to <code>false</code>.</p></dd>
-                    <dt>MSExperimentalConfig expConfig</dt>
-                    <dd><p>If <code>expConfig</code> is set, experimental configuration information
+                    <dt>MSConfig config</dt>
+                    <dd><p>If <code>config</code> is set, configuration information
                     is provided.</p></dd>
                  </dl>
             </section>
-            <section id="MSExperimentalConfig*">
-              <h3>dictionary MSExperimentalConfig</h3>
-                 <p>The <dfn>MSExperimentalConfig</dfn> dictionary provides experimental configuration information.</p>
+            <section id="MSConfig*">
+              <h3>dictionary MSConfig</h3>
+                 <p>The <dfn>MSConfig</dfn> dictionary provides configuration information.</p>
 
-                 <dl title='dictionary MSExperimentalConfig' class='idl'>
+                 <dl title='dictionary MSConfig' class='idl'>
                     <dt>sequence&lt;DOMString> hardwareEncoderBlockList</dt>
                     <dd><p>A sequence of strings indicating graphics drivers that do not have compatible hardware encoding support.</p></dd>
                     <dt>boolean msECSvar2</dt>
@@ -1944,41 +1987,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
           </dd>
         </dl>
    </section>
-  <section id="msquality-interface-definition*">
-      <h3>msquality</h3>
-
-        <p>The <code>msquality</code> event of the <code><a>RTCIceTransportController</a></code> object uses
-        the <code><a>MSQualityEvent</a></code> interface.</p>
-
-        <p>Firing a <code>msquality</code> event named <var>e</var>
-        with <code>messages</code> means that an event with the name <var>e</var>,
-        which does not bubble (except where otherwise stated) and is not
-        cancelable (except where otherwise stated), and which uses the
-        <code><a>MSQualityEvent</a></code> interface with the
-        <var>messages</var> attribute
-        <em class="rfc2119" title="MUST">MUST</em> be
-        created and dispatched at the given target.</p>
-
-        <dl class="idl" data-merge="MSQualityEventInit" title=
-        "[Constructor(DOMString type, MSQualityEventInit eventInitDict)] interface MSQualityEvent : Event">
-          <dt>readonly attribute sequence&lt;DOMString> messages</dt>
-          <dd>
-            <p>The <var>messages</var> attribute contains the names of the quality events that have been fired.
-          </p>
-          <p class="note" >TODO: The names of the quality events need to be provided.</p>
-          </dd>
-        </dl>
-
-        <dl class="idl" title=
-        "dictionary MSQualityEventInit : EventInit">
-          <dt>sequence&lt;DOMString> messages</dt>
-          <dd>
-            <p>The <var>messages</var> attribute contains the names of the quality events that have been fired.
-            </p>
-          </dd>
-        </dl>
-   </section>
-        </section>
+</section>
 
 <section id="rtcrtpdictionaries*">
   <h2>Dictionaries related to Rtp</h2>
@@ -3044,17 +3053,6 @@ Edge Interop Note:  Microsoft Edge currently does not support the <var>muxId</va
                             When bandwidth is constrained and the <code><a>RTCRtpSender</a></code> needs to choose between degrading
                             resolution or degrading framerate, <code>degradationPreference</code> indicates which is preferred.
                             <code>degradationPreference</code> is ignored in an <code><a>RTCRtpReceiver</a></code> object.
-                        </p>
-                    </dd>
-                    <dt>boolean msAutoCrop = "false"</dt>
-                    <dd>
-                        <p>
-                            When <code>msAutoCrop</code> is <code>true</code>, automatic face detection is enabled in
-                            an <code><a>RTCRtpSender</a></code>, and in an <code><a>RTCRtpReceiver</a></code>, cropping
-                            parameters are kept in the bitstream. When <code>msAutoCrop</code> is <code>false</code>,
-                            automatic face detection is disabled in an <code><a>RTCRtpSender</a></code> and cropping parameters are discarded
-                            in an <code><a>RTCRtpReceiver</a></code>. <code>msAutoCrop</code> is enabled only for use with the
-                            H.264/AVC and H.264UC video codecs; it is ignored by audio codecs or other video codecs.
                         </p>
                     </dd>
     </dl>
