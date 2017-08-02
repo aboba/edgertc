@@ -1906,7 +1906,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                             In the Edge implementation the <code><a>RTCIceTransportController</a></code> does not
                             manage ICE freezing.
                             <var>transport</var> is always inserted at the end.
-                            If <code>transport.state</code> is <code>closed</code>, throw an <code>InvalidStateError</code> exception.
+                            If <code>transport.state</code> is not <code>new</code>, throw an <code>InvalidStateError</code> exception.
                             If <code>transport</code> has already been added to another
                             <code><a>RTCIceTransportController</a></code> object,
                             or if <code>transport.component</code> is <code>RTCP</code>, throw an <code>InvalidStateError</code> exception.
