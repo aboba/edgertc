@@ -1947,8 +1947,22 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                  <dl title='dictionary MSRTCSystemConfig' class='idl'>
                     <dt>sequence&lt;DOMString> hardwareEncoderBlockList</dt>
                     <dd><p>A sequence of strings indicating graphics drivers that do not have compatible hardware encoding support.</p></dd>
-                    <dt>boolean msECSvar2</dt>
-                    <dd><p>Another boolean attribute.</p></dd>
+                    <dt>sequence&lt;DOMString> hardwareEncoderBlockList</dt>
+                    <dd><p>A sequence of strings indicating graphics drivers that do not have compatible hardware encoding support.</p></dd>
+                 </dl>
+            </section>
+            <section id="MSDeviceDriver*">
+              <h3>dictionary MSDeviceDriver</h3>
+                 <p>The <dfn>MSDeviceDriver</dfn> dictionary provides information on unsupported devices, such as the identifier and
+	         device driver versions.</p>
+
+                 <dl title='dictionary MSDeviceDriver' class='idl'>
+                    <dt>DOMString deviceId</dt>
+                    <dd><p>The PNP Device ID in hex format. Zero (0) menas all.</p></dd>
+                    <dt>DOMString deviceDriverVersionRangeMin</dt>
+                    <dd><p>Starting graphics driver version (inclusive) to be blocked.</p></dd>
+		    <dt>DOMString deviceDriverVersionRangeMax</dt>
+                    <dd><p>Ending graphics driver version (inclusive) to be blocked.</p></dd>
                  </dl>
             </section>
   <section id="msvideoreceivers-interface-definition*">
