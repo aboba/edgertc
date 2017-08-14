@@ -1514,9 +1514,29 @@ function accept(mySignaller, remote) {
         "[Constructor(DOMString type, MSQualityEventInit eventInitDict)] interface MSQualityEvent : Event">
           <dt>readonly attribute sequence&lt;DOMString> messages</dt>
           <dd>
-            <p>The <var>messages</var> attribute contains the names of the quality events that have been fired.
-          </p>
-          <p class="note" >TODO: The names of the quality events need to be provided.</p>
+            <p>The <var>messages</var> attribute contains the names of the quality events that have been fired,
+            defined in the table below:</p>
+          <table class="simple">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Sender/Receiver</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="def-nsq">
+                <td><dfn>NetworkSendQuality</dfn></td>
+                <td>Network quality in terms of jitter or packet loss is severe and impacting the quality of audio being sent.</td>
+                <td>Sender</td>
+              </tr>
+              <tr id="def-nrq">
+                <td><dfn>NetworkReceiveQuality</dfn></td>
+                <td>Network quality in terms of jitter or packet loss is severe and impacting the quality of audio being received.</td>
+                <td>Sender</td>
+              </tr>
+            </tbody>
+          </table>
           </dd>
         </dl>
 
