@@ -1898,7 +1898,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
             </section>
             <section id="rtcicetransportcontroller-interface-definition*">
                 <h3>Interface Definition</h3>
-                <dl class="idl" title="[Constructor(optional RTCControllerConfig config)] interface RTCIceTransportController">
+                <dl class="idl" title="[Constructor(optional MSControllerConfig config)] interface RTCIceTransportController">
                     <dt>void addTransport(RTCIceTransport transport)</dt>
                     <dd>
                         <p>
@@ -1928,11 +1928,11 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                     </p></dd>
                 </dl>
             </section>
-            <section id="RTCControllerConfig*">
-              <h3>dictionary RTCControllerConfig</h3>
-                 <p>The <dfn>RTCControllerConfig</dfn> dictionary provides configuration information for the <code><a>RTCIceTransportController</a></code>.</p>
+            <section id="MSControllerConfig*">
+              <h3>dictionary MSControllerConfig</h3>
+                 <p>The <dfn>MSControllerConfig</dfn> dictionary provides configuration information for the <code><a>RTCIceTransportController</a></code>.</p>
 
-                 <dl title='dictionary RTCControllerConfig' class='idl'>
+                 <dl title='dictionary MSControllerConfig' class='idl'>
                     <dt>boolean msConfMode = false</dt>
                     <dd><p><code>msConfMode</code> has the value <code>true</code> if the 
                       <code>RTCIceTransportController</code> object is associated with a
