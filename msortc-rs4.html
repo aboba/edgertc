@@ -1945,10 +1945,10 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                  <p>The <dfn>MSRTCSystemConfig</dfn> dictionary provides system configuration information.</p>
 
                  <dl title='dictionary MSRTCSystemConfig' class='idl'>
-                    <dt>sequence&lt;DOMString> hardwareEncoderBlockList</dt>
-                    <dd><p>A sequence of strings indicating graphics drivers that do not have compatible hardware encoding support.</p></dd>
-                    <dt>sequence&lt;DOMString> hardwareEncoderBlockList</dt>
-                    <dd><p>A sequence of strings indicating graphics drivers that do not have compatible hardware encoding support.</p></dd>
+                    <dt>sequence&lt;MSDeviceDriver> hardwareVideoEncoderBlockList</dt>
+                    <dd><p>A sequence of dictionaries indicating graphics drivers that do not have compatible hardware encoding support.</p></dd>
+                    <dt>sequence&lt;MSDeviceDriver> hardwareVideoDecoderBlockList</dt>
+                    <dd><p>A sequence of dictionaries indicating graphics drivers that do not have compatible hardware decoding support.</p></dd>
                  </dl>
             </section>
             <section id="MSDeviceDriver*">
