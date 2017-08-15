@@ -1577,8 +1577,45 @@ function accept(mySignaller, remote) {
               </tr>
 	      <tr id="def-de">
                 <td><dfn>DeviceEcho</dfn></td>
-                <td>Device or setup is causing echo beyond the ability of the system to compensate.</td>
+                <td>The device or setup is causing echo beyond the ability of the system to compensate.</td>
                 <td>Sender</td>
+              </tr>
+	      <tr id="def-dhdaec">
+                <td><dfn>DeviceHalfDuplexAec</dfn></td>
+                <td>In order to prevent echo, the system has entered the half duplex voice switching state.
+	        Interactive communication will be impacted.</td>
+                <td>Sender/Receiver</td>
+              </tr>
+	      <tr id="def-dmep">
+                <td><dfn>DeviceMultipleEndpoints</dfn></td>
+                <td>Multiple audio endpoints in the same session have been detected and the system has
+	        compensated by reducing render volume.</td>
+                <td>Receiver</td>
+              </tr>
+	      <tr id="def-dh">
+                <td><dfn>DeviceHowling</dfn></td>
+                <td>An audio feedback loop has been detected, caused by multiple endpoints sharing an audio path.</td>
+                <td>Receiver</td>
+              </tr>
+	      <tr id="def-drzv">
+                <td><dfn>DeviceRenderZeroVolume</dfn></td>
+                <td>The render device was set to zero volume at the OS level.</td>
+                <td>Receiver</td>
+              </tr>
+              <tr id="def-dsc">
+                <td><dfn>DeviceSendCatastrophic</dfn></td>
+                <td>Network quality in terms of jitter or packet loss is poor and is impacting the quality of audio being sent.</td>
+                <td>Sender</td>
+              </tr>
+	      <tr id="def-drc">
+                <td><dfn>DeviceReceiveCatastrophic</dfn></td>
+                <td>Network quality in terms of jitter or packet loss is poor and is impacting the quality of audio being received.</td>
+                <td>Receiver</td>
+              </tr>
+	      <tr id="def-vbr">
+                <td><dfn>VideoVbssRendered</dfn></td>
+                <td>Video-based screen sharing is decoding and decompressed frames are being pushed to the renderer.</td>
+                <td>Receiver</td>
               </tr>
             </tbody>
           </table>
