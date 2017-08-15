@@ -1547,8 +1547,38 @@ function accept(mySignaller, remote) {
               </tr>
 	      <tr id="def-nr">
                 <td><dfn>NetworkReconnect/dfn></td>
-                <td>Network connectivity has been lost. To restore it, the application may consider an ICE restart.</td>
+                <td>Network connectivity is likely to fail. To restore it, the application may consider an ICE restart.</td>
                 <td>Sender/Receiver</td>
+              </tr>
+	      <tr id="def-dri">
+                <td><dfn>DeviceRenderIssues/dfn></td>
+                <td>There are severe issues in the rendering of audio which is causing distortions.
+	        These issues can be caused by driver problems, deferred procedure calls (DPC) storms
+	        (drivers), and high CPU usage. </td>
+                <td>Receiver</td>
+              </tr>
+              <tr id="def-dls">
+                <td><dfn>DeviceLowSNR/dfn></td>
+                <td>The capture quality is very poor.  Either it is very noisy or the user is talking
+	        too far away from the microphone. This will cause distortions.</td>
+                <td>Sender</td>
+              </tr>
+              <tr id="def-dlsl">
+                <td><dfn>DeviceLowSpeechLevel/dfn></td>
+                <td>The user‘s speech level is too low and the system cannot increase it any further.
+		This can either cause distortions or it can be perceived as one-way audio.</td>
+                <td>Sender</td>
+              </tr>
+	      <tr id="def-dc">
+                <td><dfn>DeviceClipping/dfn></td>
+                <td>When near-end speech clips the microphone, the far-end hears distortion due to clipping.
+		It is important to avoid near-end microphone clipping.</td>
+                <td>Sender</td>
+              </tr>
+	      <tr id="def-de">
+                <td><dfn>DeviceEcho/dfn></td>
+                <td>Device or setup is causing echo beyond the ability of the system to compensate.</td>
+                <td>Sender</td>
               </tr>
             </tbody>
           </table>
