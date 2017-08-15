@@ -1527,17 +1527,17 @@ function accept(mySignaller, remote) {
             <tbody>
               <tr id="def-nsq">
                 <td><dfn>NetworkSendQuality</dfn></td>
-                <td>Network quality in terms of jitter or packet loss is severe and impacting the quality of audio being sent.</td>
+                <td>Network quality in terms of jitter or packet loss is severe and is impacting the quality of audio being sent.</td>
                 <td>Sender</td>
               </tr>
               <tr id="def-nrq">
                 <td><dfn>NetworkReceiveQuality</dfn></td>
-                <td>Network quality in terms of jitter or packet loss is severe and impacting the quality of audio being received.</td>
+                <td>Network quality in terms of jitter or packet loss is severe and is impacting the quality of audio being received.</td>
                 <td>Receiver</td>
               </tr>
 	      <tr id="def-nd">
                 <td><dfn>NetworkDelay</dfn></td>
-                <td>Network latency is severe and impacting the experience by preventing interactive communication.</td>
+                <td>Network latency is severe and is preventing interactive communication.</td>
                 <td>Sender</td>
               </tr>
               <tr id="def-nbl">
@@ -1552,27 +1552,26 @@ function accept(mySignaller, remote) {
               </tr>
 	      <tr id="def-dri">
                 <td><dfn>DeviceRenderIssues</dfn></td>
-                <td>There are severe issues in the rendering of audio which is causing distortions.
-	        These issues can be caused by driver problems, deferred procedure calls (DPC) storms
-	        (drivers), and high CPU usage. </td>
+                <td>There are severe issues in the rendering of audio which is causing distortion.
+	        These issues can be caused by driver problems, deferred procedure call (DPC) storms
+	        (drivers), and high CPU usage.</td>
                 <td>Receiver</td>
               </tr>
               <tr id="def-dls">
                 <td><dfn>DeviceLowSNR</dfn></td>
-                <td>The capture quality is very poor.  Either it is very noisy or the user is talking
-	        too far away from the microphone. This will cause distortions.</td>
+                <td>The capture quality is very poor, either due to noice or because the user is too
+	        far from the microphone. This will cause distortion.</td>
                 <td>Sender</td>
               </tr>
               <tr id="def-dlsl">
                 <td><dfn>DeviceLowSpeechLevel</dfn></td>
                 <td>The user‘s speech level is too low and the system cannot increase it any further.
-		This can either cause distortions or it can be perceived as one-way audio.</td>
+		This can either cause distortion or it can be perceived as one-way audio.</td>
                 <td>Sender</td>
               </tr>
 	      <tr id="def-dc">
                 <td><dfn>DeviceClipping</dfn></td>
-                <td>When near-end speech clips the microphone, the far-end hears distortion due to clipping.
-		It is important to avoid near-end microphone clipping.</td>
+                <td>When near-end speech clips the microphone, the far-end hears distortion due to clipping.</td>
                 <td>Sender</td>
               </tr>
 	      <tr id="def-de">
@@ -1599,7 +1598,7 @@ function accept(mySignaller, remote) {
               </tr>
 	      <tr id="def-drzv">
                 <td><dfn>DeviceRenderZeroVolume</dfn></td>
-                <td>The render device was set to zero volume at the OS level.</td>
+                <td>The render device was set to zero volume at the operating system level.</td>
                 <td>Receiver</td>
               </tr>
               <tr id="def-dsc">
