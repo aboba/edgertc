@@ -1512,11 +1512,26 @@ function accept(mySignaller, remote) {
 
         <dl class="idl" data-merge="MSQualityEventInit" title=
         "[Constructor(DOMString type, MSQualityEventInit eventInitDict)] interface MSQualityEvent : Event">
-          <dt>readonly attribute sequence&lt;DOMString> messages</dt>
-          <dd>
-            <p>The <var>messages</var> attribute contains the names of the quality events that have been fired,
-            defined in the table below:</p>
-          <table class="simple">
+          <dt>readonly attribute sequence&lt;MSQualityMessage> messages</dt>
+          <dd>The <var>messages</var> attribute contains the quality events that have been fired.</dd>
+        </dl>
+	  
+        <dl class="idl" title=
+        "dictionary MSQualityEventInit : EventInit">
+          <dt>sequence&lt;MSQualityMessage> messages</dt>
+          <dd>The <var>messages</var> attribute contains the quality events that have been fired.</dd>
+        </dl>
+   </section>		
+   <section id="msqualitymessage-dictionary*">
+      <h3><dfn>MSQualityMessage</dfn> Dictionary</h3>
+      <p>
+	      The <code>MSQualityMessages</code> dictionary contains the name and value of a quality event.
+      </p>
+	   
+    <dl title='dictionary MSQualityMessage' class='idl'>
+      <dt>DOMString name</dt>
+      <dd><p>The name of the quality event, contained in the table below:</p>
+	 <table class="simple">
             <thead>
               <tr>
                 <th>Name</th>
@@ -1618,18 +1633,11 @@ function accept(mySignaller, remote) {
               </tr>
             </tbody>
           </table>
-          </dd>
-        </dl>
-
-        <dl class="idl" title=
-        "dictionary MSQualityEventInit : EventInit">
-          <dt>sequence&lt;DOMString> messages</dt>
-          <dd>
-            <p>The <var>messages</var> attribute contains the names of the quality events that have been fired.
-            </p>
-          </dd>
-        </dl>
-   </section>
+      </dd>
+      <dt>DOMString value</dt>
+      <dd><p>The value of the quality event.</p></dd>
+    </dl>
+  </section>
 </section>
 
 <section id="rtcrtpreceiver*">
