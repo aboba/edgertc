@@ -2056,8 +2056,6 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                  <dl title='dictionary MSRTCSystemConfig' class='idl'>
                     <dt>sequence&lt;MSDeviceDriver> hardwareVideoEncoderBlockList</dt>
                     <dd><p>A sequence of dictionaries indicating graphics drivers that do not have compatible hardware encoding support.</p></dd>
-                    <dt>sequence&lt;MSDeviceDriver> hardwareVideoDecoderBlockList</dt>
-                    <dd><p>A sequence of dictionaries indicating graphics drivers that do not have compatible hardware decoding support.</p></dd>
                  </dl>
             </section>
             <section id="MSDeviceDriver*">
@@ -2066,6 +2064,8 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
 	         device driver versions.</p>
 
                  <dl title='dictionary MSDeviceDriver' class='idl'>
+		    <dt>DOMString vendorId</dt>
+		    <dd><p>The vendor ID.</p></dd>
                     <dt>DOMString deviceId</dt>
                     <dd><p>The PNP Device ID in hex format. Zero (0) means all.</p></dd>
                     <dt>DOMString deviceDriverVersionRangeMin</dt>
@@ -3141,8 +3141,8 @@ are returned, one for each video codec that can be retransmitted.</p>
   </section>
 </section>
   <section id="rtcrtpparameters*">
-    <h3>dictionary RTCRtpParameters</h3>
-    <p><dfn>RTCRtpParameters</dfn> contains the RTP stack settings.</p>
+    <h3><dfn>RTCRtpParameters</dfn> Dictionary</h3>
+    <p><code>RTCRtpParameters</code> contains the RTP stack settings.</p>
     <dl title='dictionary RTCRtpParameters' class='idl'>
       <dt>DOMString muxId=""</dt>
       <dd><p>The <var>muxId</var> assigned to the RTP stream, if any, empty string if unset.
@@ -3178,7 +3178,7 @@ Edge Interop Note:  Microsoft Edge currently does not support the <var>muxId</va
     </dl>
   </section>
             <section id="rtcrtpheaderextension*">
-                <h3>dictionary RTCRtpHeaderExtension</h3>
+            <h3><code>RTCRtpHeaderExtension</code> Dictionary</h3>
                 <dl class="idl" title="dictionary RTCRtpHeaderExtension">
                     <dt>DOMString kind</dt>
                     <dd>
@@ -3205,7 +3205,7 @@ Edge Interop Note:  Microsoft Edge currently does not support the <var>muxId</va
                 </dl>
             </section>
             <section id="rtcrtpheaderextensionparameters*">
-                <h3>dictionary RTCRtpHeaderExtensionParameters</h3>
+            <h3><dfn>RTCRtpHeaderExtensionParameters</dfn> Dictionary</h3>
                 <dl class="idl" title="dictionary RTCRtpHeaderExtensionParameters">
                     <dt>DOMString uri</dt>
                     <dd>
@@ -3249,9 +3249,9 @@ Edge Interop Note:  Microsoft Edge currently does not support the <var>muxId</va
             </section>
 
 <section id="rtcdegradationpreference*">
-<h3>enum RTCDegradationPreference</h3>
+<h3><dfn>RTCDegradationPreference</dfn> Enum</h3>
 <p>
-<dfn>RTCDegradationPreference</dfn> can be used to indicate the desired choice between degrading resolution
+<code>RTCDegradationPreference</code> can be used to indicate the desired choice between degrading resolution
 and degrading framerate when bandwidth is constrained.
 </p>
 
@@ -3272,8 +3272,8 @@ and degrading framerate when bandwidth is constrained.
 </section>
 
 <section id="rtcrtcpparameters*">
-<h3>dictionary RTCRtcpParameters</h3>
-<p><dfn>RTCRtcpParameters</dfn> provides information on RTCP settings.
+<h3><dfn>RTCRtcpParameters</dfn> Dictionary</h3>
+<p><code>RTCRtcpParameters</code> provides information on RTCP settings.
 <div class="note">
 <p>Edge Interop Note:  Microsoft Edge currently does not support the <var>cname</var> attribute, and utilizes the <var>compound</var> attribute instead of the
 <var>reducedSize</var> attribute (a boolean with the opposite meaning).  Also, Microsoft Edge requires that the <var>ssrc</var>
@@ -3318,8 +3318,8 @@ in which case RTCP will be sent on the associated <code><a>RTCIceTransport</a></
 </section>
 
 <section id="rtcrtpcodecparameters*">
-<h3>dictionary RTCRtpCodecParameters</h3>
-<p><dfn>RTCRtpCodecParameters</dfn> provides information on codec settings.</p>
+<h3><dfn>RTCRtpCodecParameters</dfn> Dictionary</h3>
+<p><code>RTCRtpCodecParameters</code> provides information on codec settings.</p>
 <dl title='dictionary RTCRtpCodecParameters' class='idl'>
 <dt>DOMString name</dt>
 <dd><p>The MIME media type.  Valid types are
@@ -3364,7 +3364,7 @@ and Values unchanged.
 </section>
 
 <section id="rtcrtpencodingparameters*">
-<h3>dictionary RTCRtpEncodingParameters</h3>
+<h3><dfn>RTCRtpEncodingParameters</dfn> Dictionary</h3>
 <dl class="idl" title="dictionary RTCRtpEncodingParameters">
 <dt>unsigned long ssrc=null</dt>
 <dd><p>The SSRC for this layering/encoding.
@@ -3412,7 +3412,7 @@ browser chooses the <var>ssrc</var>, it will not change due to a collision.
 </dl>
 </section>
 <section id="rtcrtpfecparameters*">
-<h3>dictionary RTCRtpFecParameters</h3>
+<h3><dfn>RTCRtpFecParameters</dfn> Dictionary</h3>
 <dl title="dictionary RTCRtpFecParameters" class="idl">
     <dt>unsigned long ssrc</dt>
     <dd>
@@ -3428,7 +3428,7 @@ browser chooses the <var>ssrc</var>, it will not change due to a collision.
 </dl>
 </section>
 <section id="rtcrtprtxparameters*">
-<h3>dictionary RTCRtpRtxParameters</h3>
+<h3><dfn>RTCRtpRtxParameters</dfn> Dictionary</h3>
 <dl title="dictionary RTCRtpRtxParameters" class="idl">
     <dt>unsigned long ssrc</dt>
     <dd>
