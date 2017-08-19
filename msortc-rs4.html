@@ -313,9 +313,9 @@ buffer incoming connectivity checks so as to be able to provide them to associat
     </section>
 
     <section>
-      <h4>The RTCIceCandidateType</h4>
+    <h4><dfn>RTCIceCandidateType</dfn> Enum</h4>
       <p>
-        The <dfn>RTCIceCandidateType</dfn> includes the type of the ICE candidate.
+        The <code>RTCIceCandidateType</code> provides the type of the ICE candidate.
       </p>
       <dl class="idl" title="enum RTCIceCandidateType">
         <dt>host</dt>
@@ -331,10 +331,10 @@ buffer incoming connectivity checks so as to be able to provide them to associat
   </section>
 
   <section id="rtcicecandidatecomplete*">
-   <h3>dictionary RTCIceCandidateComplete</h3>
+    <h3><dfn>RTCIceCandidateComplete</dfn> Dictionary</h3>
 
    <p>
-    <dfn>RTCIceCandidateComplete</dfn> is a dictionary signifying that all <code>RTCIceCandidate</code>s are gathered.
+    The <code>RTCIceCandidateComplete</code> dictionary signifies that all <code>RTCIceCandidate</code>s are gathered.
    <p>
 
     <dl class="idl" title="dictionary RTCIceCandidateComplete">
@@ -382,8 +382,8 @@ buffer incoming connectivity checks so as to be able to provide them to associat
       </section>
 
   <section id="rtcicegatheroptions*">
-    <h3>dictionary RTCIceGatherOptions</h3>
-   <p><dfn>RTCIceGatherOptions</dfn> provides options relating to the gathering of ICE candidates.</p>
+   <h3><dfn>RTCIceGatherOptions</dfn> Dictionary</h3>
+   <p><code>RTCIceGatherOptions</code> provides options relating to the gathering of ICE candidates.</p>
 
         <dl class="idl" title=
         "dictionary RTCIceGatherOptions">
@@ -397,7 +397,7 @@ buffer incoming connectivity checks so as to be able to provide them to associat
   </section>
 
 <section id="msportrange*">
-<h3>dictionary MSPortRange</h3>
+<h3><dfn>MSPortRange</dfn> Dictionary</h3>
 <dl title='dictionary MSPortRange' class='idl'>
 <dt>unsigned short min</dt>
 <dd><p>Beginning of the port range.</p></dd>
@@ -407,8 +407,8 @@ buffer incoming connectivity checks so as to be able to provide them to associat
 </section>
 
   <section id="rtcicegatherpolicy*">
-    <h3>enum RTCIceGatherPolicy</h3>
-    <p><dfn>RTCIceGatherPolicy</dfn> denotes the policy relating to the gathering of ICE candidates.</p>
+  <h3><dfn>RTCIceGatherPolicy</dfn> Enum</h3>
+    <p>The <code>RTCIceGatherPolicy</code> dictoinary provides the policy relating to the gathering of ICE candidates.</p>
     <dl class="idl" title="enum RTCIceGatherPolicy">
       <dt>all</dt>
       <dd><p>The ICE gatherer gathers all types of candidates when this value is specified.</p></dd>
@@ -422,10 +422,10 @@ buffer incoming connectivity checks so as to be able to provide them to associat
   </section>
 
   <section id="rtciceserver*">
-   <h3>The RTCIceServer Object</h3>
+  <h3><dfn>RTCIceServer</dfn> Dictionary</h3>
 
    <p>
-    The <dfn>RTCIceServer</dfn> is used to provide STUN or TURN server configuration.
+    The <code>RTCIceServer</code> dictionary provides STUN or TURN server configuration.
     In network topologies with multiple layers of NATs, it is desirable to have a STUN server
     between every layer of NATs in addition to the TURN servers to minimize the peer to peer network latency.
    <p>
