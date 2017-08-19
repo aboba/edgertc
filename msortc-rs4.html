@@ -110,10 +110,10 @@ the <code>RTCDataChannel</code> and <code>RTCSctpTransport</code> objects are no
   </section>
 
   <section id="rtcicegatherer*">
-  <h2>The RTCIceGatherer Object</h2>
+    <h2><dfn>RTCIceGatherer</dfn> Interface</h2>
 
     <p>
-      The <dfn>RTCIceGatherer</dfn> gathers local host, server reflexive and relay candidates, as 
+      The <code>RTCIceGatherer</code> gathers local host, server reflexive and relay candidates, as 
       well as enabling the retrieval of local Interactive Connectivity Establishment (ICE) parameters which can be exchanged in signaling. 
     </p>
 
@@ -203,10 +203,10 @@ buffer incoming connectivity checks so as to be able to provide them to associat
   </section>
 
   <section id="rtciceparameters*">
-   <h3>The RTCIceParameters Object</h3>
+   <h3><dfn>RTCIceParameters</dfn> Dictionary</h3>
 
    <p>
-     The <dfn>RTCIceParameters</dfn> object includes the ICE username fragment and password, as well as an indication of whether ICE lite is supported.
+     The <code>RTCIceParameters</code> dictionary includes the ICE username fragment and password, as well as an indication of whether ICE lite is supported.
    </p>
 
     <dl class="idl" title="dictionary RTCIceParameters">
@@ -222,10 +222,10 @@ buffer incoming connectivity checks so as to be able to provide them to associat
   </section>
 
   <section id="rtcicecandidate*">
-    <h3>The RTCIceCandidate Object</h3>
+    <h3><dfn>RTCIceCandidate</dfn> Dictionary</h3>
 
     <p>
-      The <dfn>RTCIceCandidate</dfn> object includes information relating to an ICE candidate.
+      The <code>RTCIceCandidate</code> dictiontary includes information relating to an ICE candidate.
     </p>
 
    <pre xml:space="preserve" class='example highlight'>
@@ -278,9 +278,9 @@ buffer incoming connectivity checks so as to be able to provide them to associat
     </dl>
 
    <section>
-      <h4>The RTCIceProtocol</h4>
+      <h4><dfn>RTCIceProtocol</dfn> Enum</h4>
       <p>
-        The <dfn>RTCIceProtocol</dfn> includes the protocol of the ICE candidate.
+        The <code>RTCIceProtocol</code> provides the protocol of the ICE candidate.
       </p>
       <dl class="idl" title="enum RTCIceProtocol">
         <dt>udp</dt>
@@ -291,9 +291,9 @@ buffer incoming connectivity checks so as to be able to provide them to associat
     </section>
 
     <section>
-      <h4>The RTCIceTcpCandidateType</h4>
+      <h4><dfn>RTCIceTcpCandidateType</dfn> Enum</h4>
       <p>
-        The <dfn>RTCIceTcpCandidateType</dfn> includes the type of the ICE TCP candidate, as described in [[!RFC6544]].
+        The <code>RTCIceTcpCandidateType</code> provides the type of the ICE TCP candidate, as described in [[!RFC6544]].
         Browsers MUST gather active TCP candidates and only active TCP candidates.
         Servers and other endpoints MAY gather active, passive or so candidates.
       </p>
