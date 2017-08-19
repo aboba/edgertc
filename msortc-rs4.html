@@ -577,10 +577,10 @@ function myDtlsTransportStateChange(name, state){
 </section>
 
 <section id="rtcicetransport*">
-  <h2>The RTCIceTransport Object</h2>
+ <h2><dfn>RTCIceTransport</dfn> Interface</h2>
 
     <p>
-      The <dfn>RTCIceTransport</dfn> includes information relating to Interactive Connectivity Establishment (ICE).
+      The <code>RTCIceTransport</code> includes information relating to Interactive Connectivity Establishment (ICE).
     </p>
 
   <section id="rtcicetransport-overview*">
@@ -692,8 +692,8 @@ can respond to incoming connectivity checks based on its configured role, as wel
   </section>
 
   <section id="rtcicecomponent*">
-    <h3>enum RTCIceComponent</h3>
-    <p><dfn>RTCIceComponent</dfn> contains the component-id of the <code><a>RTCIceTransport</a></code>, which will be "RTP" unless RTP and RTCP are not multiplexed and
+  <h3><dfn>RTCIceComponent</dfn> Enum</h3>
+    <p><code>RTCIceComponent</code> provides the component-id of the <code><a>RTCIceTransport</a></code>, which will be "RTP" unless RTP and RTCP are not multiplexed and
       the <code><a>RTCIceTransport</a></code> object was returned by <code>createAssociatedTransport()</code>.</p>
     <dl class="idl" title="enum RTCIceComponent">
       <dt>RTP</dt>
@@ -705,8 +705,8 @@ can respond to incoming connectivity checks based on its configured role, as wel
   </section>
 
   <section id="rtcicerole*">
-    <h3>enum RTCIceRole</h3>
-    <p><dfn>RTCIceRole</dfn> contains the current role of the ICE transport.</p>
+  <h3><dfn>RTCIceRole</dfn> Enum</h3>
+    <p><code>RTCIceRole</code> contains the current role of the ICE transport.</p>
     <dl class="idl" title="enum RTCIceRole">
       <dt>controlling</dt>
       <dd><p>controlling state</p></dd>
@@ -717,8 +717,8 @@ can respond to incoming connectivity checks based on its configured role, as wel
   </section>
 
   <section id="rtcicetransportstate*">
-    <h3>enum RTCIceTransportState</h3>
-    <p><dfn>RTCIceTransportState</dfn> represents the current state of the ICE transport.</p>
+  <h3><code>RTCIceTransportState</code> Enum</h3>
+    <p><code>RTCIceTransportState</code> represents the current state of the ICE transport.</p>
     <dl class="idl" title="enum RTCIceTransportState">
       <dt>new</dt>
       <dd><p>The <code><a>RTCIceTransport</a></code> object is waiting for remote candidates to be supplied.
@@ -816,10 +816,10 @@ conditions that would normally result in a transition to "failed".
       </section>
 
   <section id="rtcicecandidatepair*">
-   <h3>dictionary RTCIceCandidatePair</h3>
+  <h3><dfn>RTCIceCandidatePair</dfn> Dictionary</h3>
 
    <p>
-    The <dfn>RTCIceCandidatePair</dfn> contains the currently selected ICE candidate pair.
+    The <code>RTCIceCandidatePair</code> contains the currently selected ICE candidate pair.
    </p>
 
     <dl class="idl" title="dictionary RTCIceCandidatePair">
@@ -833,10 +833,10 @@ conditions that would normally result in a transition to "failed".
 </section>
 
 <section id="rtcdtlstransport*">
-  <h2>The RTCDtlsTransport Object</h2>
+<h2><dfn>RTCDtlsTransport</dfn> Interface</h2>
 
     <p>
-The <dfn>RTCDtlsTransport</dfn> object includes information relating to Datagram Transport Layer Security (DTLS) transport. 
+The <code>RTCDtlsTransport</code> Interface includes information relating to Datagram Transport Layer Security (DTLS) transport. 
 
     </p>
 
@@ -1171,8 +1171,8 @@ function accept(mySignaller, remote) {
 </section>
 
 <section id="rtcsrtpsdestransport*">
-  <h2>The RTCSrtpSdesTransport Object</h2>
-<p>The <dfn>RTCSrtpSdesTransport</dfn> includes information relating to SRTP/SDES transport [[RFC4568]].
+<h2><dfn>RTCSrtpSdesTransport</dfn> Interface</h2>
+<p>The <code>RTCSrtpSdesTransport</code> includes information relating to SRTP/SDES transport [[RFC4568]].
 Details relating to configuration of Microsoft's implementation of SRTP/SDES are described in [[MS-SDPEXT]].</p>
       <div class="note">
 <p>SRTP/SDES support is forbidden by the IETF RTCWEB security specifications. 
@@ -1360,10 +1360,10 @@ function accept(mySignaller, remote) {
 </section>
 
   <section id="rtcrtpsender*">
-  <h2>The RTCRtpSender Object</h2>
+  <h2><dfn>RTCRtpSender</dfn> Interface</h2>
 
     <p>
-      The <dfn>RTCRtpSender</dfn> includes information relating to the RTP sender.
+      The <code>RTCRtpSender</code> includes information relating to the RTP sender.
     </p>
 
   <section id="rtcrtpsender-overview*">
@@ -1641,10 +1641,10 @@ function accept(mySignaller, remote) {
 </section>
 
 <section id="rtcrtpreceiver*">
-  <h2>The RTCRtpReceiver Object</h2>
+<h2><dfn>RTCRtpReceiver</dfn> Interface</h2>
 
     <p>
-      The <dfn>RTCRtpReceiver</dfn> includes information relating to the RTP receiver. 
+      The <code>RTCRtpReceiver</code> includes information relating to the RTP receiver. 
     </p>
 
   <section id="rtcrtpreceiver-overview*">
@@ -1989,9 +1989,9 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
 
 </section>
         <section id="rtcicetransportcontroller*">
-            <h2>The RTCIceTransportController Object</h2>
+		<h2><dfn>RTCIceTransportController</dfn> Interface</h2>
             <p>
-                The <dfn><code>RTCIceTransportController</code></dfn> object assists in the managing of bandwidth estimation.
+                The <code>RTCIceTransportController</code> assists in managing bandwidth estimation.
             </p>
             <section id="rtctransportcontroller-overview*">
                 <h3>Overview</h3>
