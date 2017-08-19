@@ -1229,9 +1229,9 @@ Therefore, applications also need to support DTLS/SRTP so they will continue to 
   </section>
 
   <section id="rtcsrtpsdesparameters*">
-   <h3>dictionary RTCSrtpSdesParameters</h3>
+  <h3><dfn>RTCSrtpSdesParameters</dfn> Dictionary</h3>
 
-   <p>The <dfn>RTCSrtpSdesParameters</dfn> object includes information relating to SRTP/SDES configuration.
+   <p>The <code>RTCSrtpSdesParameters</code> object includes information relating to SRTP/SDES configuration.
    </p>
 
     <dl class="idl" title="dictionary RTCSrtpSdesParameters">
@@ -1252,7 +1252,7 @@ Therefore, applications also need to support DTLS/SRTP so they will continue to 
   </section>
 
   <section id="rtcsrtpkeyparam*">
-   <h3>dictionary RTCSrtpKeyParam</h3>
+  <h3><dfn>RTCSrtpKeyParam</dfn> Dictionary</h3>
 
     <dl class="idl" title="dictionary RTCSrtpKeyParam">
       <dt>DOMString keyMethod</dt>
@@ -1800,7 +1800,7 @@ function accept(mySignaller, remote) {
   </section>
 
   <section id="rtcrtpcontributingsource*">
-    <h3>dictionary RTCRtpContributingSource</h3>
+  <h3><dfn>RTCRtpContributingSource</dfn> Dictionary</h3>
     <dl title='dictionary RTCRtpContributingSource' class='idl'>
       <dt>DOMHighResTimeStamp timestamp</dt>
       <dd><p>Timestamp indicating when an RTP packet containing the contributing source was last received.
@@ -2038,8 +2038,8 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                 </dl>
             </section>
             <section id="MSControllerConfig*">
-              <h3>dictionary MSControllerConfig</h3>
-                 <p>The <dfn>MSControllerConfig</dfn> dictionary provides configuration information for the <code><a>RTCIceTransportController</a></code>.</p>
+	    <h3><dfn>MSControllerConfig</dfn> Dictionary</h3>
+                 <p>The <code>MSControllerConfig</code> dictionary provides configuration information for the <code><a>RTCIceTransportController</a></code>.</p>
 
                  <dl title='dictionary MSControllerConfig' class='idl'>
                     <dt>boolean msConfMode = false</dt>
@@ -2050,8 +2050,8 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                  </dl>
             </section>
             <section id="MSRTCSystemConfig*">
-              <h3>dictionary MSRTCSystemConfig</h3>
-                 <p>The <dfn>MSRTCSystemConfig</dfn> dictionary provides system configuration information.</p>
+	    <h3><dfn>MSRTCSystemConfig</dfn> Dictionary</h3>
+                 <p>The <code>MSRTCSystemConfig</code> dictionary provides system configuration information.</p>
 
                  <dl title='dictionary MSRTCSystemConfig' class='idl'>
                     <dt>sequence&lt;MSDeviceDriver> hardwareVideoEncoderBlockList</dt>
@@ -2061,8 +2061,8 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                  </dl>
             </section>
             <section id="MSDeviceDriver*">
-              <h3>dictionary MSDeviceDriver</h3>
-                 <p>The <dfn>MSDeviceDriver</dfn> dictionary provides information on unsupported devices, such as the identifier and
+            <h3><dfn>MSDeviceDriver</dfn> Dictionary</h3>
+                 <p>The <code>MSDeviceDriver</code> dictionary provides information on unsupported devices, such as the identifier and
 	         device driver versions.</p>
 
                  <dl title='dictionary MSDeviceDriver' class='idl'>
@@ -2112,10 +2112,10 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
 <section id="rtcrtpdictionaries*">
   <h2>Dictionaries related to Rtp</h2>
 
-  <section id="rtcrtpcapabilities*">
-    <h3>dictionary RTCRtpCapabilities</h3>
+  <section id="rtcrtpcapabilities*>
+  <h3><dfn>RTCRtpCapabilities</dfn> Dictionary</h3>
 
-<p>The <dfn>RTCRtpCapabilities</dfn> object expresses the capabilities of <code><a>RTCRtpSender</a></code> and 
+<p>The <code>RTCRtpCapabilities</code> object expresses the capabilities of <code><a>RTCRtpSender</a></code> and 
 <code><a>RTCRtpReceiver</a></code> objects.
 Features which are mandatory to implement in [[!RTP-USAGE]], such as RTP/RTCP multiplexing [[!RFC5761]], 
 audio/video multiplexing  [[!RTP-MULTI-STREAM]] 
