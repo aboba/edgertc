@@ -1557,7 +1557,7 @@ function accept(mySignaller, remote) {
                 <td><dfn>NetworkDelay</dfn></td>
                 <td>Network latency is severe and is preventing interactive communication.</td>
                 <td>Sender</td>
-		<td>"Unknown"/"Good"/"Poor"/"Bad"</td>
+		<td>"Yes"/"No"</td>
               </tr>
               <tr id="def-nbl">
                 <td><dfn>NetworkBandwidthLow</dfn></td>
@@ -1572,7 +1572,7 @@ function accept(mySignaller, remote) {
 	        <td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-dri">
-                <td><dfn>DeviceRenderIssues</dfn></td>
+                <td><dfn>DeviceRenderGlitches</dfn></td>
                 <td>There are severe issues in the rendering of audio which is causing distortion.
 	        These issues can be caused by driver problems, deferred procedure call (DPC) storms
 	        (drivers), and high CPU usage.</td>
@@ -1597,13 +1597,13 @@ function accept(mySignaller, remote) {
                 <td><dfn>DeviceClipping</dfn></td>
                 <td>When near-end speech clips the microphone, the far-end hears distortion due to clipping.</td>
                 <td>Sender</td>
-		<td>"Unknown"/"Good"/"Poor"/"Bad"</td>
+		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-de">
                 <td><dfn>DeviceEcho</dfn></td>
                 <td>The device or setup is causing echo beyond the ability of the system to compensate.</td>
                 <td>Sender</td>
-		<td>"Unknown"/"Good"/"Poor"/"Bad"</td>
+		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-dhdaec">
                 <td><dfn>DeviceHalfDuplexAec</dfn></td>
@@ -1631,14 +1631,14 @@ function accept(mySignaller, remote) {
                 <td>Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
-              <tr id="def-dsc">
-                <td><dfn>DeviceSendCatastrophic</dfn></td>
+              <tr id="def-nsc">
+                <td><dfn>NetworkSendCatastrophic</dfn></td>
                 <td>Network quality in terms of jitter or packet loss is poor and is impacting the quality of audio being sent.</td>
                 <td>Sender</td>
 		<td>"Yes"/"No"</td>
               </tr>
-	      <tr id="def-drc">
-                <td><dfn>DeviceReceiveCatastrophic</dfn></td>
+	      <tr id="def-nrc">
+                <td><dfn>NetworkReceiveCatastrophic</dfn></td>
                 <td>Network quality in terms of jitter or packet loss is poor and is impacting the quality of audio being received.</td>
                 <td>Receiver</td>
 		<td>"Yes"/"No"</td>
@@ -1647,7 +1647,7 @@ function accept(mySignaller, remote) {
                 <td><dfn>VideoVbssRendered</dfn></td>
                 <td>Video-based screen sharing is decoding and decompressed frames are being pushed to the renderer.</td>
                 <td>Receiver</td>
-		<td>"Unknown"/"Good"/"Poor"/"Bad"</td>
+		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-neiu">
                 <td><dfn>NetworkEthernetInterfaceUsed</dfn></td>
@@ -1674,7 +1674,7 @@ function accept(mySignaller, remote) {
 		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-rnr">
-                <td><dfn>RelayNotReachable</dfn></td>
+                <td><dfn>RelayUnReachable</dfn></td>
                 <td>Unable to reach the relay servers currently deployed.
 	        This could be due to blocking by a firewall/proxy.</td>
                 <td>Sender/Receiver</td>
