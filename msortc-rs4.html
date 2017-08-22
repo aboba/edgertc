@@ -1540,55 +1540,58 @@ function accept(mySignaller, remote) {
             <tbody>
               <tr id="def-nsq">
                 <td><dfn>NetworkSendQuality</dfn></td>
-                <td>Network quality in terms of jitter or packet loss is severe and is impacting the quality of audio being sent.</td>
+                <td>Network quality condition in terms of jitter or packet loss. "Poor" indicates
+	        some issues; "bad" is severe and is impacting the quality of audio being sent.</td>
                 <td>Sender</td>
 		<td>"Good"/"Poor"/"Bad"</td>
               </tr>
               <tr id="def-nrq">
                 <td><dfn>NetworkReceiveQuality</dfn></td>
-                <td>Network quality in terms of jitter or packet loss is severe and is impacting the quality of audio being received.</td>
-		      <td>Receiver</td>
+                <td>Network quality condition in terms of jitter or packet loss. "Poor" indicates
+	        some issues; "Bad" is severe and is impacting the quality of audio being received.</td>
+		<td>Receiver</td>
 		<td>"Good"/"Poor"/"Bad"</td>
               </tr>
 	      <tr id="def-nd">
-                <td><dfn>NetworkDelay</dfn></td>
-                <td>Network latency is severe and is preventing interactive communication.</td>
+                <td><dfn>NetworkLatency/dfn></td>
+                <td>Network latency condition. "Bad" is severe and is preventing interactive communication.</td>
                 <td>Sender</td>
-		<td>"Yes"/"No"</td>
+		<td>"Good"/"Bad"</td>
               </tr>
               <tr id="def-nbl">
-                <td><dfn>NetworkBandwidthLow</dfn></td>
-                <td>The available bandwidth is insufficient for an acceptable audio or voice experience.</td>
+                <td><dfn>NetworkBandwidth</dfn></td>
+                <td>The available bandwidth condition.  "Bad" is insufficient for an acceptable audio or voice experience.</td>
                 <td>Sender</td>
-		<td>"Yes"/"No"</td>
+		<td>"Good"/"Bad"</td>
               </tr>
 	      <tr id="def-nr">
                 <td><dfn>NetworkReconnect</dfn></td>
-                <td>Network connectivity is likely to fail. To restore it, the application may consider an ICE restart.</td>
+                <td>"Yes" means network connectivity is likely to fail; the application may consider an ICE restart.
+		"No" means connectivity is restored.</td>
                 <td>Sender/Receiver</td>
 	        <td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-dri">
                 <td><dfn>DeviceRenderGlitches</dfn></td>
-                <td>There are severe issues in the rendering of audio which is causing distortion.
+                <td>"Yes" means that there are severe issues in the rendering of audio which is causing distortion.
 	        These issues can be caused by driver problems, deferred procedure call (DPC) storms
 	        (drivers), and high CPU usage.</td>
                 <td>Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
               <tr id="def-dls">
-                <td><dfn>DeviceLowSNR</dfn></td>
-                <td>The capture quality is very poor, either due to noice or because the user is too
+                <td><dfn>DeviceSNR</dfn></td>
+                <td>"Bad" means capture quality is very poor, either due to noice or because the user is too
 	        far from the microphone. This will cause distortion.</td>
                 <td>Sender</td>
-		<td>"Yes"/"No"</td>
+		<td>"Good"/"Bad"</td>
               </tr>
               <tr id="def-dlsl">
-                <td><dfn>DeviceLowSpeechLevel</dfn></td>
+                <td><dfn>DeviceSpeechLevel</dfn></td>
                 <td>The user‘s speech level is too low and the system cannot increase it any further.
 		This can either cause distortion or it can be perceived as one-way audio.</td>
                 <td>Sender</td>
-		<td>"Yes"/"No"</td>
+		<td>"Good"/"Bad"</td>
               </tr>
 	      <tr id="def-dc">
                 <td><dfn>DeviceClipping</dfn></td>
@@ -1683,7 +1686,7 @@ function accept(mySignaller, remote) {
     <dl title='dictionary MSQualityMessage' class='idl'>
       <dt>DOMString name</dt>
       <dd><p>The name of the quality event.</p></dd>
-      <dt>DOMString qualityLevel</dt>
+      <dt>DOMString value</dt>
       <dd><p>The value of the quality event.</p></dd>
     </dl>
   </section>
