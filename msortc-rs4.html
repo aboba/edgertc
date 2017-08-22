@@ -1543,14 +1543,14 @@ function accept(mySignaller, remote) {
                 <td>Network quality condition in terms of jitter or packet loss. "Poor" indicates
 	        some issues; "bad" is severe and is impacting the quality of audio being sent.</td>
                 <td>Sender</td>
-		<td>"Good"/"Poor"/"Bad"</td>
+		<td>"Good"/"Poor"/"Bad"/"Catastrophic"</td>
               </tr>
               <tr id="def-nrq">
                 <td><dfn>NetworkReceiveQuality</dfn></td>
                 <td>Network quality condition in terms of jitter or packet loss. "Poor" indicates
 	        some issues; "Bad" is severe and is impacting the quality of audio being received.</td>
 		<td>Receiver</td>
-		<td>"Good"/"Poor"/"Bad"</td>
+		<td>"Good"/"Poor"/"Bad"/"Catastrophic"</td>
               </tr>
 	      <tr id="def-nd">
                 <td><dfn>NetworkLatency/dfn></td>
@@ -1588,94 +1588,82 @@ function accept(mySignaller, remote) {
               </tr>
               <tr id="def-dlsl">
                 <td><dfn>DeviceSpeechLevel</dfn></td>
-                <td>The user‘s speech level is too low and the system cannot increase it any further.
+                <td>"Bad" means the user‘s speech level is too low and the system cannot increase it any further.
 		This can either cause distortion or it can be perceived as one-way audio.</td>
                 <td>Sender</td>
 		<td>"Good"/"Bad"</td>
               </tr>
 	      <tr id="def-dc">
                 <td><dfn>DeviceClipping</dfn></td>
-                <td>When near-end speech clips the microphone, the far-end hears distortion due to clipping.</td>
+                <td>"Bad" means near-end speech clips the microphone, the far-end hears distortion due to clipping.</td>
                 <td>Sender</td>
-		<td>"Yes"/"No"</td>
+		<td>"Good"/"Bad"</td>
               </tr>
 	      <tr id="def-de">
                 <td><dfn>DeviceEcho</dfn></td>
-                <td>The device or setup is causing echo beyond the ability of the system to compensate.</td>
+                <td>"Bad" means the device or setup is causing echo beyond the ability of the system to compensate.</td>
                 <td>Sender</td>
-		<td>"Yes"/"No"</td>
+		<td>"Good"/"Bad"</td>
               </tr>
 	      <tr id="def-dhdaec">
                 <td><dfn>DeviceHalfDuplexAec</dfn></td>
-                <td>In order to prevent echo, the system has entered the half duplex voice switching state.
+                <td>"Yes" means that in order to prevent echo, the system has entered the half duplex voice switching state.
 	        Interactive communication will be impacted.</td>
                 <td>Sender/Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-dmep">
                 <td><dfn>DeviceMultipleEndpoints</dfn></td>
-                <td>Multiple audio endpoints in the same session have been detected and the system has
+                <td>"Yes" means multiple audio endpoints in the same session have been detected and the system has
 	        compensated by reducing render volume.</td>
                 <td>Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-dh">
                 <td><dfn>DeviceHowling</dfn></td>
-                <td>An audio feedback loop has been detected, caused by multiple endpoints sharing an audio path.</td>
+                <td>"Yes" means an audio feedback loop has been detected, caused by multiple endpoints sharing an audio path.</td>
                 <td>Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-drzv">
                 <td><dfn>DeviceRenderZeroVolume</dfn></td>
-                <td>The render device was set to zero volume at the operating system level.</td>
-                <td>Receiver</td>
-		<td>"Yes"/"No"</td>
-              </tr>
-              <tr id="def-nsc">
-                <td><dfn>NetworkSendCatastrophic</dfn></td>
-                <td>Network quality in terms of jitter or packet loss is poor and is impacting the quality of audio being sent.</td>
-                <td>Sender</td>
-		<td>"Yes"/"No"</td>
-              </tr>
-	      <tr id="def-nrc">
-                <td><dfn>NetworkReceiveCatastrophic</dfn></td>
-                <td>Network quality in terms of jitter or packet loss is poor and is impacting the quality of audio being received.</td>
+                <td>"Yes" means the render device was set to zero volume at the operating system level.</td>
                 <td>Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-vbr">
                 <td><dfn>VideoVbssRendered</dfn></td>
-                <td>Video-based screen sharing is decoding and decompressed frames are being pushed to the renderer.</td>
+                <td>"Yes" means video-based screen sharing is decoding and decompressed frames are being pushed to the renderer.</td>
                 <td>Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-neiu">
                 <td><dfn>NetworkEthernetInterfaceUsed</dfn></td>
-                <td>The Ethernet interface was used for the call.</td>
+                <td>"Yes" means the Ethernet interface was used for the call.</td>
                 <td>Sender/Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-nwliu">
                 <td><dfn>NetworkWlanInterfaceUsed</dfn></td>
-                <td>The WLAN interface was used for the call.</td>
+                <td>"Yes" means the WLAN interface was used for the call.</td>
                 <td>Sender/Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-nwwiu">
                 <td><dfn>NetworkWwanInterfaceUsed</dfn></td>
-                <td>The WWAN interface was used for the call.</td>
+                <td>"Yes" means the WWAN interface was used for the call.</td>
                 <td>Sender/Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-nr">
                 <td><dfn>NetworkRoaming</dfn></td>
-                <td>Attempt to recover the media session due to network loss.</td>
+                <td>"Yes" is an attempt to recover the media session due to network loss.</td>
                 <td>Sender/Receiver</td>
 		<td>"Yes"/"No"</td>
               </tr>
 	      <tr id="def-rnr">
                 <td><dfn>RelayUnReachable</dfn></td>
-                <td>Unable to reach the relay servers currently deployed.
+                <td>"Yes" means unable to reach the relay servers currently deployed.
 	        This could be due to blocking by a firewall/proxy.</td>
                 <td>Sender/Receiver</td>
 		<td>"Yes"/"No"</td>
