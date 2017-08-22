@@ -1525,13 +1525,10 @@ function accept(mySignaller, remote) {
    <section id="msqualitymessage-dictionary*">
       <h3><dfn>MSQualityMessage</dfn> Dictionary</h3>
       <p>
-	      The <code>MSQualityMessages</code> dictionary contains the name and value of a quality event.
+	      The <code>MSQualityMessages</code> dictionary contains the name and value of a quality event,
+	      contained in the table below:
       </p>
-	   
-    <dl title='dictionary MSQualityMessage' class='idl'>
-      <dt>DOMString name</dt>
-      <dd><p>The name of the quality event, contained in the table below:</p>
-	 <table class="simple">
+	    <table class="simple">
             <thead>
               <tr>
                 <th>Name</th>
@@ -1682,7 +1679,10 @@ function accept(mySignaller, remote) {
               </tr>
             </tbody>
           </table>
-      </dd>
+	   
+    <dl title='dictionary MSQualityMessage' class='idl'>
+      <dt>DOMString name</dt>
+      <dd><p>The name of the quality event.</p></dd>
       <dt>DOMString qualityLevel</dt>
       <dd><p>The value of the quality event.</p></dd>
     </dl>
