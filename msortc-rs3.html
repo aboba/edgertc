@@ -3013,9 +3013,11 @@ RTCP Profile Specific Extension for Network Congestion Notification (extension t
 </p>
 <dl title='dictionary RTCRtcpParameters' class='idl'>
 <dt>unsigned long ssrc</dt>
-<dd><p>The SSRC to be used in the "SSRC of packet sender" field defined in [[!RFC3550]] Section 6.4.2 (Receiver Report)
-and [[!RFC4585]] Section 6.1 (Feedback Messages), as well as the "SSRC" field defined in [[!RFC3611]] Section 2 (Extended Reports).
-This is only set for an <code><a>RTCRtpReceiver</a></code>.  
+<dd><p>For an <code><a>RTCRtpReceiver</a></code> this represents the SSRC to be used in the
+ "SSRC of packet sender" field defined in [[!RFC3550]] Section 6.4.2 (Receiver Report)
+ and [[!RFC4585]] Section 6.1 (Feedback Messages), as well as the "SSRC" field defined in [[!RFC3611]] Section 2 (Extended Reports).
+ For an <code><a>RTCRtpSender</a></code>, this represents the value to match against the "SSRC of packet sender" field in
+ order to route RTCP packets intended for that object (such as REMB and Receiver Reports).    
 If unset, <var>ssrc</var> is chosen by the browser, and the chosen value is not reflected in <code>RTCRtcpParameters.ssrc</code>.
 If the browser chooses the <var>ssrc</var> it may change it in event of a collision, as described in [[!RFC3550]].</p></dd>
 <dt>DOMString cname</dt>
