@@ -53,9 +53,8 @@ by an audio or video tag.</p>
 <p>Several other objects also play a role.
 The <code><a>RTCIceGatherer</a></code> (<a href="#rtcicegatherer*">Section 2</a>)
 gathers local ICE candidates for use by a single
-<code><a>RTCIceTransport</a></code> object. The <code><a>RTCIceTransportController</a></code>
-(<a href="#rtcicetransportcontroller*">Section 8</a>) aggregates
-<code><a>RTCIceTransport</a></code> objects for the purpose of bandwidth estimation.
+<code><a>RTCIceTransport</a></code> object. The <code><a>MSRTCConfConfig</a></code>
+(<a href="#msrtcconfconfig*">Section 8</a>) configures <code><a>RTCIceGatherer</a></code> objects.
 Sending of Dual Tone Multi Frequency (DTMF) tones is supported via the
 <code><a>RTCDtmfSender</a></code> (<a href="#rtcdtmfsender*">Section 10</a>).</p> 
 <p>Remaining sections of the specification fill in details relating to RTP capabilities and parameters, 
@@ -2064,7 +2063,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                  <dl title='dictionary MSConfConfig' class='idl'>
                     <dt>boolean msConfMode = false</dt>
                     <dd><p><code>msConfMode</code> has the value <code>true</code> if the 
-                      <code>RTCIceTransportController</code> object is associated with a
+                      configuration is associated with a
                       conferencing server, <code>false</code> otherwise. By default
                       <code>msConfMode</code> is set to <code>false</code>.</p></dd>
 		     <dt>MSRTCSystemConfig msSysConfig</dt>
@@ -2099,7 +2098,7 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
   <section id="msvideoreceivers-interface-definition*">
       <h3>msvideoreceivers</h3>
 
-        <p>The <code>msvideoreceivers</code> event of the <code><a>RTCIceTransportController</a></code> object uses
+        <p>The <code>msvideoreceivers</code> event of the <code><a>MSRTCConfConfig</a></code> object uses
         the <code><a>MSVideoReceiversEvent</a></code> interface.</p>
 
         <p>Firing a <code>msvideoreceivers</code> event named <var>e</var>
