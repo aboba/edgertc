@@ -1569,10 +1569,10 @@ function accept(mySignaller, remote) {
               </tr>
 	      <tr id="def-nr">
                 <td><dfn>NetworkReconnect</dfn></td>
-                <td>"Yes" means network connectivity is likely to fail; the application may consider an ICE restart.
-		"No" means connectivity is restored.</td>
+                <td>"Network_Lost" means network connectivity has failed. "App_Attempt_Restart" means that the application
+		may attempt an ICE restart</td>
                 <td>Sender/Receiver</td>
-	        <td>"Yes"/"No"</td>
+	        <td>"Network_Lost"/"App_Attempt_Restart"</td>
               </tr>
 	      <tr id="def-dri">
                 <td><dfn>DeviceRenderGlitches</dfn></td>
