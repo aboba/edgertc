@@ -2032,65 +2032,43 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
   </section>
 
 </section>
-        <section id="rtcicetransportcontroller*">
-		<h2><dfn>RTCIceTransportController</dfn> Interface</h2>
+        <section id="msconfconfig*">
+		<h2><dfn>MSRTCConfConfig</dfn> Interface</h2>
             <p>
-                The <code>RTCIceTransportController</code> assists in managing bandwidth estimation.
+                The <code>MSRTCConfConfig</code> assists in managing bandwidth estimation.
             </p>
-            <section id="rtctransportcontroller-overview*">
+            <section id="msrtcconfconfig-overview*">
                 <h3>Overview</h3>
                 <p>
-                    An <code><a>RTCIceTransportController</a></code> object provides methods to add and retrieve <code><a>RTCIceTransport</a></code>
-                    objects with a <code>component</code> of <code>RTP</code> (associated <code><a>RTCIceTransport</a></code> objects with a
-                    <code>component</code> of <code>RTCP</code> are included implicitly).
+                    An <code><a>MSRTCConfConfig</a></code> object provides configuration for <code><a>RTCIceGatherer</a></code>
+                    objects.
                 </p>
             </section>
-            <section id="rtctransportcontroller-operation*">
+            <section id="msrtcconfconfig-operation*">
                 <h3>Operation</h3>
-                <p>An <code><a>RTCIceTransportController</a></code> instance is constructed with an optional <code>config</code> argument.</p>
+                <p>An <code><a>MSRTCConfConfig</a></code>. </p>
             </section>
-            <section id="rtcicetransportcontroller-interface-definition*">
+            <section id="msrtcconfconfig-interface-definition*">
                 <h3>Interface Definition</h3>
-                <dl class="idl" title="[Constructor(optional MSControllerConfig config)] interface RTCIceTransportController">
-                    <dt>void addTransport(RTCIceTransport transport)</dt>
-                    <dd>
-                        <p>
-                            Adds <code>transport</code> to the <code><a>RTCIceTransportController</a></code>
-                            object for the purposes of shared bandwidth estimation.
-                            In the Edge implementation the <code><a>RTCIceTransportController</a></code> does not
-                            manage ICE freezing.
-                            <var>transport</var> is always inserted at the end.
-                            If <code>transport.state</code> is not <code>new</code>, throw an <code>InvalidStateError</code> exception.
-                            If <code>transport</code> has already been added to another
-                            <code><a>RTCIceTransportController</a></code> object,
-                            or if <code>transport.component</code> is <code>RTCP</code>, throw an <code>InvalidStateError</code> exception.
-                        </p>
-                    </dd>
-                    <dt>sequence&lt;RTCIceTransport&gt; getTransports()</dt>
-                    <dd>
-                        <p>
-                            Returns the <code><a>RTCIceTransport</a></code> objects with a <code>component</code> of <code>RTP</code>.
-                            If <code>addTransport()</code> has not been called, an empty list is returned.
-                        </p>
-                    </dd>
-                    <dt>static void msSetConfiguration(MSRTCSystemConfig config)</dt>
-                    <dd><p>Sets the system configuration.</p></dd>
+                <dl class="idl" title="[Constructor(optional MSConfConfig config)] interface MSRTCConfConfig">
                     <dt>attribute EventHandler? onmsvideoreceivers</dt>
                     <dd><p>This event handler, of event handler type <code>msvideoreceivers</code>,
                     MUST be fired when the number of potential video receivers changes.
                     </p></dd>
                 </dl>
             </section>
-            <section id="MSControllerConfig*">
-	    <h3><dfn>MSControllerConfig</dfn> Dictionary</h3>
-                 <p>The <code>MSControllerConfig</code> dictionary provides configuration information for the <code><a>RTCIceTransportController</a></code>.</p>
+            <section id="MSConfConfig*">
+	    <h3><dfn>MSConfConfig</dfn> Dictionary</h3>
+                 <p>The <code>MSConfConfig</code> dictionary provides configuration information for the conference.</p>
 
-                 <dl title='dictionary MSControllerConfig' class='idl'>
+                 <dl title='dictionary MSConfConfig' class='idl'>
                     <dt>boolean msConfMode = false</dt>
                     <dd><p><code>msConfMode</code> has the value <code>true</code> if the 
                       <code>RTCIceTransportController</code> object is associated with a
                       conferencing server, <code>false</code> otherwise. By default
                       <code>msConfMode</code> is set to <code>false</code>.</p></dd>
+		     <dt>MSRTCSystemConfig msSysConfig</dt>
+		     <dd><p>The configuration corresponding to this conference.</p></dd
                  </dl>
             </section>
             <section id="MSRTCSystemConfig*">
