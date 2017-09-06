@@ -1481,6 +1481,10 @@ function accept(mySignaller, remote) {
       <dd><p>Stops sending the track on the wire, and sends an RTCP BYE.  
       Stop is final as in <code>MediaStreamTrack.stop()</code></p></dd>
 
+      <dt>void msSmartCrop(boolean on = false)</dt>
+      <dd><p>Indicates whether the sender will send crop information.
+      By default, cropping is turned off.</p></dd>
+	       
       <dt>attribute EventHandler? onerror</dt>
       <dd><p>This event handler, of event handler type <code>error</code>,
       <em class="rfc2119" title="MUST">MUST</em> be supported by all objects implementing the <code><a>RTCRtpSender</a></code> interface.
