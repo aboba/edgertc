@@ -148,8 +148,8 @@ buffer incoming connectivity checks so as to be able to provide them to associat
   <section id="rtcicegatherer-operation*">
     <h3>Operation</h3>
 
-    <p>An <code><a>RTCIceGatherer</a></code> instance is constructed from an 
-    <code><a>RTCIceGatherOptions</a></code> object.
+    <p>An <code><a>RTCIceGatherer</a></code> instance is constructed from an
+    <code><a>RTCIceGatherOptions</a></code> object and an optional <code><a>MSRTCConfConfig</a></code> object.
  .  If <code><a>RTCIceGatherOptions</a>.portRange</code>
     is invalid (e.g. <code>portRange.max</code> &lt; <code>portRange.min</code>), 
     throw an <code>InvalidParameters</code> exception.</p>
@@ -158,7 +158,7 @@ buffer incoming connectivity checks so as to be able to provide them to associat
   <section id="rtcicegatherer-interface-definition*">
     <h3>Interface Definition</h3>
 
-    <dl class="idl" title="[Constructor(RTCIceGatherOptions options)] interface RTCIceGatherer : RTCStatsProvider">
+    <dl class="idl" title="[Constructor(RTCIceGatherOptions options, optional MSRTCConfConfig config)] interface RTCIceGatherer : RTCStatsProvider">
       <dt>readonly attribute RTCIceComponent component</dt>
       <dd><p>The component-id of the <code><a>RTCIceGatherer</a></code>.</p></dd>
       <dt>RTCIceParameters getLocalParameters()</dt>
