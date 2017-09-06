@@ -1660,9 +1660,12 @@ function accept(mySignaller, remote) {
               </tr>
 	      <tr id="def-nr">
                 <td><dfn>NetworkRoaming</dfn></td>
-                <td>"Yes" is an attempt to recover the media session due to network loss.</td>
+                <td>"Network_Issue_Detected" means that a (potentially transient) network connectivity loss
+	        has been detected. "Network_Recovery_in_Progress" indicates that the browser is attempting to
+	        recover from the connectivity loss.  "Network_Recovery_Successful" indicates that the attempt to
+	        recover has succeeded.</td>
                 <td>Sender/Receiver</td>
-		<td>"Yes"/"No"</td>
+		<td>"Network_Issue_Detected"/"Network_Recovery_in_Progress"/"Network_Recovery_Successful"</td>
               </tr>
 	      <tr id="def-rnr">
                 <td><dfn>RelayUnReachable</dfn></td>
