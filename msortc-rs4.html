@@ -4851,6 +4851,20 @@ It is defined in [[MS-QoE]] Section 2.2.1.15.1.
 <dd><p>Calculated received FPS using harmonic average.</p></dd>
 <dt>float recvNumResSwitches</dt>
 <dd><p>How many times the receiver sees a resolution change.</p></dd>
+<dt>float recvBaseLayerQpAvg</dt>
+<dd><p>Average Quantization Parameter (QP) of the received base layer frames.</p></dd>
+<dt>float recvAvgFreezeDuration</dt>
+<dd><p>Average size of a freeze in ms for this incoming stream.</p></dd>
+<dt>ulong recvIdrRecoveryCount</dt>
+<dd><p>Number of IDR recoveries received.</p></dd>
+<dt>float recvCapabilityNumViewsAverage</dt>
+<dd><p>Average number of views decided by the capability of the machine.</p></dd>
+<dt>float recvBandwidthNumViewsAverage</dt>
+<dd><p>Average number of views decided by bandwidth estimation.</p></dd>
+<dt>short recvAVSyncDistanceAvg</dt>
+<dd><p>Average audio/video sync of the receive stream in ms.</p></dd>
+<dt>short recvAVSyncDistanceCur</dt>
+<dd><p>Average audio/video sync of the receive stream for the last 10 seconds, in ms .</p></dd>
 </dl>
 </section>
 </section>
