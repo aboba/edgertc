@@ -4566,49 +4566,6 @@ It is described in [[MS-QoE]] Section 2.2.1.14.
 <dd><p>"True means that audio forward error correction (FEC) was used at some point during the call.  "False" means that no audio FEC was used during the call.  Described in [[MS-QoE] Section 2.2.1.14.1.</p></dd>
 <dt>float sendMutePercent</dt>
 <dd><p>Percentage of session duration where the client was muted.  Described in [[MS-QoE]] Section 2.2.1.14.1.</p></dd>
-<dt>float deviceCaptureMuteEventRatio</dt>
-<dd><p>Fraction of call duration during which the render device used for the session is muted at the system or session level.
-Ranges from 0 to 1.</p></dd>
-<dt>float speechLevelNEInput_Ch1</dt>
-<dd><p>Speech level in dBFs, computed on the signal received from the capture device.</p></dd>
-<dt>float speechLevelNEOutput_Ch1</dt>
-<dd><p>Speech level in dBFs, computed on the signal sent out over the network.</p></dd>
-<dt>float noiseLevelNEInput_Ch1</dt>
-<dd><p>Noise level in dBFs, computed on the signal received from the capture device.</p></dd>
-<dt>float noiseLevelNEOutput_Ch1</dt>
-<dd><p>Noise level in dBFs, computed on the signal sent out over the network.</p></dd>
-<dt>DOMString captureDeviceDriver</dt>
-<dd><p>String containing the driver version of the capture device used for the session.</p></dd>
-<dt>unsigned long long captureDeviceFirstDeviceStartDelay</dt>
-<dd><p>Time taken to open the capture device used for the session, in 100ns.</p></dd>
-<dt>float sendFECRedundancyPercent</dt>
-<dd><p>Percentage of the time that FEC data was received.  Ranges from 0. to 100.</p></dd>
-<dt>unsigned short percentageOfPtime20Ms/dt>
-<dd><p>Percent of time 20ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned short percentageOfPtime40Ms/dt>
-<dd><p>Percent of time 40ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned short percentageOfPtime60Ms/dt>
-<dd><p>Percent of time 60ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned short percentageOfPtime100MsAndOver/dt>
-<dd><p>Percent of time 100ms or higher packets were used. Ranges from 0 to 100./p></dd>
-<dt>octet top1CodecUsed/dt>
-<dd><p>Payload type of the most frequently used codec./p></dd>
-<dt>unsigned short percentOfTop1CodecUsed/dt>
-<dd><p>Percent of the time most frequently used codec is used. Ranges from 0 to 100.</p></dd>
-<dt>unsigned long averageBWForTop1CodecUsed/dt>
-<dd><p>Average bandwidth for the most frequently used codec.</p></dd>
-<dt>octet top2CodecUsed/dt>
-<dd><p>Payload type of the second most frequently used codec./p></dd>
-<dt>unsigned short percentOfTop2CodecUsed/dt>
-<dd><p>Percent of the time second most frequently used codec is used. Ranges from 0 to 100.</p></dd>
-<dt>unsigned long averageBWForTop2CodecUsed/dt>
-<dd><p>Average bandwidth for the second most frequently used codec.</p></dd>
-<dt>octet top3CodecUsed/dt>
-<dd><p>Payload type of the third most frequently used codec./p></dd>
-<dt>unsigned short percentOfTop3CodecUsed/dt>
-<dd><p>Percent of the time third most frequently used codec is used. Ranges from 0 to 100.</p></dd>
-<dt>unsigned long averageBWForTop3CodecUsed/dt>
-<dd><p>Average bandwidth for the third most frequently used codec.</p></dd>
 </dl>
 </section>
 
@@ -4675,16 +4632,6 @@ It is defined in [[MS-QoE]] Section Section 2.2.1.15.
 <dd><p>The maximum video image width received for all video streams, computed over the duration of the session.</p></dd>
 <dt>unsigned long sendResolutionHeight</dt>
 <dd><p>The maximum video image height sent for all video streams, computed over the duration of the session.</p></dd>
-<dt>unsigned long cameraWidth</dt>
-<dd><p>The width of the resolution that the camera is opened at.</p></dd>
-<dt>unsigned long cameraHeight</dt>
-<dd><p>The height of the resolution that the camera is opened at.</p></dd>
-<dt>float cameraFramerate</dt>
-<dd><p>Average framerate from the camera, in frames per second.</p></dd>
-<dt>float videoDelayAvg</dt>
-<dd><p>Delay of the video send pipeline from device to network, in ms.</p></dd>
-<dt>unsigned long videoPauseEncoderCount</dt>
-<dd><p>Number of times the encoder was paused during the call.</p></dd>
 </dl>
 </section>
 
@@ -4849,66 +4796,6 @@ It is defined in [[MS-QoE]] Section 2.2.1.14.
 <dd><p>Ratio of the number of audio frames with samples that have been stretched to compensate for jitter or loss to the total number of audio frames.  Described in [[MS-QoE]] Section 2.2.1.12.1.</p></dd>
 <dt>float ratioCompressedSamplesAvg</dt>
 <dd><p>Ratio of the number of audio frames with samples that have been compressed to compensate for jitter or loss to the total number of audio frames.  Described in [[MS-QoE]] Section 2.2.1.12.1.</p></dd>
-<dt>float zeroRenderDevicesEnumeratedEventRatio</dt>
-<dd><p>No render device was found to use for the call.</p></dd>
-<dt>float speechLevelFEInput_Ch1</dt>
-<dd><p>Speech level in dBFs, computed on the signal received over the network.</p></dd>
-<dt>float speechLevelFEOutput_Ch1</dt>
-<dd><p>Speech level in dBFs, computed on the signal from the application to the render device.</p></dd>
-<dt>float speechLevelBInput_Ch1</dt>
-<dd><p>Speech level in dBFs, computed on the signal being rendered by the host machine to the render device.</p></dd>
-<dt>float noiseLevelFEInput_Ch1</dt>
-<dd><p>Noise level in dBFs, computed on the signal received over the network.</p></dd>
-<dt>float noiseLevelFEOutput_Ch1</dt>
-<dd><p>Noise level in dBFs, computed on the signal from the application to the render device.</p></dd>
-<dt>float noiseLevelBInput_Ch1</dt>
-<dd><p>Noise level in dBFs, computed on the signal rendered by the host machine to the render device.</p></dd>
-<dt>unsigned long long audioLoopbackDeviceErrorFlags</dt>
-<dd><p>Bitmask containing the error codes reported by the render device's loopback stream during the call.</p></dd>
-<dt>DOMString renderDeviceDriver</dt>
-<dd><p>String containing the driver version of the render device used for the session.</p></dd>
-<dt>float fecRecvOnPercent</dt>
-<dd><p>Percent of the time that FEC data was received. Ranges from 0 to 100./p></dd>
-<dt>unsigned short percentTimeInGoodNWState</dt>
-<dd><p>Percent of the time network conditions were good. Ranges from 0 to 100./p></dd>
-<dt>unsigned short percentTimeInPoorNWState</dt>
-<dd><p>Percent of the time network conditions were poor. Ranges from 0 to 100./p></dd>
-<dt>unsigned short percentTimeInBadNWState</dt>
-<dd><p>Percent of the time network conditions were bad. Ranges from 0 to 100./p></dd>
-<dt>unsigned short percentTimeInCatastrophicNWState</dt>
-<dd><p>Percent of the time network conditions were catastrophic. Ranges from 0 to 100./p></dd>
-<dt>unsigned short jitterBufferSizeAverage</dt>
-<dd><p>Average jitter buffer size, in ms./p></dd>
-<dt>unsigned short jitterBufferSizeMaximum</dt>
-<dd><p>Maximum jitter buffer size, in ms./p></dd>
-<dt>unsigned short jitterBufferSizeSD</dt>
-<dd><p>Standard deviation of jitter buffer size, in ms./p></dd>
-<dt>unsigned short percentageOfPtime20Ms/dt>
-<dd><p>Percent of time 20ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned short percentageOfPtime40Ms/dt>
-<dd><p>Percent of time 40ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned short percentageOfPtime60Ms/dt>
-<dd><p>Percent of time 60ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned short percentageOfPtime100MsAndOver/dt>
-<dd><p>Percent of time 100ms or higher packets were used. Ranges from 0 to 100./p></dd>
-<dt>octet top1CodecUsed/dt>
-<dd><p>Payload type of the most frequently used codec./p></dd>
-<dt>unsigned short percentOfTop1CodecUsed/dt>
-<dd><p>Percent of the time most frequently used codec is used. Ranges from 0 to 100.</p></dd>
-<dt>unsigned long averageBWForTop1CodecUsed/dt>
-<dd><p>Average bandwidth for the most frequently used codec.</p></dd>
-<dt>octet top2CodecUsed/dt>
-<dd><p>Payload type of the second most frequently used codec./p></dd>
-<dt>unsigned short percentOfTop2CodecUsed/dt>
-<dd><p>Percent of the time second most frequently used codec is used. Ranges from 0 to 100.</p></dd>
-<dt>unsigned long averageBWForTop2CodecUsed/dt>
-<dd><p>Average bandwidth for the second most frequently used codec.</p></dd>
-<dt>octet top3CodecUsed/dt>
-<dd><p>Payload type of the third most frequently used codec./p></dd>
-<dt>unsigned short percentOfTop3CodecUsed/dt>
-<dd><p>Percent of the time third most frequently used codec is used. Ranges from 0 to 100.</p></dd>
-<dt>unsigned long averageBWForTop3CodecUsed/dt>
-<dd><p>Average bandwidth for the third most frequently used codec.</p></dd>
 </dl>
 </section>
 
@@ -4964,22 +4851,6 @@ It is defined in [[MS-QoE]] Section 2.2.1.15.1.
 <dd><p>Calculated received FPS using harmonic average.</p></dd>
 <dt>float recvNumResSwitches</dt>
 <dd><p>How many times the receiver sees a resolution change.</p></dd>
-<dt>float recvBaseLayerQpAvg</dt>
-<dd><p>Average Quantization Parameter (QP) of the received base layer frames.</p></dd>
-<dt>float recvAvgFreezeDuration</dt>
-<dd><p>Average size of a freeze for this incoming stream, in ms.</p></dd>
-<dt>ulong recvIdrRecoveryCount</dt>
-<dd><p>Number of IDR recoveries received.</p></dd>
-<dt>float recvCapabilityNumViewsAverage</dt>
-<dd><p>Average number of views decided by the capability of the machine.</p></dd>
-<dt>float recvBandwidthNumViewsAverage</dt>
-<dd><p>Average number of views decided by bandwidth estimation.</p></dd>
-<dt>short recvAVSyncDistanceAvg</dt>
-<dd><p>Average audio/video sync of the receive stream in ms.</p></dd>
-<dt>short recvAVSyncDistanceCur</dt>
-<dd><p>Average audio/video sync of the receive stream for the last 10 seconds, in ms .</p></dd>
-<dt>float recvFreezeDurationPercent</dt>
-<dd><p>Freeze of video per minute of the receive stream.  Ranges from 0. to 100.</p></dd>
 </dl>
 </section>
 </section>
