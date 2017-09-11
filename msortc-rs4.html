@@ -4566,6 +4566,23 @@ It is described in [[MS-QoE]] Section 2.2.1.14.
 <dd><p>"True means that audio forward error correction (FEC) was used at some point during the call.  "False" means that no audio FEC was used during the call.  Described in [[MS-QoE] Section 2.2.1.14.1.</p></dd>
 <dt>float sendMutePercent</dt>
 <dd><p>Percentage of session duration where the client was muted.  Described in [[MS-QoE]] Section 2.2.1.14.1.</p></dd>
+<dt>float deviceCaptureMuteEventRatio</dt>
+<dd><p>Fraction of call duration during which the render device used for the session is muted at the system or session level.
+Ranges from 0 to 1.</p></dd>
+<dt>float speechLevelNEInput_Ch1</dt>
+<dd><p>Speech level in dBFs, computed on the signal received from the capture device.</p></dd>
+<dt>float speechLevelNEOutput_Ch1</dt>
+<dd><p>Speech level in dBFs, computed on the signal sent out over the network.</p></dd>
+<dt>float noiseLevelNEInput_Ch1</dt>
+<dd><p>Noise level in dBFs, computed on the signal received from the capture device.</p></dd>
+<dt>float noiseLevelNEOutput_Ch1</dt>
+<dd><p>Noise level in dBFs, computed on the signal sent out over the network.</p></dd>
+<dt>DOMString captureDeviceDriver</dt>
+<dd><p>String containing the driver version of the capture device used for the session.</p></dd>
+<dt>unsigned long long captureDeviceFirstDeviceStartDelay</dt>
+<dd><p>Time taken to open the capture device used for the session, in 100ns.</p></dd>
+<dt>float sendFECRedundancyPercent</dt>
+<dd><p>Percentage of the time that FEC data was received.  Ranges from 0. to 100.</p></dd>
 </dl>
 </section>
 
