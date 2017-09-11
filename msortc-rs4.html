@@ -4632,6 +4632,16 @@ It is defined in [[MS-QoE]] Section Section 2.2.1.15.
 <dd><p>The maximum video image width received for all video streams, computed over the duration of the session.</p></dd>
 <dt>unsigned long sendResolutionHeight</dt>
 <dd><p>The maximum video image height sent for all video streams, computed over the duration of the session.</p></dd>
+<dt>unsigned long cameraWidth</dt>
+<dd><p>The width of the resolution that the camera is opened at.</p></dd>
+<dt>unsigned long cameraHeight</dt>
+<dd><p>The height of the resolution that the camera is opened at.</p></dd>
+<dt>float cameraFramerate</dt>
+<dd><p>Average framerate from the camera, in frames per second.</p></dd>
+<dt>float videoDelayAvg</dt>
+<dd><p>Delay of the video send pipeline from device to network, in ms.</p></dd>
+<dt>unsigned long videoPauseEncoderCount</dt>
+<dd><p>Number of times the encoder was paused during the call.</p></dd>
 </dl>
 </section>
 
@@ -4854,7 +4864,7 @@ It is defined in [[MS-QoE]] Section 2.2.1.15.1.
 <dt>float recvBaseLayerQpAvg</dt>
 <dd><p>Average Quantization Parameter (QP) of the received base layer frames.</p></dd>
 <dt>float recvAvgFreezeDuration</dt>
-<dd><p>Average size of a freeze in ms for this incoming stream.</p></dd>
+<dd><p>Average size of a freeze for this incoming stream, in ms.</p></dd>
 <dt>ulong recvIdrRecoveryCount</dt>
 <dd><p>Number of IDR recoveries received.</p></dd>
 <dt>float recvCapabilityNumViewsAverage</dt>
@@ -4865,6 +4875,8 @@ It is defined in [[MS-QoE]] Section 2.2.1.15.1.
 <dd><p>Average audio/video sync of the receive stream in ms.</p></dd>
 <dt>short recvAVSyncDistanceCur</dt>
 <dd><p>Average audio/video sync of the receive stream for the last 10 seconds, in ms .</p></dd>
+<dt>float recvFreezeDurationPercent</dt>
+<dd><p>Freeze of video per minute of the receive stream.  Ranges from 0. to 100.</p></dd>
 </dl>
 </section>
 </section>
