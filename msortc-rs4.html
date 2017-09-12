@@ -2034,11 +2034,9 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
   </section>
 
 </section>
-        <section id="msconfconfig*">
+        <section id="msrtcconfconfig*">
 		<h2><dfn>MSRTCConfConfig</dfn> Interface</h2>
-            <p>
-                The <code>MSRTCConfConfig</code> assists in managing bandwidth estimation.
-            </p>
+                <p>The <code>MSRTCConfConfig</code> interface assists in managing bandwidth estimation.</p>
             <section id="msrtcconfconfig-overview*">
                 <h3>Overview</h3>
                 <p>
@@ -2048,22 +2046,23 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
             </section>
             <section id="msrtcconfconfig-operation*">
                 <h3>Operation</h3>
-                <p>An <code><a>MSRTCConfConfig</a></code>. </p>
+                <p>An <code><a>MSRTCConfConfig</a></code> object is (optionally) constructed from an <code>MSConfSettings</code>
+		object.</p>
             </section>
             <section id="msrtcconfconfig-interface-definition*">
                 <h3>Interface Definition</h3>
-                <dl class="idl" title="[Constructor(optional MSConfConfig config)] interface MSRTCConfConfig">
+                <dl class="idl" title="[Constructor(optional MSConfSettings settings)] interface MSRTCConfConfig">
                     <dt>attribute EventHandler? onmsvideoreceivers</dt>
                     <dd><p>This event handler, of event handler type <code>msvideoreceivers</code>,
                     MUST be fired when the number of potential video receivers changes.
                     </p></dd>
                 </dl>
             </section>
-            <section id="MSConfConfig*">
-	    <h3><dfn>MSConfConfig</dfn> Dictionary</h3>
-                 <p>The <code>MSConfConfig</code> dictionary provides configuration information for the conference.</p>
+            <section id="MSConfSettings*">
+	    <h3><dfn>MSConfSettings</dfn> Dictionary</h3>
+                 <p>The <code>MSConfSettings</code> dictionary provides configuration settings for the conference.</p>
 
-                 <dl title='dictionary MSConfConfig' class='idl'>
+                 <dl title='dictionary MSConfSettings' class='idl'>
                     <dt>boolean msConfMode = false</dt>
                     <dd><p><code>msConfMode</code> has the value <code>true</code> if the 
                       configuration is associated with a
