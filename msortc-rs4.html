@@ -4582,29 +4582,29 @@ Ranges from 0. to 1.</p></dd>
 <dd><p>Time taken to open the capture device used for the session, in 100ns.</p></dd>
 <dt>unsigned long sendFECRedundancyPercent</dt>
 <dd><p>Percent of the time that FEC data was received.  Ranges from 0 to 100.</p></dd>
-<dt>unsigned long percentOfPtime20Ms</dt>
-<dd><p>Percent of time 20ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned long percentOfPtime40Ms</dt>
-<dd><p>Percent of time 40ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned long percentOfPtime60Ms</dt>
-<dd><p>Percent of time 60ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned long percentOfPtime100MsAndOver</dt>
+<dt>unsigned long percentPtime20Ms</dt>
+<dd><p>Percent of time 20ms packets were used. Ranges from 0 to 100.</p></dd>
+<dt>unsigned long percentPtime40Ms</dt>
+<dd><p>Percent of time 40ms packets were used. Ranges from 0 to 100.</p></dd>
+<dt>unsigned long percentPtime60Ms</dt>
+<dd><p>Percent of time 60ms packets were used. Ranges from 0 to 100.</p></dd>
+<dt>unsigned long percentPtime100MsAndOver</dt>
 <dd><p>Percent of time 100ms or higher packets were used. Ranges from 0 to 100./p></dd>
 <dt>octet top1CodecUsed</dt>
-<dd><p>Payload type of the most frequently used codec./p></dd>
-<dt>unsigned long percentOfTop1CodecUsed</dt>
+<dd><p>Payload type of the most frequently used codec.</p></dd>
+<dt>unsigned long percentTop1CodecUsed</dt>
 <dd><p>Percent of the time most frequently used codec is used. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long averageBWForTop1CodecUsed</dt>
 <dd><p>Average bandwidth for the most frequently used codec in bits/second.</p></dd>
 <dt>octet top2CodecUsed</dt>
-<dd><p>Payload type of the second most frequently used codec./p></dd>
-<dt>unsigned long percentOfTop2CodecUsed</dt>
+<dd><p>Payload type of the second most frequently used codec.</p></dd>
+<dt>unsigned long percentTop2CodecUsed</dt>
 <dd><p>Percent of the time second most frequently used codec is used. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long averageBWForTop2CodecUsed</dt>
 <dd><p>Average bandwidth for the second most frequently used codec in bits/second.</p></dd>
 <dt>octet top3CodecUsed</dt>
 <dd><p>Payload type of the third most frequently used codec./p></dd>
-<dt>unsigned long percentOfTop3CodecUsed</dt>
+<dt>unsigned long percentTop3CodecUsed</dt>
 <dd><p>Percent of the time third most frequently used codec is used. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long averageBWForTop3CodecUsed</dt>
 <dd><p>Average bandwidth for the third most frequently used codec in bits/second.</p></dd>
@@ -4867,42 +4867,42 @@ It is defined in [[MS-QoE]] Section 2.2.1.14.
 <dt>unsigned long fecRecvOnPercent</dt>
 <dd><p>Percent of the time that FEC data was received. Ranges from 0 to 100./p></dd>
 <dt>unsigned long percentTimeInGoodNWState</dt>
-<dd><p>Percent of the time network conditions were good. Ranges from 0 to 100./p></dd>
+<dd><p>Percent of the time network conditions were good. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long percentTimeInPoorNWState</dt>
-<dd><p>Percent of the time network conditions were poor. Ranges from 0 to 100./p></dd>
+<dd><p>Percent of the time network conditions were poor. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long percentTimeInBadNWState</dt>
-<dd><p>Percent of the time network conditions were bad. Ranges from 0 to 100./p></dd>
+<dd><p>Percent of the time network conditions were bad. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long percentTimeInCatastrophicNWState</dt>
-<dd><p>Percent of the time network conditions were catastrophic. Ranges from 0 to 100./p></dd>
+<dd><p>Percent of the time network conditions were catastrophic. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long jitterBufferSizeAverage</dt>
 <dd><p>Average jitter buffer size, in ms./p></dd>
 <dt>unsigned long jitterBufferSizeMaximum</dt>
 <dd><p>Maximum jitter buffer size, in ms./p></dd>
 <dt>unsigned long jitterBufferSizeSD</dt>
 <dd><p>Standard deviation of jitter buffer size, in ms./p></dd>
-<dt>unsigned long percentOfPtime20Ms</dt><
-<dd><p>Percent of time 20ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned long percentOfPtime40Ms</dt>
-<dd><p>Percent of time 40ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned long percentOfPtime60Ms</dt>
-<dd><p>Percent of time 60ms packets were used. Ranges from 0 to 100./p></dd>
-<dt>unsigned long percentOfPtime100MsAndOver</dt>
-<dd><p>Percent of time 100ms or higher packets were used. Ranges from 0 to 100./p></dd>
+<dt>unsigned long percentPtime20Ms</dt><
+<dd><p>Percent of time 20ms packets were used. Ranges from 0 to 100.</p></dd>
+<dt>unsigned long percentPtime40Ms</dt>
+<dd><p>Percent of time 40ms packets were used. Ranges from 0 to 100.</p></dd>
+<dt>unsigned long percentPtime60Ms</dt>
+<dd><p>Percent of time 60ms packets were used. Ranges from 0 to 100.</p></dd>
+<dt>unsigned long percentPtime100MsAndOver</dt>
+<dd><p>Percent of time 100ms or higher packets were used. Ranges from 0 to 100.</p></dd>
 <dt>octet top1CodecUsed</dt>
 <dd><p>Payload type of the most frequently used codec./p></dd>
-<dt>unsigned long percentOfTop1CodecUsed</dt>
+<dt>unsigned long percentTop1CodecUsed</dt>
 <dd><p>Percent of the time most frequently used codec is used. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long averageBWForTop1CodecUsed</dt>
 <dd><p>Average bandwidth for the most frequently used codec in bits/second.</p></dd>
 <dt>octet top2CodecUsed</dt>
-<dd><p>Payload type of the second most frequently used codec./p></dd>
-<dt>unsigned long percentOfTop2CodecUsed</dt>
+<dd><p>Payload type of the second most frequently used codec.</p></dd>
+<dt>unsigned long percentTop2CodecUsed</dt>
 <dd><p>Percent of the time second most frequently used codec is used. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long averageBWForTop2CodecUsed</dt>
 <dd><p>Average bandwidth for the second most frequently used codec, in bits/second.</p></dd>
 <dt>octet top3CodecUsed</dt>
-<dd><p>Payload type of the third most frequently used codec./p></dd>
-<dt>unsigned long percentOfTop3CodecUsed</dt>
+<dd><p>Payload type of the third most frequently used codec.</p></dd>
+<dt>unsigned long percentTop3CodecUsed</dt>
 <dd><p>Percent of the time third most frequently used codec is used. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long averageBWForTop3CodecUsed</dt>
 <dd><p>Average bandwidth for the third most frequently used codec in bits/second.</p></dd>
