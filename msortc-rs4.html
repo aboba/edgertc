@@ -2058,25 +2058,25 @@ function myAccept(mySignaller, remote, transport, audioTrack, videoTrack) {
                     </p></dd>
                 </dl>
             </section>
-            <section id="MSConfSettings*">
-	    <h3><dfn>MSConfSettings</dfn> Dictionary</h3>
-                 <p>The <code>MSConfSettings</code> dictionary provides configuration settings for the conference.</p>
+            <section id="MSRTCConfSettings*">
+	    <h3><dfn>MSRTCConfSettings</dfn> Dictionary</h3>
+                 <p>The <code>MSRTCConfSettings</code> dictionary provides configuration settings for the conference.</p>
 
-                 <dl title='dictionary MSConfSettings' class='idl'>
+                 <dl title='dictionary MSRTCConfSettings' class='idl'>
                     <dt>boolean msConfMode = false</dt>
                     <dd><p><code>msConfMode</code> has the value <code>true</code> if the 
                       configuration is associated with a
                       conferencing server, <code>false</code> otherwise. By default
                       <code>msConfMode</code> is set to <code>false</code>.</p></dd>
-		     <dt>MSSystemConfig msSysConfig</dt>
+		     <dt>MSRTCSystemSettings msSysSettings</dt>
 		     <dd><p>The configuration corresponding to this conference.</p></dd
                  </dl>
             </section>
-            <section id="MSSystemConfig*">
-	    <h3><dfn>MSSystemConfig</dfn> Dictionary</h3>
-                 <p>The <code>MSSystemConfig</code> dictionary provides system configuration information.</p>
+            <section id="MSRTCSystemSettings*">
+	    <h3><dfn>MSRTCSystemSettings</dfn> Dictionary</h3>
+                 <p>The <code>MSRTCSystemSettings</code> dictionary provides system configuration information.</p>
 
-                 <dl title='dictionary MSSystemConfig' class='idl'>
+                 <dl title='dictionary MSRTCSystemSettings' class='idl'>
                     <dt>sequence&lt;MSDeviceDriver> hardwareVideoEncoderBlockList</dt>
                     <dd><p>A sequence of dictionaries indicating graphics drivers that do not have compatible hardware encoding support.</p></dd>
                  </dl>
