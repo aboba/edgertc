@@ -1777,7 +1777,7 @@ although these features can be set via <code><a>RTCRtpParameters</a></code>.</p>
     capabilites relating to codecs, RTCP feedback, Retransmission (RTX)[[!RFC4588]], header extensions and Forward Error Correction (FEC).</p>  
     <p>As noted in [[!RFC7874]], the G.711, DTMF [[!RFC4733]], Opus [[!RFC6176]][[!RFC7587]] and Comfort Noise (CN) [[!RFC3389]] codecs are 
     mandatory-to-implement in WebRTC.  
-    The Microsoft Edge ORTC implementation supports the G.711, G.722, DTMF, CN, Opus and SILK [[SILK]] 
+    The Microsoft Edge ORTC implementation supports the G.711, DTMF, CN, Opus and SILK [[SILK]] 
     audio codecs.</p>
     <p>
     <p>As noted in [[!RFC7742]], the H.264 [[!RFC6184]] and VP8 [[!RFC6386]][[!RFC7741]]
@@ -1848,45 +1848,6 @@ configured within <code>RTCRtpParameters</code> passed as an argument in <code>s
     </section>
   </section>
 
-  <section id="g722-capabilities*">
-  <h3>G.722</h3>
-<p>The G.722 audio codec does not include any parameters or options in its capabilities.
-Since it is an audio codec there is no support for
-multi-stream transport or temporal or spatial scalability.
-As noted in [[!RFC3551]] Section 6, G.722 has
-been assigned a static payload type, which Microsoft Edge provides as the preferred payload type.</p>
-<p>While G.722-stereo is described in [[MS-RTP]] Section 2.2.1.1 and [[MS-SDPEXT]] Section 3.5.1.3, the
-G.722 implementation in Edge only supports mono (<var>numChannels</var> set to 1). 
-</p>
-      </div>
- 
-    <section id="g722-example*">
-     <h4>Capabilities</h4>
-   <pre xml:space="preserve" class='example highlight'>
-{
-  "name": "G722",
-  "kind": "audio",
-  "clockRate": 8000,
-  "preferredPayloadType": 9,
-  "maxptime": 60,
-  "ptime": 20,
-  "numChannels": 1,
-  "rtcpFeedback": [
-    {
-      "type": "x-message",
-      "parameter": "app send:dsh recv:dsh"
-    }
-  ],
-  "parameters": {},
-  "options": {},
-  "maxTemporalLayers": 0,
-  "maxSpatialLayers": 0,
-  "svcMultiStreamSupport": false
-}
-   </pre>
-    </section>
-  </section>
-
   <section id="cn-capabilities*">
   <h3>Comfort Noise</h3>
 <p>The Comfort Noise (CN) audio codec does not include any parameters or options in its capabilities and settings.
@@ -1897,7 +1858,7 @@ As noted in [[!RFC3389]], CN has
 been assigned a static payload type for a <var>clockRate</var> value of 8000, which Microsoft Edge provides as the preferred payload type.
 For a <var>clockRate</var> value of 16000, Microsoft Edge assigns a dynamic payload type.
 </p>
-<p>When CN is configured for use along with the G.711, G.722 and SILK codecs, CN <var>clockRate</var> is set to 8000.
+<p>When CN is configured for use along with the G.711 and SILK codecs, CN <var>clockRate</var> is set to 8000.
 Since the Microsoft Edge implementation of Opus does not support Discontinuous Transmission (DTX), 
 it is possible (though not advisable if interoperability is desired) to use CN along with Opus, in which case the CN value of <var>clockRate</var> to 16000 would be configured.  
 </p>
@@ -2114,7 +2075,7 @@ the <var>usedtx</var> and
 <p>For use with audio codecs, Microsoft Edge supports Redundant Audio Data (RED) [[!RFC2198]] with extensions described in [[MS-RTPRADEX]].
 Since it is only for use with audio, RED does not support multi-stream transport or temporal or spatial scalability.
 Only a single channel is supported. 
-RED can be used to protect the G.711, G.722, SILK, CN and Opus payload types.  
+RED can be used to protect the G.711, SILK, CN and Opus payload types.  
 When RED is configured, it is used to protect all configured audio codecs using only a single dynamically allocated RED payload type. 
 There are no configuration parameters to set.</p>
       <div class="note">

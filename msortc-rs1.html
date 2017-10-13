@@ -8,7 +8,7 @@
 var respecConfig = {
     "specStatus": "CG-DRAFT",
     "shortName":  "ms-ortc",
-    "publishDate": "2016-08-01",
+    "publishDate": "2017-10-13",
     "editors": [
         {   "name":       "Microsoft Corporation",
             "company":    "Microsoft",
@@ -2249,7 +2249,7 @@ although these features can be set via <code><a>RTCRtpParameters</a></code>.</p>
     header extensions or retransmission [[!RFC4588]].</p>
     <p>As noted in [[!RTCWEB-AUDIO]], the G.711, DTMF [[!RFC4733]], Opus [[!RFC6176]][[!OPUS-RTP]] and Comfort Noise (CN) [[!RFC3389]] codecs are 
     mandatory-to-implement in WebRTC.  
-    The Microsoft Edge ORTC implementation supports the G.711, G.722, DTMF, CN, Opus and SILK [[SILK]] 
+    The Microsoft Edge ORTC implementation supports the G.711, DTMF, CN, Opus and SILK [[SILK]] 
     audio codecs.</p>
     <p>
     <p>As noted in [[!RTCWEB-VIDEO]], the H.264 [[!RFC6184]] and VP8 [[!RFC6386]][[!VP8-RTP]]
@@ -2307,41 +2307,6 @@ configured within <code>RTCRtpParameters</code> passed as an argument in <code>s
   "maxTemporalLayers":0,
   "maxSpatialLayers":0,
   "svcMultiStreamSupport":false
-}
-    </pre>
-    </section>
-  </section>
-
-  <section id="g722-capabilities*">
-  <h3>G.722</h3>
-<p>The G.722 audio codec does not include any parameters or options in its capabilities.
-Since it is an audio codec there is no support for
-multi-stream transport or temporal or spatial scalability.
-As noted in [[!RFC3551]] Section 6, G.722 has
-been assigned a static payload type, which Microsoft Edge provides as the preferred payload type.</p>
-<p>While G.722-stereo is described in [[MS-RTP]] Section 2.2.1.1 and [[MS-SDPEXT]] Section 3.5.1.3, the
-G.722 implementation in Edge only supports mono (<var>numChannels</var> set to 1). 
-</p>
-      </div>
- 
-    <section id="g722-example*">
-     <h4>Capabilities</h4>
-   <pre xml:space="preserve" class='example highlight'>
-{
-  "name":"G722",
-  "kind":"audio",
-  "clockRate":8000,
-  "preferredPayloadType":9,
-  "numChannels":1,
-  "rtcpFeedback":[{
-    "type":"x-message",
-    "parameter":"app send:dsh recv:dsh"
-   }],
-   "parameters":{},
-   "options":{},
-   "maxTemporalLayers":0,
-   "maxSpatialLayers":0,
-   "svcMultiStreamSupport":false
 }
     </pre>
     </section>
