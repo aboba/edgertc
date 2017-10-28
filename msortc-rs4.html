@@ -4684,6 +4684,11 @@ It is defined in [[MS-QoE]] Section Section 2.2.1.15.
 <dd><p>Delay of the video send pipeline from device to network, in ms.</p></dd>
 <dt>unsigned long videoPauseEncoderCount</dt>
 <dd><p>Number of times the encoder was paused during the call.</p></dd>
+<dt>DOMString gfxDriver</dt>
+<dd><p>Graphic driver version in the format AA.BB.CCC.DDDD</p></dd>
+<dt>unsigned long hwFlags</dt>
+<dd><p>Bitmap with Bit 0-1: 0, Bit 2: 1 if HW encoder is supported and 0 otherwise,
+Bit 3: 1 if HW encoder is blacklisted and 0 otherwise.</p></dd>
 </dl>
 </section>
 
