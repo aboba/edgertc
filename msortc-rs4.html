@@ -4602,6 +4602,12 @@ Ranges from 0. to 1.</p></dd>
 <dd><p>Percent of the time third most frequently used codec is used. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long averageBWForThirdMostUsedCodec</dt>
 <dd><p>Average bandwidth for the third most frequently used codec in bits/second.</p></dd>
+<dt>unsigned long countOfCaptureDeviceEffectsChanged</dt>
+<dd><p>Count of events for capture device effects changing.</p></dd>
+<dt>unsigned long long durationOfFramesCaptured</dt>
+<dd><p>Duration of real frames captured from latest active device, in ms.</p></dd>
+<dt>unsigned long long durationOfCaptureDeviceActive</dt>
+<dd><p>Duration from latest active capture device start to stop, in ms.</p></dd>
 </dl>
 </section>
 
@@ -4678,6 +4684,11 @@ It is defined in [[MS-QoE]] Section Section 2.2.1.15.
 <dd><p>Delay of the video send pipeline from device to network, in ms.</p></dd>
 <dt>unsigned long videoPauseEncoderCount</dt>
 <dd><p>Number of times the encoder was paused during the call.</p></dd>
+<dt>DOMString gfxDriver</dt>
+<dd><p>Graphic driver version in the format AA.BB.CCC.DDDD</p></dd>
+<dt>unsigned long hwFlags</dt>
+<dd><p>Bitmap with Bit 0-1: 0, Bit 2: 1 if HW encoder is supported and 0 otherwise,
+Bit 3: 1 if HW encoder is blacklisted and 0 otherwise.</p></dd>
 </dl>
 </section>
 
@@ -4906,6 +4917,16 @@ It is defined in [[MS-QoE]] Section 2.2.1.14.
 <dd><p>Percent of the time third most frequently used codec is used. Ranges from 0 to 100.</p></dd>
 <dt>unsigned long averageBWForThirdMostUsedCodec</dt>
 <dd><p>Average bandwidth for the third most frequently used codec in bits/second.</p></dd>
+<dt>unsigned long countOfRenderDeviceEffectsChanged</dt>
+<dd><p>Count of events for render device effects changing.</p></dd>
+<dt>unsigned long long durationOfFramesRendered</dt>
+<dd><p>Duration of real frames rendered to latest active device, in ms.</p></dd>
+<dt>unsigned long long durationOfRenderDeviceActive</dt>
+<dd><p>Duration from latest active render device start to stop, in ms.</p></dd>
+<dt>unsigned long long durationOfLoopbackFramesCaptured</dt>
+<dd><p>Duration of real frames captured from latest active loopback device, in ms.</p></dd>
+<dt>unsigned long long durationOfLoopbackDeviceActive</dt>
+<dd><p>Duration from latest active loopback device start to stop, in ms.</p></dd>
 </dl>
 </section>
 
@@ -4965,7 +4986,7 @@ It is defined in [[MS-QoE]] Section 2.2.1.15.1.
 <dd><p>Average Quantization Parameter (QP) of the received base layer frames.</p></dd>
 <dt>unsigned long recvAvgFreezeDuration</dt>
 <dd><p>Average size of an individual freeze for this incoming stream, in ms.</p></dd>
-<dt>ulong recvIdrRecoveryCount</dt>
+<dt>unsigned long recvIdrRecoveryCount</dt>
 <dd><p>Number of IDR recoveries received.</p></dd>
 <dt>float recvCapabilityNumViewsAverage</dt>
 <dd><p>Average number of views decided by the capability of the machine.</p></dd>
