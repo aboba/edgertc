@@ -4798,10 +4798,28 @@ configured media relay server.</p></dd>
 <dd><p>ICE role for connectivity checks.</p></dd>
 <dt>boolean rtpRtcpMux</dt>
 <dd><p>Whether RTP/RTCP mux is in use.  1=> enabled.</p></dd>
-<dt> unsigned long allocationTimeInMs</dt>
+<dt>unsigned long allocationTimeInMs</dt>
 <dd><p>The time elapsed in ICE candidate allocation, in ms.</p></dd>
 <dt>DOMString msRtcEngineVersion</dt>
 <dd><p>The version of the RTC Engine in use.</p></dd>
+<dt>unsigned long csntFail</dt>
+<dd><p>Time since iceInitTimestamp when a failure of ICE consent was detected, in ms.</p></dd>
+<dt>boolean iceConnCheckStatus</dt>
+<dd><p>ICE connectivity check status as reported by the transport.</p></dd>
+<dt>unsigned long lastConsentRequestRecvd</dt>
+<dd><p>Time since iceInitTimestamp when the last consent request was received, in ms.</p></dd>
+<dt>unsigned long iceInitTimestamp</dt>
+<dd><p>Time since the reference time, in ms.</p></dd>
+<dt>DOMHighResTimeStamp blobGenTime</dt>
+<dd><p>Time at which the blob was generated.</p></dd>
+<dt>DOMString localInterface</dt>
+<dd><p>Local interface used for connectivity checks.</p></dd>
+<dt>DOMString mediaLgeId</dt>
+<dd><p>Unique ID associated with the MDGA event for a particular call leg.</p></dd>
+<dt>DOMString transportSendError</dt>
+<dd><p>Last socket error observed while attempting to send.</p></dd>
+<dt>DOMString transportRecvError</dt>
+<dd><p>Last socket error observed while attempting to receive.</p></dd>
 </dl>
 </section>
 
