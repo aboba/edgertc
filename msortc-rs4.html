@@ -4804,7 +4804,7 @@ configured media relay server.</p></dd>
 <dd><p>The version of the RTC Engine in use.</p></dd>
 <dt>unsigned long consentFail</dt>
 <dd><p>Time since iceInitTimestamp when a failure of ICE consent was detected, in ms.</p></dd>
-<dt>short iceConnCheckStatus</dt>
+<dt>MSIceConnectivityCheckStatus iceConnCheckStatus</dt>
 <dd><p>ICE connectivity check status as reported by the transport.</p></dd>
 <dt>unsigned long lastConsentRequestRecvd</dt>
 <dd><p>Time since iceInitTimestamp when the last consent request was received, in ms.</p></dd>
@@ -4820,6 +4820,25 @@ configured media relay server.</p></dd>
 <dd><p>Last socket error observed while attempting to send.</p></dd>
 <dt>unsigned long transportRecvError</dt>
 <dd><p>Last socket error observed while attempting to receive.</p></dd>
+</dl>
+</section>
+	
+<section id="msiceconnectivitycheckstatus*">
+<h3>Enum MSIceConnectivityCheckStatus</h4>
+<p><code>MSIceConnectivityCheckStatus</code> provides information on the status of ICE connectivity checks.</p>
+<dl class="idl" title="enum IceConnectivityCheckStatus">
+<dt>not-started</dt>
+<dd><p>Connectivity checks have not started.</p></dd>
+<dt>preliminary-checks-succeeded</dt>
+<dd><p>Preliminary connectivity checks have succeeded.</p></dd>
+<dt>preliminary-checks-failed</dt>
+<dd><p>Preliminary connectivity checks have failed.</p></dd>
+<dt>in-progress</dt>
+<dd><p>Connectivity checks are in progress.</p></dd>
+<dt>succeeded</dt>
+<dd><p>Connectivity checks have succeeded.</p></dd>
+<dt>failed</dt>
+<dd><p>Connectivity checks have failed.</p></dd>
 </dl>
 </section>
 
