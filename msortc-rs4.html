@@ -4804,14 +4804,14 @@ configured media relay server.</p></dd>
 <dd><p>The version of the RTC Engine in use.</p></dd>
 <dt>unsigned long consentFail</dt>
 <dd><p>Time since iceInitTimestamp when a failure of ICE consent was detected, in ms.</p></dd>
-<dt>boolean iceConnCheckStatus</dt>
+<dt>short iceConnCheckStatus</dt>
 <dd><p>ICE connectivity check status as reported by the transport.</p></dd>
 <dt>unsigned long lastConsentRequestRecvd</dt>
 <dd><p>Time since iceInitTimestamp when the last consent request was received, in ms.</p></dd>
 <dt>unsigned long iceInitTimestamp</dt>
 <dd><p>Time since the reference time, in ms.</p></dd>
-<dt>DOMHighResTimeStamp blobGenTime</dt>
-<dd><p>Time at which the blob was generated.</p></dd>
+<dt>unsigned long blobGenTime</dt>
+<dd><p>Time since the reference time at which the blob was generated, in ms.</p></dd>
 <dt>DOMString localInterface</dt>
 <dd><p>Local interface used for connectivity checks.</p></dd>
 <dt>DOMString mediaLegId</dt>
