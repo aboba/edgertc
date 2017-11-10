@@ -4694,6 +4694,10 @@ It is defined in [[MS-QoE]] Section Section 2.2.1.15.
 <dt>unsigned long hwFlags</dt>
 <dd><p>Bitmap with Bit 0-1: 0, Bit 2: 1 if HW encoder is supported and 0 otherwise,
 Bit 3: 1 if HW encoder is blacklisted and 0 otherwise.</p></dd>
+<dt>unsigned long cameraFreezePeriodCount</dt>
+<dd><p>Count of 1 second intervals with no video from the camera.</p></dd>
+<dt>unsigned long cameraWrongFormatFramesCount</dt>
+<dd><p>Count of frames discarded due to an unexpected format.</p></dd>
 </dl>
 </section>
 
