@@ -4455,11 +4455,11 @@ bandwidth or bandwidth policy was low enough to cause poor quality of the audio 
 </dl>
 </section>
 	
-<section id="mstimeout*">
-<h3>Dictionary MSTimeout</h3>
-<p><dfn>MSTimeout</dfn> contains metrics related to timeouts.</p>
+<section id="msinboundtimeout*">
+<h3>Dictionary MSInboundTimeout</h3>
+<p><dfn>MSInboundTimeout</dfn> contains metrics related to inbound timeouts.</p>
 
-<dl class="idl" title="dictionary MSTimeout">
+<dl class="idl" title="dictionary MSInboundTimeout">
 <dt>boolean mediaTimeout</dt>
 <dd><p>Set to <code>true</code> if a media timeout is detected.</p></dd>
 <dt>unsigned long errTime</dt>
@@ -4473,6 +4473,28 @@ relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.<
 relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.</p></dd>
 <dt>unsigned long interfacesStall</dt>
 <dd><p>Interfaces available at the time of the media timeout.</p></dd>
+<dt>unsigned long transportRecvError</dt>
+<dd><p>Last socket error observed while attempting to receive.</p></dd>
+</dl>
+</section>
+
+<section id="msoutboundtimeout*">
+<h3>Dictionary MSOutboundTimeout</h3>
+<p><dfn>MSOutboundTimeout</dfn> contains metrics related to outbound timeouts.</p>
+
+<dl class="idl" title="dictionary MSOutboundTimeout">
+<dt>boolean mediaTimeout</dt>
+<dd><p>Set to <code>true</code> if a media timeout is detected.</p></dd>
+<dt>unsigned long errTime</dt>
+<dd><p>Time at which the channel blob sends or receives an error, measured
+relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.</p></dd>
+<dt>unsigned long rtcpTime</dt>
+<dd><p>Time at which the last RTCP packet was received, measured
+relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.</p></dd>
+<dt>unsigned long interfacesStall</dt>
+<dd><p>Interfaces available at the time of the media timeout.</p></dd>
+<dt>unsigned long transportSendError</dt>
+<dd><p>Last socket error observed while attempting to send.</p></dd>
 </dl>
 </section>
 
@@ -4499,7 +4521,7 @@ relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.<
 in addition to the information provided in the <code><a>MSNetwork</a></code> base class.</p>
 	
 <dl class="idl" title="dictionary MSInboundNetwork : MSNetwork">
-<dt>MSTimeout timeout</dt>
+<dt>MSInboundTimeout timeout</dt>
 <dd><p>Metrics relating to timeouts.</p></dd>
 </dl>
 </section>
@@ -4521,6 +4543,8 @@ It is described in [[MS-QoE]] Section 2.2.1.5.1.
 <dd><p>Shaper average bandwidth utilization, ranging from 0 to 1.</p></dd>
 <dt>float trafficShaperMaxBWUtilization</dt>
 <dd><p>Shaper maximum bandwidth utilization, ranging from 0 to 1.</p></dd>
+<dt>MSOutboundTimeout timeout</dt>
+<dd><p>Metrics relating to timeouts.</p></dd>
 </dl>
 </section>
 
@@ -4856,10 +4880,6 @@ configured media relay server.</p></dd>
 <dd><p>Local interface used for connectivity checks.</p></dd>
 <dt>DOMString mediaLegId</dt>
 <dd><p>Unique ID associated with the MDGA event for a particular call leg.</p></dd>
-<dt>unsigned long transportSendError</dt>
-<dd><p>Last socket error observed while attempting to send.</p></dd>
-<dt>unsigned long transportRecvError</dt>
-<dd><p>Last socket error observed while attempting to receive.</p></dd>
 </dl>
 </section>
 	
