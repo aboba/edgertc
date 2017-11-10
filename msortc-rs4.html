@@ -4490,6 +4490,15 @@ relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.<
 <dd><p>Packet loss related metrics.</p></dd>
 <dt>MSUtilization utilization</dt>
 <dd><p>Utilization related metrics.</p></dd>
+</dl>
+</section>
+	
+<section id="msinboundnetwork*">
+<h3>Dictionary MSInboundNetwork</h3>
+<p><dfn>MSInboundNetwork</dfn> contains additonal information relating to timeouts,
+in addition to the information provided in the <code><a>MSNetwork</a></code> base class.</p>
+	
+<dl class="idl" title="dictionary MSInboundNetwork : MSNetwork">
 <dt>MSTimeout timeout</dt>
 <dd><p>Metrics relating to timeouts.</p></dd>
 </dl>
@@ -4498,9 +4507,7 @@ relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.<
 <section id="msoutboundnetwork*">
 <h3>Dictionary MSOutboundNetwork</h3>
 <p><dfn>MSOutboundNetwork</dfn> contains additonal information on outband bandwidth, in addition to the information 
-provided in the <code><a>MSNetwork</a></code> base class.  
-It is described in [[MS-QoE]] Section 2.2.1.5.1.
-</p>
+provided in the <code><a>MSNetwork</a></code> base class. It is described in [[MS-QoE]] Section 2.2.1.5.1.</p>
 
 <dl class="idl" title="dictionary MSOutboundNetwork : MSNetwork">
 <dt>unsigned long appliedBandwidthLimit</dt>
@@ -4996,9 +5003,10 @@ It is defined in [[MS-QoE]] Section 2.2.1.14.
 <dd><p>Duration of real frames captured from latest active loopback device, in ms.</p></dd>
 <dt>unsigned long long durationOfLoopbackDeviceActive</dt>
 <dd><p>Duration from latest active loopback device start to stop, in ms.</p></dd>
+<dt>unsigned long long renderDeviceFirstDeviceStartDelay</dt>
+<dd><p>Time taken to open the capture device used for the session, in 100ns.</p></dd>
 </dl>
 </section>
-
 
 <section id="msvideorecvpayload*">
 <h3>Dictionary MSVideoRecvPayload</h3>
