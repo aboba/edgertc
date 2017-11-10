@@ -4463,11 +4463,14 @@ bandwidth or bandwidth policy was low enough to cause poor quality of the audio 
 <dt>boolean mediaTimeout</dt>
 <dd><p>Set to <code>true</code> if a media timeout is detected.</p></dd>
 <dt>unsigned long errTime</dt>
-<dd><p>Time at which the channel blob sends or receives an error, in ms after the reference time.</p></dd>
+<dd><p>Time at which the channel blob sends or receives an error, measured
+relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.</p></dd>
 <dt>unsigned long rtcpTime</dt>
-<dd><p>Time at which the last RTCP packet was received, in ms after the reference time.</p></dd>
+<dd><p>Time at which the last RTCP packet was received, measured
+relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.</p></dd>
 <dt>unsigned long rtpTime</dt>
-<dd><p>Time at which the last RTP packet was received, in ms after the reference time.</p></dd>
+<dd><p>Time at which the last RTP packet was received, measured
+relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.</p></dd>
 <dt>unsigned long interfacesStall</dt>
 <dd><p>Interfaces available at the time of the media timeout.</p></dd>
 </dl>
