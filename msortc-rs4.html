@@ -4801,10 +4801,47 @@ configured media relay server.</p></dd>
 <dd><p>ICE role for connectivity checks.</p></dd>
 <dt>boolean rtpRtcpMux</dt>
 <dd><p>Whether RTP/RTCP mux is in use.  1=> enabled.</p></dd>
-<dt> unsigned long allocationTimeInMs</dt>
+<dt>unsigned long allocationTimeInMs</dt>
 <dd><p>The time elapsed in ICE candidate allocation, in ms.</p></dd>
 <dt>DOMString msRtcEngineVersion</dt>
 <dd><p>The version of the RTC Engine in use.</p></dd>
+<dt>unsigned long consentFail</dt>
+<dd><p>Time since iceInitTimestamp when a failure of ICE consent was detected, in ms.</p></dd>
+<dt>MSIceConnectivityCheckStatus iceConnCheckStatus</dt>
+<dd><p>ICE connectivity check status as reported by the transport.</p></dd>
+<dt>unsigned long lastConsentRequestRecvd</dt>
+<dd><p>Time since iceInitTimestamp when the last consent request was received, in ms.</p></dd>
+<dt>unsigned long iceInitTimestamp</dt>
+<dd><p>Time since the reference time, in ms.</p></dd>
+<dt>unsigned long blobGenTime</dt>
+<dd><p>Time since the reference time (midnight UTC (00:00) on January 1, 1900) at which the blob was generated, in ms.</p></dd>
+<dt>DOMString localInterface</dt>
+<dd><p>Local interface used for connectivity checks.</p></dd>
+<dt>DOMString mediaLegId</dt>
+<dd><p>Unique ID associated with the MDGA event for a particular call leg.</p></dd>
+<dt>unsigned long transportSendError</dt>
+<dd><p>Last socket error observed while attempting to send.</p></dd>
+<dt>unsigned long transportRecvError</dt>
+<dd><p>Last socket error observed while attempting to receive.</p></dd>
+</dl>
+</section>
+	
+<section id="msiceconnectivitycheckstatus*">
+<h3>Enum MSIceConnectivityCheckStatus</h4>
+<p><code>MSIceConnectivityCheckStatus</code> provides information on the status of ICE connectivity checks.</p>
+<dl class="idl" title="enum IceConnectivityCheckStatus">
+<dt>not-started</dt>
+<dd><p>Connectivity checks have not started.</p></dd>
+<dt>preliminary-checks-succeeded</dt>
+<dd><p>Preliminary connectivity checks have succeeded.</p></dd>
+<dt>preliminary-checks-failed</dt>
+<dd><p>Preliminary connectivity checks have failed.</p></dd>
+<dt>in-progress</dt>
+<dd><p>Connectivity checks are in progress.</p></dd>
+<dt>succeeded</dt>
+<dd><p>Connectivity checks have succeeded.</p></dd>
+<dt>failed</dt>
+<dd><p>Connectivity checks have failed.</p></dd>
 </dl>
 </section>
 
