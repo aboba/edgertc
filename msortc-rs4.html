@@ -4454,6 +4454,27 @@ bandwidth or bandwidth policy was low enough to cause poor quality of the audio 
 <dd><p>Average estimated one way available bandwidth of the stream at the end of the session.</p></dd>
 </dl>
 </section>
+	
+<section id="mstimeout*">
+<h3>Dictionary MSTimeout</h3>
+<p><dfn>MSTimeout</dfn> contains metrics related to timeouts.</p>
+
+<dl class="idl" title="dictionary MSTimeout">
+<dt>boolean mediaTimeout</dt>
+<dd><p>Set to <code>true</code> if a media timeout is detected.</p></dd>
+<dt>unsigned long errTime</dt>
+<dd><p>Time at which the channel blob sends or receives an error, measured
+relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.</p></dd>
+<dt>unsigned long rtcpTime</dt>
+<dd><p>Time at which the last RTCP packet was received, measured
+relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.</p></dd>
+<dt>unsigned long rtpTime</dt>
+<dd><p>Time at which the last RTP packet was received, measured
+relative to the reference time (midnight UTC (00:00) on January 1, 1900) in ms.</p></dd>
+<dt>unsigned long interfacesStall</dt>
+<dd><p>Interfaces available at the time of the media timeout.</p></dd>
+</dl>
+</section>
 
 <section id="msnetwork*">
 <h3>Dictionary MSNetwork</h3>
@@ -4471,13 +4492,23 @@ bandwidth or bandwidth policy was low enough to cause poor quality of the audio 
 <dd><p>Utilization related metrics.</p></dd>
 </dl>
 </section>
+	
+<section id="msinboundnetwork*">
+<h3>Dictionary MSInboundNetwork</h3>
+<p><dfn>MSInboundNetwork</dfn> contains additonal information relating to timeouts,
+in addition to the information provided in the <code><a>MSNetwork</a></code> base class.</p>
+	
+<dl class="idl" title="dictionary MSInboundNetwork : MSNetwork">
+<dt>MSTimeout timeout</dt>
+<dd><p>Metrics relating to timeouts.</p></dd>
+</dl>
+</section>
 
 <section id="msoutboundnetwork*">
 <h3>Dictionary MSOutboundNetwork</h3>
 <p><dfn>MSOutboundNetwork</dfn> contains additonal information on outbound bandwidth, in addition to the information 
 provided in the <code><a>MSNetwork</a></code> base class.  
 It is described in [[MS-QoE]] Section 2.2.1.5.1.
-</p>
 
 <dl class="idl" title="dictionary MSOutboundNetwork : MSNetwork">
 <dt>unsigned long appliedBandwidthLimit</dt>
@@ -4973,9 +5004,10 @@ It is defined in [[MS-QoE]] Section 2.2.1.14.
 <dd><p>Duration of real frames captured from latest active loopback device, in ms.</p></dd>
 <dt>unsigned long long durationOfLoopbackDeviceActive</dt>
 <dd><p>Duration from latest active loopback device start to stop, in ms.</p></dd>
+<dt>unsigned long long renderDeviceFirstDeviceStartDelay</dt>
+<dd><p>Time taken to open the capture device used for the session, in 100ns.</p></dd>
 </dl>
 </section>
-
 
 <section id="msvideorecvpayload*">
 <h3>Dictionary MSVideoRecvPayload</h3>
