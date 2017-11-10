@@ -4808,13 +4808,13 @@ configured media relay server.</p></dd>
 <dt>DOMString msRtcEngineVersion</dt>
 <dd><p>The version of the RTC Engine in use.</p></dd>
 <dt>unsigned long consentFail</dt>
-<dd><p>Time since iceInitTimestamp when a failure of ICE consent was detected, in ms.</p></dd>
-<dt>MSIceConnectivityCheckStatus iceConnCheckStatus</dt>
+<dd><p>Time since ICE initialization when a failure of ICE consent was detected, in ms.</p></dd>
+<dt>MSIceConnectivityCheckStatus iceCheckStatus</dt>
 <dd><p>ICE connectivity check status as reported by the transport.</p></dd>
 <dt>unsigned long lastConsentRequestRecvd</dt>
-<dd><p>Time since iceInitTimestamp when the last consent request was received, in ms.</p></dd>
+<dd><p>Time since ICE initialization when the last consent request was received, in ms.</p></dd>
 <dt>unsigned long iceInitTimestamp</dt>
-<dd><p>Time since the reference time, in ms.</p></dd>
+<dd><p>Time since the reference time (midnight UTC (00:00) on January 1, 1900) when ICE was initialized, in ms.</p></dd>
 <dt>unsigned long blobGenTime</dt>
 <dd><p>Time since the reference time (midnight UTC (00:00) on January 1, 1900) at which the blob was generated, in ms.</p></dd>
 <dt>DOMString localInterface</dt>
