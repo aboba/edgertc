@@ -1,7 +1,7 @@
 var respecConfig = {
     "specStatus": "CG-DRAFT",
     "shortName":  "ms-ortc",
-    "publishDate": "2017-10-30",
+    "publishDate": "2017-11-09",
     "editors": [
         {   "name":       "Microsoft Corporation",
             "company":    "Microsoft",
@@ -11,6 +11,16 @@ var respecConfig = {
     ],
     "wg":           "Microsoft Corporation",
     "wgPatentURI":  "",
+    "issueBase": "https://github.com/aboba/edgertc/issues",
+    "otherLinks": [
+      {
+        "key": "Participate",
+        "data": [
+        {
+          "value": "Browse open issues",
+          "href": "https://github.com/aboba/edgertc/issues"
+        }]
+      }],
     "localBiblio":  {
     "IANA-RTP-2": {
       "title": "RTP Payload Format media types",
