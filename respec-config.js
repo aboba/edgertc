@@ -509,6 +509,15 @@ var respecConfig = {
       "status": "29 March 2017. Internet Draft (work in progress)",
       "publisher": "IETF"
     },
+    "MS-AUDIO-EVENTS": {
+        title:    "Audio Session Events - DisconnectReason"
+    ,   href:     "https://msdn.microsoft.com/en-us/library/windows/desktop/dd370797(v=vs.85).aspx"
+    ,   authors:  [
+            "Microsoft"
+        ]
+    ,   status:   "09 November 2017."
+    ,   publisher:  "Microsoft"
+    },
     "MS-DTMF": {
         title:    "RTP Payload for DTMF Digits, Telephony Tones, and Telephony Signals Extensions"
     ,   href:     "https://msdn.microsoft.com/en-us/library/office/cc431502(v=office.12).aspx"
