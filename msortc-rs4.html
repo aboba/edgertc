@@ -4668,13 +4668,6 @@ Ranges from 0. to 1.</p></dd>
 <dt>float deviceSpeakWhileMutedEventRatio</dt>
 <dd><p>Ratio of call duration where the user was muted by the application but the
 capture device reported speech activity.</p></dd>
-<dt>unsigned long long audioCaptureDeviceErrorFlags</dt>
-<dd><p>Bitmask containing the error codes reported by the capture device during the call.</p></dd>
-<dt>unsigned long audioSourceSessionDisconnectReason</dt>
-<dd><p>The disconnect reason reported by the operating system [[!MS-AUDIO-EVENTS]] if the capture device was
-disconnected from the host machine during the session.</p></dd>
-<dt>unsigned long long captureDeviceAudioCaptureDeviceErrorFlagsInit</dt>
-<dd><p>Bitmask containing the error codes returned by the capture device when initializing the device.</p></dd>
 <dt>DOMString audioCaptureDeviceInUse</dt>
 <dd><p>String containing the properties of the capture device used for the session.  Metric is reported
 in this format: "Form Factor; Interface Type; Product Id; Vendor Id; Device Name".</p></dd>
@@ -5036,11 +5029,6 @@ It is defined in [[MS-QoE]] Section 2.2.1.14.
 <dd><p>Duration of real frames captured from latest active loopback device, in ms.</p></dd>
 <dt>unsigned long long durationOfLoopbackDeviceActive</dt>
 <dd><p>Duration from latest active loopback device start to stop, in ms.</p></dd>
-<dt>unsigned long long audioRenderDeviceErrorFlags</dt>
-<dd><p>Bitmask containing the error codes reported by the render device during the call.</p></dd>
-<dt>unsigned long audioSinkSessionDisconnectReason</dt>
-<dd><p>Value representing the disconnect reason reported by the operating system [[MS-AUDIO-EVENTS]] if the render
-device was disconnected from the host machine during the session.</p></dd>
 <dt>unsigned long long renderDeviceFirstDeviceStartDelay</dt>
 <dd><p>Time taken to open the capture device used for the session, in 100ns.</p></dd>
 </dl>
