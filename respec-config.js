@@ -1,7 +1,7 @@
 var respecConfig = {
     "specStatus": "CG-DRAFT",
     "shortName":  "ms-ortc",
-    "publishDate": "2017-11-13",
+    "publishDate": "2018-04-10",
     "editors": [
         {   "name":       "Microsoft Corporation",
             "company":    "Microsoft",
